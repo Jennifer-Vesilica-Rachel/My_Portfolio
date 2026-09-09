@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fff8f4;
+  --color-surface: #fff8f4;
+  --color-surface-dim: #f0d6b8;
+  --color-surface-bright: #fff8f4;
+  --color-surface-variant: #f9dec0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fff1e5;
+  --color-surface-container: #ffebd5;
+  --color-surface-container-high: #ffe4c6;
+  --color-surface-container-highest: #f9dec0;
+  --color-on-surface: #261907;
+  --color-on-surface-variant: #564145;
+  --color-inverse-surface: #3d2e19;
+  --color-inverse-on-surface: #ffeedd;
+  --color-primary: #610025;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #82193a;
+  --color-on-primary-container: #ff90a7;
+  --color-primary-fixed: #ffd9de;
+  --color-primary-fixed-dim: #ffb2bf;
+  --color-on-primary-fixed: #3f0015;
+  --color-secondary: #80552f;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdc394;
+  --color-on-secondary-container: #784f29;
+  --color-secondary-fixed: #ffdcc2;
+  --color-secondary-fixed-dim: #f4bb8d;
+  --color-on-secondary-fixed: #2e1500;
+  --color-tertiary: #3f281f;
+  --color-tertiary-container: #573e34;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-fixed: #ffdbce;
+  --color-tertiary-fixed-dim: #e3bfb2;
+  --color-outline: #897174;
+  --color-outline-variant: #dcbfc3;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  
+  --font-display-hero: "Epilogue", serif;
+  --font-headline-lg: "Epilogue", sans-serif;
+  --font-headline-md: "Epilogue", sans-serif;
+  --font-headline-sm: "Epilogue", sans-serif;
+  --font-body-lg: "DM Sans", sans-serif;
+  --font-body-md: "DM Sans", sans-serif;
+  --font-body-sm: "DM Sans", sans-serif;
+  --font-label-lg: "Space Grotesk", monospace;
+  --font-label-md: "Space Grotesk", monospace;
+  --font-label-sm: "Space Grotesk", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #fff8f4;
+    color: #261907;
+    font-family: "DM Sans", sans-serif;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+  }
+  #certificate-modal-backdrop {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  #certificate-modal-backdrop > div {
+    max-height: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
