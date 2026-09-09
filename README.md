@@ -17,24 +17,6 @@ The portfolio provides a clean and responsive interface for exploring my technic
 * **Modern UI:** Clean and user-friendly portfolio interface.
 * **Social Links:** Direct access to GitHub and LinkedIn profiles.
 
-## Screenshots
-
-Screenshots of the portfolio are stored in the `assets/` folder.
-
-### Home Page
-
-### About Section
-
-### Skills Section
-
-### Projects Section
-
-### Experience Section
-
-### Contact Section
-
-## Project Structure
-
 ```text
 My_Portfolio/
 ├── assets/
