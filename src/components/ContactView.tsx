@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
-import { motion } from 'motion/react';
 import { NavPath } from '../types';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
+import { useViewAnimations } from '../hooks/useSectionAnimations';
 import {
   Mail,
   Phone,
@@ -26,6 +26,7 @@ interface ContactViewProps {
 }
 
 export default function ContactView({ onNavigate }: ContactViewProps) {
+  const containerRef = useViewAnimations();
   const [emailCopied, setEmailCopied] = useState(false);
   const [phoneCopied, setPhoneCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -72,14 +73,11 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
   };
 
   return (
-    <div className="w-full py-10 md:py-14 animate-in fade-in duration-300">
+    <div ref={containerRef} className="w-full py-10 md:py-14">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
         
         {/* Header Ribbon */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        <div
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#dcbfc3]/40"
         >
           <div className="flex flex-col gap-1">
@@ -87,7 +85,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               <span className="w-2 h-2 rounded-full bg-[#82193a]"></span>
               Direct Inquiries &amp; Collaboration
             </span>
-            <h1 className="font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight">
+            <h1 className="gsap-reveal-heading font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight">
               Get In Touch
             </h1>
           </div>
@@ -100,18 +98,14 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Main Grid: Left Direct Channels (5 cols), Right Interactive Form (7 cols) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Direct Info & Quick Channels */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 flex flex-col gap-6"
+          <div
+            className="gsap-card lg:col-span-5 flex flex-col gap-6"
           >
             {/* Identity Card */}
             <div className="p-4 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex items-center gap-4">
@@ -139,10 +133,10 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               <span className="px-2.5 py-1 self-start rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
                 Direct Communication
               </span>
-              <h2 className="font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907]">
+              <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907]">
                 Initiate a Technical Conversation
               </h2>
-              <p className="font-['DM_Sans'] text-sm md:text-base text-[#564145] leading-relaxed">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] leading-relaxed">
                 Whether you have an inquiry regarding internships, full-stack software development, applied AI automations, or research collaborations — I would love to hear from you.
               </p>
             </div>
@@ -168,7 +162,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="self-end min-[440px]:self-auto px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-colors shrink-0 cursor-pointer border border-[#dcbfc3]/40"
+                  className="self-end min-[440px]:self-auto px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-105 active:scale-95 text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 cursor-pointer border border-[#dcbfc3]/40"
                   title="Copy email to clipboard"
                 >
                   {emailCopied ? <Check size={14} className="text-green-700" /> : <Copy size={14} />}
@@ -197,14 +191,14 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={handleCopyPhone}
-                    className="px-2.5 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1 transition-colors cursor-pointer border border-[#dcbfc3]/40"
+                    className="px-2.5 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-105 active:scale-95 text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1 transition-all cursor-pointer border border-[#dcbfc3]/40"
                     title="Copy phone"
                   >
                     {phoneCopied ? <Check size={13} className="text-green-700" /> : <Copy size={13} />}
                   </button>
                   <a
                     href="tel:+918248092194"
-                    className="px-3 py-1.5 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 hover:bg-[#610025] transition-colors cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 hover:bg-[#610025] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                   >
                     <span>Call</span>
                   </a>
@@ -230,7 +224,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-colors shrink-0 border border-[#dcbfc3]/40"
+                  className="px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-105 active:scale-95 text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 border border-[#dcbfc3]/40"
                 >
                   <span>Profile</span>
                   <Globe size={13} />
@@ -256,7 +250,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   href="https://github.com/Jennifer-Vesilica-Rachel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-colors shrink-0 border border-[#dcbfc3]/40"
+                  className="px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-105 active:scale-95 text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 border border-[#dcbfc3]/40"
                 >
                   <span>GitHub</span>
                   <Globe size={13} />
@@ -308,15 +302,11 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </div>
               )}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Interactive Dispatch Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 rounded-3xl bg-[#ffebd5] p-6 sm:p-8 md:p-10 shadow-md border border-[#dcbfc3]/50 flex flex-col gap-6"
+          <div
+            className="gsap-card lg:col-span-7 rounded-3xl bg-[#ffebd5] p-6 sm:p-8 md:p-10 shadow-md border border-[#dcbfc3]/50 flex flex-col gap-6"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#dcbfc3]/40">
               <div className="flex items-center gap-2.5">
@@ -324,7 +314,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   <MessageSquare size={16} />
                 </span>
                 <div>
-                  <h3 className="font-['Epilogue'] text-xl sm:text-2xl font-bold text-[#261907]">
+                  <h3 className="gsap-reveal-heading font-['Epilogue'] text-xl sm:text-2xl font-bold text-[#261907]">
                     Transmit a Direct Note
                   </h3>
                   <p className="font-['DM_Sans'] text-xs text-[#564145]">
@@ -447,7 +437,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#82193a] hover:bg-[#610025] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                  className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#82193a] hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                 >
                   <span>{isSubmitting ? 'Transmitting...' : 'Transmit Message'}</span>
                   <Send size={15} />
@@ -461,7 +451,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </div>
               )}
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

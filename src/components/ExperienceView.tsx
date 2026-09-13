@@ -1,6 +1,6 @@
-import { motion } from 'motion/react';
 import { NavPath } from '../types';
 import { EXPERIENCES } from '../data/portfolioData';
+import { useViewAnimations } from '../hooks/useSectionAnimations';
 import {
   QrCode,
   TrendingUp,
@@ -33,6 +33,7 @@ interface ExperienceViewProps {
 }
 
 export default function ExperienceView({ onNavigate, onOpenCertificate }: ExperienceViewProps) {
+  const containerRef = useViewAnimations();
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -41,7 +42,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
   };
 
   return (
-    <div className="flex flex-col w-full animate-in fade-in duration-300">
+    <div ref={containerRef} className="flex flex-col w-full">
       {/* Subtle Ambient Glow Overlay */}
       <div className="relative w-full overflow-hidden">
         <div className="absolute -top-32 right-10 w-96 h-96 bg-gradient-to-br from-[#ffd9de]/25 via-[#fdc394]/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
@@ -49,12 +50,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           {/* Section Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-2 mb-8 md:mb-12"
-          >
+          <div className="flex flex-col gap-2 mb-8 md:mb-12">
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center px-3 py-1 bg-[#ffd9de] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-widest rounded-full font-bold">
                 Engineering Chronicle
@@ -65,23 +61,18 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </span>
             </div>
 
-            <h1 className="font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight leading-tight mt-1">
+            <h1 className="gsap-reveal-heading font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight leading-tight mt-1">
               Work Experience &amp; Professional Internships
             </h1>
 
-            <p className="font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-3xl leading-relaxed">
+            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-3xl leading-relaxed">
               Practical engineering practice rooted in healthcare wayfinding architectures, data analytics, and autonomous workflow automation across Pondicherry.
             </p>
-          </motion.div>
+          </div>
 
           {/* Quick Executive Summary Ribbon / Bento Metric Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
-          >
-            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#82193a] font-bold">
                   Deployments
@@ -90,9 +81,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">100%</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Live QR Indoor Hospital Wayfinding</span>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#80552f] font-bold">
                   Efficiency Lift
@@ -101,9 +92,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">-34%</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Wayfinding Inquiries &amp; MR File Delays</span>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#3f281f] font-bold">
                   Verified Hours
@@ -112,9 +103,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">320+</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Supervised Clinical &amp; Tech Hours</span>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#82193a] font-bold">
                   Credentials
@@ -123,8 +114,8 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">2</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Signed Institutional Seals Attached</span>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Main Layout: Asymmetric Timeline & Editorial Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -572,13 +563,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
           </div>
 
           {/* Section: Comparative Diagnostics Matrix */}
-          <motion.section
+          <section
             id="impact-matrix"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-16 md:mt-24 flex flex-col gap-6"
+            className="gsap-card mt-16 md:mt-24 flex flex-col gap-6"
           >
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
@@ -587,10 +574,10 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 </span>
                 <span className="w-12 h-px bg-[#dcbfc3]/60"></span>
               </div>
-              <h2 className="font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
+              <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
                 Technology Stack vs. Measurable Hospital/Enterprise Outcomes
               </h2>
-              <p className="font-['DM_Sans'] text-sm text-[#564145] max-w-2xl">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#564145] max-w-2xl">
                 A comprehensive mapping of analytical tools, code stacks, and real-world system upgrades realized during tenures.
               </p>
             </div>
@@ -654,25 +641,21 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 </tbody>
               </table>
             </div>
-          </motion.section>
+          </section>
 
           {/* Section: Field Locations & Facilities Photo Gallery */}
-          <motion.section
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-16 md:mt-24 p-6 md:p-8 rounded-3xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-6"
+          <section
+            className="gsap-card mt-16 md:mt-24 p-6 md:p-8 rounded-3xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-6"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex flex-col gap-1">
                 <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
                   Field Locations &amp; Facilities
                 </span>
-                <h2 className="font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907]">
+                <h2 className="gsap-reveal-heading font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907]">
                   Where Innovation Occurred
                 </h2>
-                <p className="font-['DM_Sans'] text-xs md:text-sm text-[#564145]">
+                <p className="gsap-reveal-paragraph font-['DM_Sans'] text-xs md:text-sm text-[#564145]">
                   Puducherry healthcare hubs and high-energy collaborative innovation studios.
                 </p>
               </div>
@@ -684,7 +667,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Location 1: Aravind Eye Hospital */}
-              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 p-6 gap-4">
+              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 p-6 gap-4 hover:shadow-md transition-shadow">
                 <div className="flex items-center justify-between pb-3 border-b border-[#dcbfc3]/30">
                   <div className="flex items-center gap-3">
                     <span className="w-10 h-10 rounded-xl bg-[#ffebd5] text-[#82193a] flex items-center justify-center shrink-0 shadow-xs">
@@ -721,7 +704,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
 
               {/* Location 2: Pulsebay Coworking / Upturne */}
-              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 p-6 gap-4">
+              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 p-6 gap-4 hover:shadow-md transition-shadow">
                 <div className="flex items-center justify-between pb-3 border-b border-[#dcbfc3]/30">
                   <div className="flex items-center gap-3">
                     <span className="w-10 h-10 rounded-xl bg-[#ffe4c6] text-[#80552f] flex items-center justify-center shrink-0 shadow-xs">
@@ -757,24 +740,20 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 </div>
               </div>
             </div>
-          </motion.section>
+          </section>
 
           {/* CTA Action Footer */}
-          <motion.section
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-16 md:mt-24 p-8 md:p-12 rounded-3xl bg-[#610025] text-white shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-8"
+          <section
+            className="gsap-card mt-16 md:mt-24 p-8 md:p-12 rounded-3xl bg-[#610025] text-white shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-8 hover:shadow-2xl transition-all duration-300"
           >
             <div className="flex flex-col gap-2 max-w-xl">
               <span className="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#ffd9de] font-bold">
                 Next Steps
               </span>
-              <h2 className="font-['Epilogue'] text-2xl md:text-3xl font-bold text-white">
+              <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-bold text-white">
                 Ready to collaborate on high-impact software?
               </h2>
-              <p className="font-['DM_Sans'] text-sm text-[#ffb2bf] leading-relaxed">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#ffb2bf] leading-relaxed">
                 Seeking software engineering roles, research fellowships, and AI product apprenticeships.
               </p>
             </div>
@@ -782,7 +761,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
             <div className="flex items-center gap-3 flex-wrap">
               <a
                 href="mailto:jennifersagaidasse@gmail.com"
-                className="px-5 py-3 rounded-lg bg-[#ffffff] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] transition-all shadow-md flex items-center gap-2"
+                className="px-5 py-3 rounded-lg bg-[#ffffff] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md flex items-center gap-2"
               >
                 <Mail size={16} />
                 <span>Initiate Dialogue</span>
@@ -791,7 +770,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 href="https://github.com/Jennifer-Vesilica-Rachel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-lg bg-[#261907] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#3a2814] transition-all flex items-center gap-2 border border-white/20"
+                className="px-5 py-3 rounded-lg bg-[#261907] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#3a2814] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 border border-white/20"
               >
                 <Github size={16} />
                 <span>GitHub Profile</span>
@@ -800,13 +779,13 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 transition-all flex items-center gap-2 border border-white/20"
+                className="px-5 py-3 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 border border-white/20"
               >
                 <Linkedin size={16} />
                 <span>LinkedIn Profile</span>
               </a>
             </div>
-          </motion.section>
+          </section>
         </div>
       </div>
     </div>

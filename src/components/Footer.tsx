@@ -1,22 +1,51 @@
+import { useEffect, useRef } from 'react';
 import { NavPath } from '../types';
 import { MapPin, Mail, Linkedin, Github, Terminal } from 'lucide-react';
+import { gsap, ScrollTrigger, prefersReducedMotion } from '../utils/gsapSetup';
 
 interface FooterProps {
   onNavigate: (path: NavPath) => void;
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+
+    const ctx = gsap.context(() => {
+      const cols = footerRef.current?.querySelectorAll('.gsap-footer-col');
+      if (cols && cols.length > 0) {
+        gsap.from(cols, {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        });
+      }
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const handleNav = (path: NavPath) => {
     onNavigate(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="w-full bg-[#fff1e5] border-t border-[#dcbfc3]/30 mt-16 md:mt-24">
+    <footer ref={footerRef} className="w-full bg-[#fff1e5] border-t border-[#dcbfc3]/30 mt-16 md:mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-[#dcbfc3]/20">
           {/* Col 1: Bio */}
-          <div className="md:col-span-5 flex flex-col gap-3">
+          <div className="gsap-footer-col md:col-span-5 flex flex-col gap-3">
             <div className="flex items-center gap-2.5">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#ffe4c6] border border-[#dcbfc3]/40 font-['Epilogue'] font-bold text-sm text-[#610025]">
                 JR
@@ -35,38 +64,38 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Col 2: Navigation Links */}
-          <div className="md:col-span-3 flex flex-col gap-3">
+          <div className="gsap-footer-col md:col-span-3 flex flex-col gap-3">
             <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
               Navigation
             </span>
             <div className="flex flex-col gap-1.5 font-['DM_Sans'] text-sm text-[#564145]">
               <button
                 onClick={() => handleNav('about')}
-                className="text-left hover:text-[#82193a] transition-colors"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
               >
                 About Biography
               </button>
               <button
                 onClick={() => handleNav('experience')}
-                className="text-left hover:text-[#82193a] transition-colors"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
               >
                 Professional History
               </button>
               <button
                 onClick={() => handleNav('projects')}
-                className="text-left hover:text-[#82193a] transition-colors"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
               >
                 Technical Showcase
               </button>
               <button
                 onClick={() => handleNav('certifications')}
-                className="text-left hover:text-[#82193a] transition-colors"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
               >
                 Credentials &amp; Honors
               </button>
               <button
                 onClick={() => handleNav('contact')}
-                className="text-left hover:text-[#82193a] transition-colors"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
               >
                 Direct Inquiries
               </button>
@@ -74,16 +103,16 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Col 3: Direct Connectivity */}
-          <div className="md:col-span-4 flex flex-col gap-3">
+          <div className="gsap-footer-col md:col-span-4 flex flex-col gap-3">
             <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
               Direct Connectivity
             </span>
             <div className="flex flex-col gap-2.5">
               <a
                 href="mailto:jennifersagaidasse@gmail.com"
-                className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] transition-all group"
+                className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
-                <span className="w-8 h-8 rounded-lg bg-[#ffe4c6] flex items-center justify-center text-[#82193a] shrink-0">
+                <span className="w-8 h-8 rounded-lg bg-[#ffe4c6] flex items-center justify-center text-[#82193a] shrink-0 group-hover:scale-105 transition-transform">
                   <Mail size={16} />
                 </span>
                 <div className="flex flex-col min-w-0">
@@ -100,9 +129,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] transition-all group"
+                className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
-                <span className="w-8 h-8 rounded-lg bg-[#ffe4c6] flex items-center justify-center text-[#82193a] shrink-0">
+                <span className="w-8 h-8 rounded-lg bg-[#ffe4c6] flex items-center justify-center text-[#82193a] shrink-0 group-hover:scale-105 transition-transform">
                   <Linkedin size={16} />
                 </span>
                 <div className="flex flex-col min-w-0">
@@ -119,9 +148,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 href="https://github.com/Jennifer-Vesilica-Rachel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] transition-all group"
+                className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
-                <span className="w-8 h-8 rounded-lg bg-[#ffe4c6] flex items-center justify-center text-[#82193a] shrink-0">
+                <span className="w-8 h-8 rounded-lg bg-[#ffe4c6] flex items-center justify-center text-[#82193a] shrink-0 group-hover:scale-105 transition-transform">
                   <Github size={16} />
                 </span>
                 <div className="flex flex-col min-w-0">

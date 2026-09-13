@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { NavPath } from '../types';
 import { WAYFINDING_DESTINATIONS } from '../data/portfolioData';
+import { useViewAnimations } from '../hooks/useSectionAnimations';
 import {
   CheckCircle2,
   MapPin,
@@ -73,6 +74,7 @@ const DEFAULT_CORPUS = [
 const STOPWORDS = new Set(['and', 'or', 'the', 'a', 'an', 'in', 'on', 'of', 'for', 'to', 'is', 'at', 'by', 'with', 'across']);
 
 export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewProps) {
+  const containerRef = useViewAnimations();
   const [selectedDestKey, setSelectedDestKey] = useState<'glaucoma' | 'pharmacy' | 'refraction'>('glaucoma');
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
@@ -131,23 +133,18 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
   }).sort((a, b) => b.cosineSim - a.cosineSim);
 
   return (
-    <div className="flex flex-col w-full animate-in fade-in duration-300">
+    <div ref={containerRef} className="flex flex-col w-full">
       {/* Top Section Intro */}
-      <motion.section
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-8"
-      >
+      <section className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-8">
         <div className="flex flex-col gap-2 max-w-3xl">
           <div className="flex items-center gap-2 text-[#82193a] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
             <span className="w-2 h-2 rounded-full bg-[#82193a] inline-block"></span>
             <span>Portfolio &amp; Featured Technical Works</span>
           </div>
-          <h2 className="font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight leading-tight">
+          <h2 className="gsap-reveal-heading font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight leading-tight">
             Featured Engineering &amp; Software Projects
           </h2>
-          <p className="font-['DM_Sans'] text-base md:text-lg text-[#564145] leading-relaxed">
+          <p className="gsap-reveal-paragraph font-['DM_Sans'] text-base md:text-lg text-[#564145] leading-relaxed">
             Production-deployed software systems, Information Retrieval search architectures, and clinical informatics solutions engineered by Jennifer Vesilica Rachel S.
           </p>
         </div>
@@ -156,31 +153,27 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href="#indoor-nav-project"
-            className="px-4 py-2 rounded-full bg-[#82193a] text-white font-['Space_Grotesk'] text-xs tracking-wider uppercase font-bold shadow-xs hover:bg-[#610025] transition-all flex items-center gap-2"
+            className="px-4 py-2 rounded-full bg-[#82193a] text-white font-['Space_Grotesk'] text-xs tracking-wider uppercase font-bold shadow-xs hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
           >
             <CheckCircle2 size={14} />
             <span>01 / Smart Indoor Navigation (Aravind Hospital)</span>
           </a>
           <a
             href="#search-engine-project"
-            className="px-4 py-2 rounded-full bg-[#ffebd5] text-[#261907] font-['Space_Grotesk'] text-xs tracking-wider uppercase font-bold border border-[#dcbfc3]/40 hover:bg-[#ffe4c6] transition-all flex items-center gap-2"
+            className="px-4 py-2 rounded-full bg-[#ffebd5] text-[#261907] font-['Space_Grotesk'] text-xs tracking-wider uppercase font-bold border border-[#dcbfc3]/40 hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
           >
             <Search size={14} className="text-[#82193a]" />
             <span>02 / IR Search Engine v2 (Inverted Index &amp; TF-IDF)</span>
           </a>
         </div>
-      </motion.section>
+      </section>
 
       {/* ========================================================================= */}
       {/* PROJECT 1: SMART INDOOR NAVIGATION SYSTEM (ARAVIND EYE HOSPITAL)          */}
       {/* ========================================================================= */}
-      <motion.section
+      <section
         id="indoor-nav-project"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-[#fff1e5] py-12 md:py-16 border-y border-[#dcbfc3]/30"
+        className="gsap-card w-full bg-[#fff1e5] py-12 md:py-16 border-y border-[#dcbfc3]/30"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start justify-between gap-6 pb-6">
@@ -193,10 +186,10 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                   ARAVIND EYE HOSPITAL • JUNE – JULY 2025
                 </span>
               </div>
-              <h3 className="font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907] tracking-tight">
+              <h3 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907] tracking-tight">
                 Smart Indoor Navigation System
               </h3>
-              <p className="font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl leading-relaxed">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl leading-relaxed">
                 A zero-friction, QR-anchored web application providing immediate spatial guidance, bilingual routing, and photographic checkpoints to alleviate patient wayfinding fatigue in high-throughput clinical pavilions.
               </p>
             </div>
@@ -207,14 +200,14 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 href="https://aravind-map-raesha0506.netlify.app"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#82193a] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#82193a] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
               >
                 <ExternalLink size={14} />
                 <span>Live Demo</span>
               </a>
               <button
                 onClick={() => setIsQrModalOpen(true)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-[#ffffff] text-[#82193a] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-all shadow-xs cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-[#ffffff] text-[#82193a] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs cursor-pointer"
               >
                 <QrCode size={14} />
                 <span>Scan QR Code</span>
@@ -223,14 +216,14 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 href="https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#ffffff] text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-all shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#ffffff] text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
               >
                 <Github size={14} />
                 <span>GitHub</span>
               </a>
               <a
                 href="#prototype-sandbox"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-[#ffebd5] text-[#80552f] rounded-xl font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#ffe4c6] transition-all border border-[#dcbfc3]/40"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-[#ffebd5] text-[#80552f] rounded-xl font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all border border-[#dcbfc3]/40"
               >
                 <span>Interactive Simulator</span>
                 <ArrowDown size={14} />
@@ -596,18 +589,14 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* ========================================================================= */}
       {/* PROJECT 2: IR SEARCH ENGINE V2 (INVERTED INDEX & TF-IDF)                  */}
       {/* ========================================================================= */}
-      <motion.section
+      <section
         id="search-engine-project"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-[#ffffff] py-12 md:py-16 border-b border-[#dcbfc3]/30"
+        className="gsap-card w-full bg-[#ffffff] py-12 md:py-16 border-b border-[#dcbfc3]/30"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start justify-between gap-6 pb-6">
@@ -620,10 +609,10 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                   PYTHON • FLASK • VERCEL • 2024 – 2025
                 </span>
               </div>
-              <h3 className="font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907] tracking-tight">
+              <h3 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907] tracking-tight">
                 IR Search Engine v2 (Inverted Index &amp; TF-IDF)
               </h3>
-              <p className="font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl leading-relaxed">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl leading-relaxed">
                 A computational Information Retrieval (IR) demo search engine built with Python and Flask. Indexes document corpora using an Inverted Index and TF-IDF weighting, ranking search queries via Vector Space Model Cosine Similarity with transparent intermediate calculation tables.
               </p>
             </div>
@@ -634,7 +623,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 href="https://search-engine-self-sigma.vercel.app"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#2563eb] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#1d4ed8] transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#2563eb] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#1d4ed8] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
               >
                 <ExternalLink size={14} />
                 <span>Live Demo</span>
@@ -643,7 +632,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 href="https://github.com/Jennifer-Vesilica-Rachel/search-engine"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#ffffff] text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-all shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#ffffff] text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
               >
                 <Github size={14} />
                 <span>GitHub Repo</span>
@@ -985,15 +974,11 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Technical Competencies & Toolchain Strip */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-[#ffe4c6]/60 py-12 border-y border-[#dcbfc3]/30"
+      <section
+        className="gsap-card w-full bg-[#ffe4c6]/60 py-12 border-y border-[#dcbfc3]/30"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -1038,25 +1023,19 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Call to Collaboration */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16"
-      >
-        <div className="bg-[#610025] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-xl">
+      <section className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16">
+        <div className="gsap-card bg-[#610025] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-xl hover:shadow-2xl transition-all duration-300">
           <div className="flex flex-col gap-2 max-w-xl z-10">
             <span className="font-['Space_Grotesk'] text-xs text-[#ffd9de] uppercase tracking-widest font-bold">
               Institutional Engineering Inquiries
             </span>
-            <h3 className="font-['Epilogue'] text-2xl md:text-3xl font-bold text-white">
+            <h3 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-bold text-white">
               Interested in discussing system design or healthcare informatics?
             </h3>
-            <p className="font-['DM_Sans'] text-sm text-[#ffb2bf] leading-relaxed">
+            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#ffb2bf] leading-relaxed">
               Open to software engineering internships, AI systems research assistantships, and collaborative technology initiatives.
             </p>
           </div>
@@ -1064,19 +1043,19 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
           <div className="flex flex-col sm:flex-row items-center gap-3 z-10 w-full md:w-auto">
             <button
               onClick={() => onNavigate('contact')}
-              className="w-full sm:w-auto text-center px-6 py-3 bg-[#ffffff] text-[#610025] rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] transition-all shadow-sm cursor-pointer"
+              className="w-full sm:w-auto text-center px-6 py-3 bg-[#ffffff] text-[#610025] rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm cursor-pointer"
             >
               Initiate Dialogue
             </button>
             <button
               onClick={onOpenResume}
-              className="w-full sm:w-auto text-center px-6 py-3 bg-[#82193a] text-white rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 transition-all flex items-center justify-center gap-2 cursor-pointer border border-white/20"
+              className="w-full sm:w-auto text-center px-6 py-3 bg-[#82193a] text-white rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer border border-white/20"
             >
               <span>Curriculum Vitae</span>
             </button>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* QR Code Expanded Modal */}
       {isQrModalOpen && (

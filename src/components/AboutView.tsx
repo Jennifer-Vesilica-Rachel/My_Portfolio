@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { NavPath } from '../types';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
+import { useViewAnimations } from '../hooks/useSectionAnimations';
 import {
   ArrowRight,
   Briefcase,
@@ -56,22 +57,19 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
     ? techPills
     : techPills.filter((p) => p.category === techFilter);
 
+  const containerRef = useViewAnimations({ isHero: true });
+
   return (
-    <div className="flex flex-col w-full animate-in fade-in duration-300">
+    <div ref={containerRef} className="flex flex-col w-full animate-in fade-in duration-300">
       {/* Warm Ambient Glow Wrapper */}
       <div className="relative w-full overflow-hidden">
-        <div className="absolute -top-32 right-[-5%] w-[480px] h-[480px] rounded-full bg-[#fdc394]/25 blur-3xl pointer-events-none"></div>
-        <div className="absolute top-96 left-[-10%] w-[520px] h-[520px] rounded-full bg-[#ffd9de]/20 blur-3xl pointer-events-none"></div>
+        <div className="hero-ambient-glow-1 absolute -top-32 right-[-5%] w-[480px] h-[480px] rounded-full bg-[#fdc394]/25 blur-3xl pointer-events-none"></div>
+        <div className="hero-ambient-glow-2 absolute top-96 left-[-10%] w-[520px] h-[520px] rounded-full bg-[#ffd9de]/20 blur-3xl pointer-events-none"></div>
 
         {/* Editorial Hero Stage */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16"
-        >
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
           {/* Breadcrumb & Issue Stamp */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-6">
+          <div className="hero-stamp flex flex-wrap items-center justify-between gap-3 pb-6">
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-1 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-[11px] font-bold text-[#82193a] tracking-widest uppercase">
                 Folio 2024–2026
@@ -92,16 +90,16 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             {/* Main Typographic Column (8 cols) */}
             <div className="lg:col-span-8 flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-[0.2em] font-bold flex items-center gap-2">
+                <span className="hero-stamp font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-[0.2em] font-bold flex items-center gap-2">
                   <span className="inline-block w-8 h-[2px] bg-[#82193a]"></span>
                   Human-Centric Engineering
                 </span>
-                <h1 className="font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#261907] tracking-tight leading-[1.1] max-w-2xl">
+                <h1 className="hero-heading font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#261907] tracking-tight leading-[1.1] max-w-2xl">
                   Crafting Intelligent Web Experiences &amp; Human-Centric AI Solutions.
                 </h1>
               </div>
 
-              <p className="font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-xl leading-relaxed">
+              <p className="hero-subtitle font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-xl leading-relaxed">
                 I am <strong className="text-[#261907] font-semibold">Jennifer Vesilica Rachel S</strong> — currently pursuing a Bachelor of Technology in Information Science and Engineering, with strong interests in software development, data analytics, and intelligent systems. Eager to apply technical skills and hands-on project experience to real-world problems.
               </p>
 
@@ -109,7 +107,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               <div className="flex flex-col min-[480px]:flex-row min-[480px]:flex-wrap items-stretch min-[480px]:items-center gap-2.5 sm:gap-3 pt-2">
                 <button
                   onClick={() => onNavigate('projects')}
-                  className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-sm font-semibold shadow-md hover:bg-[#610025] transition-all duration-200 cursor-pointer"
+                  className="hero-cta-btn group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-sm font-semibold shadow-md hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
                 >
                   <span>Explore Projects</span>
                   <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
@@ -117,7 +115,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
 
                 <button
                   onClick={() => onNavigate('experience')}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#ffebd5] hover:bg-[#ffe4c6] text-[#610025] font-['Space_Grotesk'] text-sm font-semibold transition-colors cursor-pointer"
+                  className="hero-cta-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#ffebd5] hover:bg-[#ffe4c6] text-[#610025] font-['Space_Grotesk'] text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
                 >
                   <Briefcase size={17} />
                   <span>View Experience</span>
@@ -127,7 +125,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                   href="https://github.com/Jennifer-Vesilica-Rachel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#ffffff] border border-[#dcbfc3]/40 hover:bg-[#ffe4c6] text-[#261907] hover:text-[#82193a] font-['Space_Grotesk'] text-sm font-semibold transition-colors shadow-xs"
+                  className="hero-cta-btn inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#ffffff] border border-[#dcbfc3]/40 hover:bg-[#ffe4c6] text-[#261907] hover:text-[#82193a] font-['Space_Grotesk'] text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-xs"
                 >
                   <Github size={17} />
                   <span>GitHub</span>
@@ -135,7 +133,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
 
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-[#564145] hover:text-[#82193a] font-['Space_Grotesk'] text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                  className="hero-cta-btn inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-[#564145] hover:text-[#82193a] font-['Space_Grotesk'] text-xs uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
                 >
                   <span>Get In Touch</span>
                   <Mail size={15} />
@@ -144,19 +142,19 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
 
               {/* Quick Metrics Ribbon */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                <div className="p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1">
+                <div className="hero-metric-card p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
                   <span className="font-['Epilogue'] text-2xl font-bold text-[#82193a] leading-none">02+</span>
                   <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">High-Impact Internships</span>
                   <p className="font-['DM_Sans'] text-xs text-[#564145]">Clinical workflow &amp; enterprise automated AI delivery</p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1">
+                <div className="hero-metric-card p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
                   <span className="font-['Epilogue'] text-2xl font-bold text-[#80552f] leading-none">Full-Stack</span>
                   <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Resilient Interfaces</span>
                   <p className="font-['DM_Sans'] text-xs text-[#564145]">React, responsive tailwind layouts &amp; modern databases</p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1">
+                <div className="hero-metric-card p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
                   <span className="font-['Epilogue'] text-2xl font-bold text-[#610025] leading-none">Deployed</span>
                   <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Hospital Indoor Nav</span>
                   <p className="font-['DM_Sans'] text-xs text-[#564145]">QR-guided routing for Aravind Eye Hospital patients</p>
@@ -168,7 +166,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             <div className="lg:col-span-4 flex flex-col gap-4">
               <div className="relative rounded-2xl overflow-hidden bg-[#ffe4c6] p-3 shadow-lg flex flex-col gap-3 border border-[#dcbfc3]/40">
                 {/* Official Portrait Photo Banner */}
-                <div className="relative w-full h-80 sm:h-96 lg:h-[370px] rounded-xl overflow-hidden shadow-inner bg-[#18130f] group">
+                <div className="hero-portrait-card relative w-full h-80 sm:h-96 lg:h-[370px] rounded-xl overflow-hidden shadow-inner bg-[#18130f] group">
                   <img
                     src={PORTFOLIO_IMAGES.jenniferPortrait}
                     alt="Jennifer Vesilica Rachel S - Software Engineer"
@@ -200,7 +198,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </div>
 
                 {/* Verified Credentials Summary */}
-                <div className="rounded-xl bg-[#261907] text-white p-4 flex flex-col gap-2.5 border border-[#dcbfc3]/30 shadow-sm">
+                <div className="hero-credentials-box rounded-xl bg-[#261907] text-white p-4 flex flex-col gap-2.5 border border-[#dcbfc3]/30 shadow-sm hover:border-[#dcbfc3]/60 transition-all duration-300">
                   <div className="flex items-center justify-between">
                     <span className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-[#fdc394] font-bold">
                       Verified Engineering Pillars
@@ -224,7 +222,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </div>
 
                 {/* Curator's Note Card */}
-                <div className="bg-[#ffffff] rounded-xl p-4 flex flex-col gap-1.5 shadow-sm border border-[#dcbfc3]/30">
+                <div className="hero-curator-box bg-[#ffffff] rounded-xl p-4 flex flex-col gap-1.5 shadow-sm border border-[#dcbfc3]/30 hover:border-[#dcbfc3]/60 transition-all duration-300">
                   <div className="flex items-center justify-between">
                     <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
                       Curator's Note
@@ -246,13 +244,13 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           </div>
 
           {/* Interactive Tech Stack Pill Bar */}
-          <div className="mt-12 bg-[#fff1e5] rounded-2xl p-6 shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4">
+          <div className="gsap-card mt-12 bg-[#fff1e5] rounded-2xl p-6 shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
+                <span className="gsap-reveal-heading font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
                   Technical Vocabulary
                 </span>
-                <h2 className="font-['Epilogue'] text-lg text-[#261907] font-bold">
+                <h2 className="gsap-reveal-heading font-['Epilogue'] text-lg text-[#261907] font-bold">
                   Core Technologies &amp; Platforms
                 </h2>
               </div>
@@ -303,11 +301,11 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
 
             {/* Pill Matrix */}
-            <div className="flex flex-wrap gap-2">
+            <div className="gsap-pill-group flex flex-wrap gap-2">
               {filteredPills.map((pill) => (
                 <span
                   key={pill.name}
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ffffff] text-[#261907] font-['Space_Grotesk'] text-xs shadow-xs border border-[#dcbfc3]/40 hover:bg-[#82193a] hover:text-white transition-all cursor-default"
+                  className="gsap-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ffffff] text-[#261907] font-['Space_Grotesk'] text-xs shadow-xs border border-[#dcbfc3]/40 hover:bg-[#82193a] hover:text-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 cursor-default"
                 >
                   <span
                     className="w-2 h-2 rounded-full"
@@ -318,26 +316,20 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
       </div>
 
       {/* Deep Atlas Red Editorial Accent Band */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-[#610025] text-white py-8 md:py-10"
-      >
+      <section className="gsap-card w-full bg-[#610025] text-white py-8 md:py-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-8 flex flex-col gap-1.5">
             <span className="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-[#ffb2bf]">
               Institutional Perspective
             </span>
-            <h2 className="font-['Epilogue'] text-xl md:text-2xl font-bold text-white">
+            <h2 className="gsap-reveal-heading font-['Epilogue'] text-xl md:text-2xl font-bold text-white">
               Engineered with Rigor. Delivered with Human Intent.
             </h2>
-            <p className="font-['DM_Sans'] text-sm text-[#f9dec0] max-w-xl leading-relaxed">
+            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#f9dec0] max-w-xl leading-relaxed">
               Studying at Women's Engineering College, Puducherry has cultivated a design sensibility anchored in accessibility, patient navigation, and streamlined organizational tools.
             </p>
           </div>
@@ -351,16 +343,10 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Section: Academic Foundation & Core Competencies */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 w-full"
-      >
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 w-full">
         <div className="flex flex-col gap-2 mb-8">
           <div className="flex items-center gap-2 text-[#82193a]">
             <GraduationCap size={20} />
@@ -368,10 +354,10 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               Academic Foundation
             </span>
           </div>
-          <h2 className="font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
+          <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
             Education &amp; Competency Spectrum
           </h2>
-          <p className="font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl">
+          <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl">
             A deep-dive look into formal coursework, technical specialties, and the analytical habits that drive everyday problem-solving.
           </p>
         </div>
@@ -380,7 +366,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Institutional Spotlight Card */}
           <div className="lg:col-span-4 flex flex-col gap-4">
-            <div className="p-6 rounded-2xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4">
+            <div className="gsap-card p-6 rounded-2xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
               <div className="flex items-center justify-between">
                 <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs font-semibold">
                   Degree Program
@@ -425,7 +411,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
 
             {/* Principles Box */}
-            <div className="p-5 rounded-2xl bg-[#ffe4c6]/60 border border-[#dcbfc3]/40 flex flex-col gap-3">
+            <div className="gsap-card p-5 rounded-2xl bg-[#ffe4c6]/60 border border-[#dcbfc3]/40 flex flex-col gap-3 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
               <span className="font-['Space_Grotesk'] text-xs text-[#80552f] font-bold uppercase tracking-wider">
                 Operational Principles
               </span>
@@ -699,23 +685,17 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Flagship Innovation Highlights */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-[#fff1e5]/60 py-16 border-y border-[#dcbfc3]/30"
-      >
+      <section className="w-full bg-[#fff1e5]/60 py-16 border-y border-[#dcbfc3]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="flex flex-col gap-1">
               <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-widest">
                 Selected Works &amp; Real Engagements
               </span>
-              <h2 className="font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
+              <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
                 Flagship Innovation Highlights
               </h2>
             </div>
@@ -729,7 +709,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           </div>
 
           {/* Bento Flagship Card */}
-          <div className="rounded-3xl bg-[#ffffff] p-6 md:p-8 shadow-lg border border-[#dcbfc3]/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="gsap-card rounded-3xl bg-[#ffffff] p-6 md:p-8 shadow-lg border border-[#dcbfc3]/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hover:shadow-xl transition-all duration-300">
             {/* Visual Schematic Column (5 cols) */}
             <div className="lg:col-span-5 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#261907] via-[#3a131f] to-[#18130f] p-5 sm:p-6 text-white aspect-[4/3] lg:aspect-auto lg:h-[380px] shadow-sm flex flex-col justify-between border border-[#dcbfc3]/40">
               <div className="flex items-center justify-between">
@@ -858,7 +838,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               <div className="flex flex-wrap items-center gap-2.5 pt-2">
                 <button
                   onClick={() => onNavigate('projects')}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#610025] transition-colors shadow-sm cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm cursor-pointer"
                 >
                   <Eye size={15} />
                   <span>Interactive Simulator</span>
@@ -867,7 +847,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                   href="https://aravind-map-raesha0506.netlify.app"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#82193a] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#82193a] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
                 >
                   <ExternalLink size={13} />
                   <span>Live Demo</span>
@@ -876,7 +856,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                   href="https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#261907] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#261907] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
                 >
                   <Github size={13} />
                   <span>GitHub</span>
@@ -892,7 +872,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           </div>
 
           {/* New Project Callout: IR Search Engine v2 */}
-          <div className="p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="gsap-card p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition-all duration-300">
             <div className="flex flex-col gap-1.5 max-w-2xl">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 rounded bg-[#2563eb]/10 text-[#2563eb] font-['Space_Grotesk'] text-xs font-bold uppercase">
@@ -915,7 +895,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 href="https://search-engine-self-sigma.vercel.app"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#2563eb] text-white font-['Space_Grotesk'] text-xs font-bold hover:bg-[#1d4ed8] transition-colors shadow-xs"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#2563eb] text-white font-['Space_Grotesk'] text-xs font-bold hover:bg-[#1d4ed8] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
               >
                 <ExternalLink size={13} />
                 <span>Live Demo</span>
@@ -924,14 +904,14 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 href="https://github.com/Jennifer-Vesilica-Rachel/search-engine"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#261907] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-colors shadow-xs"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#261907] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
               >
                 <Github size={13} />
                 <span>GitHub</span>
               </a>
               <button
                 onClick={() => onNavigate('projects')}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffebd5] text-[#82193a] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffe4c6] transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffebd5] text-[#82193a] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
               >
                 <Search size={13} />
                 <span>Sandbox View</span>
@@ -942,7 +922,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           {/* Dual Preview Modules */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1: Aravind */}
-            <div className="p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col justify-between gap-4 group hover:shadow-md transition-all">
+            <div className="gsap-card p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col justify-between gap-4 group hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs font-semibold">
@@ -972,7 +952,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
 
             {/* Card 2: Upturne */}
-            <div className="p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col justify-between gap-4 group hover:shadow-md transition-all">
+            <div className="gsap-card p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col justify-between gap-4 group hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-1 rounded bg-[#ffe4c6] text-[#610025] font-['Space_Grotesk'] text-xs font-semibold">
@@ -1002,25 +982,19 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Callout: Explore Credential Records */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full"
-      >
-        <div className="rounded-3xl bg-[#ffe4c6] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-md border border-[#dcbfc3]/50">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <div className="gsap-card rounded-3xl bg-[#ffe4c6] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-md border border-[#dcbfc3]/50 hover:shadow-lg transition-all duration-300">
           <div className="flex flex-col gap-2 max-w-xl z-10">
             <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-widest">
               Verified Credentials &amp; Certifications
             </span>
-            <h2 className="font-['Epilogue'] text-2xl md:text-3xl text-[#261907] font-bold">
+            <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl text-[#261907] font-bold">
               Ready to review verified technical honors and course completions?
             </h2>
-            <p className="font-['DM_Sans'] text-sm text-[#564145] leading-relaxed">
+            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#564145] leading-relaxed">
               Explore institutional certifications from Zoho Young Creators Program, Aravind Eye Care System, Upturne Software, and machine learning accreditations.
             </p>
           </div>
@@ -1028,19 +1002,19 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto z-10">
             <button
               onClick={() => onNavigate('certifications')}
-              className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#610025] transition-colors shadow-sm cursor-pointer"
+              className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm cursor-pointer"
             >
               Certifications Gallery
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-[#ffffff] text-[#261907] hover:bg-[#ffebd5] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold transition-colors cursor-pointer border border-[#dcbfc3]/50"
+              className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-[#ffffff] text-[#261907] hover:bg-[#ffebd5] hover:scale-[1.02] active:scale-[0.98] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold transition-all cursor-pointer border border-[#dcbfc3]/50"
             >
               Initiate Contact
             </button>
           </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }

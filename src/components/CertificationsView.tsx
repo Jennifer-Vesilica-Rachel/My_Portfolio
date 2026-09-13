@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
 import { CERTIFICATES } from '../data/portfolioData';
+import { useViewAnimations } from '../hooks/useSectionAnimations';
 import UpturneCertificateDocument from './UpturneCertificateDocument';
 import AravindCertificateDocument from './AravindCertificateDocument';
 import {
@@ -19,17 +19,13 @@ interface CertificationsViewProps {
 }
 
 export default function CertificationsView({ onOpenCertificate, onNavigate }: CertificationsViewProps) {
+  const containerRef = useViewAnimations();
 
   return (
-    <div className="flex flex-col w-full animate-in fade-in duration-300">
+    <div ref={containerRef} className="flex flex-col w-full">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col gap-12 md:gap-16 w-full">
         {/* Section Header */}
-        <motion.section
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col gap-3"
-        >
+        <section className="flex flex-col gap-3">
           <div className="flex flex-wrap items-baseline justify-between gap-2 pb-2">
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
@@ -46,27 +42,21 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <h1 className="font-['Epilogue'] text-3xl sm:text-4xl font-extrabold text-[#261907] tracking-tight max-w-2xl">
+            <h1 className="gsap-reveal-heading font-['Epilogue'] text-3xl sm:text-4xl font-extrabold text-[#261907] tracking-tight max-w-2xl">
               Verified Credentials, Certifications &amp; Technical Endorsements
             </h1>
-            <p className="font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-md leading-relaxed">
+            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-md leading-relaxed">
               Formal acknowledgments of on-premise healthcare technology deployment, commercial AI automation, and enterprise low-code systems engineering.
             </p>
           </div>
-        </motion.section>
+        </section>
 
         {/* Certificate Cards Grid */}
-        <motion.section
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
-        >
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {CERTIFICATES.map((cert) => (
             <div
               key={cert.id}
-              className="lg:col-span-6 flex flex-col rounded-2xl bg-[#fff1e5] p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-[#dcbfc3]/40 group"
+              className="gsap-card lg:col-span-6 flex flex-col rounded-2xl bg-[#fff1e5] p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-[#dcbfc3]/40 group hover:-translate-y-1"
             >
               {/* Header */}
               <div className="flex items-start justify-between gap-3 mb-4">
@@ -106,7 +96,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
                     e.stopPropagation();
                     onOpenCertificate(cert.id);
                   }}
-                  className="absolute bottom-3 right-3 px-3.5 py-1.5 rounded-lg bg-[#ffffff]/95 backdrop-blur-sm text-[#82193a] font-['Space_Grotesk'] text-xs font-bold shadow-md flex items-center gap-1.5 hover:bg-[#82193a] hover:text-white transition-colors cursor-pointer"
+                  className="absolute bottom-3 right-3 px-3.5 py-1.5 rounded-lg bg-[#ffffff]/95 backdrop-blur-sm text-[#82193a] font-['Space_Grotesk'] text-xs font-bold shadow-md flex items-center gap-1.5 hover:bg-[#82193a] hover:text-white hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <Maximize2 size={14} />
                   <span>Inspect Certificate</span>
@@ -140,18 +130,12 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
             </div>
           ))}
-        </motion.section>
+        </section>
 
         {/* Academic & Low-Code Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
-        >
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Zoho Creator Card */}
-          <div className="lg:col-span-5 rounded-2xl bg-[#ffebd5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40">
+          <div className="gsap-card lg:col-span-5 rounded-2xl bg-[#ffebd5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40 hover:shadow-md transition-shadow">
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
@@ -159,13 +143,13 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
                 </span>
                 <span className="font-['Space_Grotesk'] text-xs text-[#564145]">December 2023</span>
               </div>
-              <h3 className="font-['Epilogue'] text-xl font-bold text-[#261907]">
+              <h3 className="gsap-reveal-heading font-['Epilogue'] text-xl font-bold text-[#261907]">
                 Zoho Creator Student Training Program
               </h3>
               <span className="font-['Space_Grotesk'] text-xs text-[#82193a] font-bold">
                 Young Creators Initiative • Women's Engineering College
               </span>
-              <p className="font-['DM_Sans'] text-xs md:text-sm text-[#564145] leading-relaxed">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-xs md:text-sm text-[#564145] leading-relaxed">
                 Comprehensive practical training program focused on architecting enterprise workflow automations, relational data modeling without legacy bottlenecks, and bespoke visual analytics dashboards.
               </p>
 
@@ -190,7 +174,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
           </div>
 
           {/* Academic Foundation Card */}
-          <div className="lg:col-span-7 rounded-2xl bg-[#fff1e5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40">
+          <div className="gsap-card lg:col-span-7 rounded-2xl bg-[#fff1e5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40 hover:shadow-md transition-shadow">
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -203,7 +187,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                <h3 className="font-['Epilogue'] text-xl font-bold text-[#261907]">
+                <h3 className="gsap-reveal-heading font-['Epilogue'] text-xl font-bold text-[#261907]">
                   Women's Engineering College
                 </h3>
                 <span className="font-['Space_Grotesk'] text-xs text-[#564145] font-bold">
@@ -215,7 +199,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
                 B.Tech in Information Science and Engineering
               </p>
 
-              <p className="font-['DM_Sans'] text-xs md:text-sm text-[#564145] leading-relaxed">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-xs md:text-sm text-[#564145] leading-relaxed">
                 Rigorous core curriculum in data structures, relational database design, statistical programming, and machine learning foundations. Combining academic inquiry with pragmatic, field-tested systems.
               </p>
             </div>
@@ -238,26 +222,22 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Competency Matrix & Tool Proficiency */}
-        <motion.section
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="rounded-3xl bg-[#ffebd5] p-6 md:p-8 flex flex-col gap-6 shadow-sm border border-[#dcbfc3]/40"
+        <section
+          className="gsap-card rounded-3xl bg-[#ffebd5] p-6 md:p-8 flex flex-col gap-6 shadow-sm border border-[#dcbfc3]/40"
         >
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-2 border-b border-[#dcbfc3]/30">
             <div>
               <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
                 Technical Vector
               </span>
-              <h2 className="font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907] mt-2">
+              <h2 className="gsap-reveal-heading font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907] mt-2">
                 Competency Matrix &amp; Tool Proficiency
               </h2>
             </div>
-            <p className="font-['DM_Sans'] text-xs md:text-sm text-[#564145] max-w-md">
+            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-xs md:text-sm text-[#564145] max-w-md">
               Calibrated across actual codebases, healthcare indoor mapping implementations, and multi-threaded analytical pipelines.
             </p>
           </div>
@@ -398,36 +378,32 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Navigation Prompt to Contact */}
         {onNavigate && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="p-6 md:p-8 rounded-2xl bg-[#fff1e5] border border-[#dcbfc3]/50 flex flex-col sm:flex-row items-center justify-between gap-4"
+          <div
+            className="gsap-card p-6 md:p-8 rounded-2xl bg-[#fff1e5] border border-[#dcbfc3]/50 flex flex-col sm:flex-row items-center justify-between gap-4"
           >
             <div className="flex flex-col gap-1 text-center sm:text-left">
               <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
                 Direct Inquiries
               </span>
-              <h3 className="font-['Epilogue'] text-lg md:text-xl font-bold text-[#261907]">
+              <h3 className="gsap-reveal-heading font-['Epilogue'] text-lg md:text-xl font-bold text-[#261907]">
                 Want to verify credentials or discuss engineering opportunities?
               </h3>
-              <p className="font-['DM_Sans'] text-xs md:text-sm text-[#564145]">
+              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-xs md:text-sm text-[#564145]">
                 Connect directly through the dedicated contact portal for internship or project discussions.
               </p>
             </div>
             <button
               onClick={() => onNavigate('contact')}
-              className="px-5 py-2.5 rounded-xl bg-[#82193a] hover:bg-[#610025] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+              className="px-5 py-2.5 rounded-xl bg-[#82193a] hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 shrink-0 cursor-pointer"
             >
               <span>Go to Contact Page</span>
               <ArrowRight size={15} />
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>

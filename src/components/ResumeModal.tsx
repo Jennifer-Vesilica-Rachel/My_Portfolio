@@ -62,7 +62,7 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
   return (
     <div
       id="resume-modal-backdrop"
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto animate-in fade-in duration-200"
       onClick={(e) => {
         if ((e.target as HTMLElement).id === 'resume-modal-backdrop') {
           onClose();
@@ -70,7 +70,7 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
       }}
     >
       <div
-        className="relative max-w-4xl w-full bg-[#f1f3f5] rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[96vh] border border-gray-300 print:max-h-none print:shadow-none print:border-none print:bg-white print:rounded-none"
+        className="relative max-w-4xl w-full bg-[#f1f3f5] rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[96vh] border border-gray-300 print:max-h-none print:shadow-none print:border-none print:bg-white print:rounded-none animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Control Bar (hidden during print) */}
