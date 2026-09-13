@@ -164,87 +164,85 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
 
             {/* Right Side Editorial Banner & Stamp Card (4 cols) */}
             <div className="lg:col-span-4 flex flex-col gap-4">
-              <div className="relative rounded-2xl overflow-hidden bg-[#ffe4c6] p-3 shadow-lg flex flex-col gap-3 border border-[#dcbfc3]/40">
-                {/* Official Portrait Photo Banner */}
-                <div className="hero-portrait-card relative w-full h-80 sm:h-96 lg:h-[370px] rounded-xl overflow-hidden shadow-inner bg-[#18130f] group">
-                  <img
-                    src={PORTFOLIO_IMAGES.jenniferPortrait}
-                    alt="Jennifer Vesilica Rachel S - Software Engineer"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#18130f]/95 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute top-3 right-3">
-                    <span className="px-3 py-1 rounded-full bg-emerald-700/85 text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 backdrop-blur-sm">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                      <span>Open to Roles</span>
-                    </span>
-                  </div>
-                  <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between text-[#ffffff]">
-                    <div className="flex flex-col">
-                      <span className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-[#fdc394] font-bold">
-                        Official Profile
-                      </span>
-                      <span className="font-['Epilogue'] text-base sm:text-lg font-bold">
-                        Jennifer Vesilica Rachel S
-                      </span>
-                      <span className="font-['Space_Grotesk'] text-[11px] text-gray-300">
-                        B.Tech (ISE) · PTU Puducherry
-                      </span>
-                    </div>
-                    <span className="px-2.5 py-1 rounded bg-[#82193a]/90 text-white font-['Space_Grotesk'] text-[11px] font-semibold">
-                      2023–2027
-                    </span>
-                  </div>
+              {/* Official Portrait Photo Banner */}
+              <div className="hero-portrait-card relative w-full h-80 sm:h-96 lg:h-[380px] rounded-2xl overflow-hidden shadow-md bg-[#18130f] border border-[#dcbfc3]/50 group">
+                <img
+                  src={PORTFOLIO_IMAGES.jenniferPortrait}
+                  alt="Jennifer Vesilica Rachel S - Software Engineer"
+                  className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#18130f]/95 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute top-3 right-3">
+                  <span className="px-3 py-1 rounded-full bg-emerald-700/85 text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 backdrop-blur-sm">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Open to Roles</span>
+                  </span>
                 </div>
-
-                {/* Verified Credentials Summary */}
-                <div className="hero-credentials-box rounded-xl bg-[#261907] text-white p-4 flex flex-col gap-2.5 border border-[#dcbfc3]/30 shadow-sm hover:border-[#dcbfc3]/60 transition-all duration-300">
-                  <div className="flex items-center justify-between">
+                <div className="absolute bottom-3.5 left-4 right-4 flex items-end justify-between text-[#ffffff]">
+                  <div className="flex flex-col">
                     <span className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-[#fdc394] font-bold">
-                      Verified Engineering Pillars
+                      Official Profile
                     </span>
-                    <span className="flex items-center gap-1 text-[#ffdcc2] font-['Space_Grotesk'] text-xs">
-                      <ShieldCheck size={14} />
-                      <span>2 Tech Internships</span>
+                    <span className="font-['Epilogue'] text-base sm:text-lg font-bold">
+                      Jennifer Vesilica Rachel S
                     </span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    <span className="px-2 py-0.5 rounded bg-white/10 text-white font-['Space_Grotesk'] text-[11px] border border-white/10">
-                      Full-Stack Architecture
-                    </span>
-                    <span className="px-2 py-0.5 rounded bg-white/10 text-white font-['Space_Grotesk'] text-[11px] border border-white/10">
-                      Clinical AI Systems
-                    </span>
-                    <span className="px-2 py-0.5 rounded bg-white/10 text-white font-['Space_Grotesk'] text-[11px] border border-white/10">
-                      Indoor Navigation
+                    <span className="font-['Space_Grotesk'] text-[11px] text-gray-300">
+                      B.Tech (ISE) · PTU Puducherry
                     </span>
                   </div>
+                  <span className="px-2.5 py-1 rounded bg-[#82193a]/90 text-white font-['Space_Grotesk'] text-[11px] font-semibold">
+                    2023–2027
+                  </span>
                 </div>
+              </div>
 
-                {/* Curator's Note Card */}
-                <div className="hero-curator-box bg-[#ffffff] rounded-xl p-4 flex flex-col gap-1.5 shadow-sm border border-[#dcbfc3]/30 hover:border-[#dcbfc3]/60 transition-all duration-300">
-                  <div className="flex items-center justify-between">
-                    <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
-                      Curator's Note
-                    </span>
-                    <span className="font-['Space_Grotesk'] text-xs text-[#564145]">Puducherry, IN</span>
-                  </div>
-                  <p className="font-['DM_Sans'] text-xs text-[#564145] leading-relaxed italic">
-                    "Code should operate like finely typeset literature: structurally unflinching, visually respectful, and deeply attuned to human clarity."
-                  </p>
-                  <div className="flex items-center gap-1.5 pt-1">
-                    <span className="w-2 h-2 rounded-full bg-[#82193a]"></span>
-                    <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-medium">
-                      Currently seeking Summer &amp; Pre-Placement Internships
-                    </span>
-                  </div>
+              {/* Verified Credentials Summary */}
+              <div className="hero-credentials-box rounded-2xl bg-[#261907] text-white p-4.5 flex flex-col gap-2.5 border border-[#dcbfc3]/30 shadow-md hover:border-[#dcbfc3]/60 transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <span className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-[#fdc394] font-bold">
+                    Verified Engineering Pillars
+                  </span>
+                  <span className="flex items-center gap-1 text-[#ffdcc2] font-['Space_Grotesk'] text-xs">
+                    <ShieldCheck size={14} />
+                    <span>2 Tech Internships</span>
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="px-2 py-0.5 rounded bg-white/10 text-white font-['Space_Grotesk'] text-[11px] border border-white/10">
+                    Full-Stack Architecture
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-white/10 text-white font-['Space_Grotesk'] text-[11px] border border-white/10">
+                    Clinical AI Systems
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-white/10 text-white font-['Space_Grotesk'] text-[11px] border border-white/10">
+                    Indoor Navigation
+                  </span>
+                </div>
+              </div>
+
+              {/* Curator's Note Card */}
+              <div className="hero-curator-box bg-[#ffffff] rounded-2xl p-4.5 flex flex-col gap-1.5 shadow-sm border border-[#dcbfc3]/40 hover:border-[#dcbfc3]/60 transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
+                    Curator's Note
+                  </span>
+                  <span className="font-['Space_Grotesk'] text-xs text-[#564145]">Puducherry, IN</span>
+                </div>
+                <p className="font-['DM_Sans'] text-xs text-[#564145] leading-relaxed italic">
+                  "Code should operate like finely typeset literature: structurally unflinching, visually respectful, and deeply attuned to human clarity."
+                </p>
+                <div className="flex items-center gap-1.5 pt-1">
+                  <span className="w-2 h-2 rounded-full bg-[#82193a]"></span>
+                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-medium">
+                    Currently seeking Summer &amp; Pre-Placement Internships
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Interactive Tech Stack Pill Bar */}
-          <div className="gsap-card mt-12 bg-[#fff1e5] rounded-2xl p-6 shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4">
+          <div className="mt-12 bg-[#fff1e5] rounded-2xl p-6 shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="gsap-reveal-heading font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
@@ -320,7 +318,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
       </div>
 
       {/* Deep Atlas Red Editorial Accent Band */}
-      <section className="gsap-card w-full bg-[#610025] text-white py-8 md:py-10">
+      <section className="w-full bg-[#610025] text-white py-8 md:py-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-8 flex flex-col gap-1.5">
             <span className="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-[#ffb2bf]">

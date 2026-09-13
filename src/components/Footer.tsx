@@ -16,19 +16,22 @@ export default function Footer({ onNavigate }: FooterProps) {
     const ctx = gsap.context(() => {
       const cols = footerRef.current?.querySelectorAll('.gsap-footer-col');
       if (cols && cols.length > 0) {
-        gsap.from(cols, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-        });
+        gsap.fromTo(cols,
+          { y: 16, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: 'power2.out',
+            clearProps: 'all',
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: 'top 95%',
+              once: true,
+            },
+          }
+        );
       }
     }, footerRef);
 

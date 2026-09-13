@@ -29,12 +29,10 @@ export default function Header({ currentPath, onNavigate, onOpenResume }: Header
     if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(headerRef.current, {
-        y: -18,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
+      gsap.fromTo(headerRef.current,
+        { y: -16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', clearProps: 'all' }
+      );
     }, headerRef);
 
     return () => ctx.revert();
