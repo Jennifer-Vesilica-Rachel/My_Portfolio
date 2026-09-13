@@ -257,7 +257,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               <div className="flex flex-wrap items-center gap-1 bg-[#ffe4c6] p-1 rounded-lg">
                 <button
                   onClick={() => setTechFilter('all')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all ${
+                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
                     techFilter === 'all'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -267,7 +267,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('lang')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all ${
+                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
                     techFilter === 'lang'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -277,7 +277,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('framework')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all ${
+                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
                     techFilter === 'framework'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -287,7 +287,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('tools')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all ${
+                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
                     techFilter === 'tools'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'

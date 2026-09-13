@@ -778,7 +778,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                       />
                       <button
                         onClick={() => setSearchQuery(searchQuery)}
-                        className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3 py-1 bg-[#2563eb] text-white rounded-lg text-xs font-['Space_Grotesk'] font-bold hover:bg-[#1d4ed8] transition-colors"
+                        className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3 py-1 bg-[#2563eb] text-white rounded-lg text-xs font-['Space_Grotesk'] font-bold hover:bg-[#1d4ed8] transition-colors cursor-pointer"
                       >
                         Search
                       </button>
@@ -807,7 +807,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                   <div className="flex items-center gap-1 border-b border-slate-200 pb-2">
                     <button
                       onClick={() => setActiveSearchTab('ranked')}
-                      className={`px-3 py-1 rounded-md text-xs font-['Space_Grotesk'] transition-colors ${
+                      className={`px-3 py-1 rounded-md text-xs font-['Space_Grotesk'] transition-colors cursor-pointer ${
                         activeSearchTab === 'ranked'
                           ? 'bg-slate-900 text-white font-bold'
                           : 'text-slate-600 hover:bg-slate-200'
@@ -817,7 +817,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                     </button>
                     <button
                       onClick={() => setActiveSearchTab('matrix')}
-                      className={`px-3 py-1 rounded-md text-xs font-['Space_Grotesk'] transition-colors ${
+                      className={`px-3 py-1 rounded-md text-xs font-['Space_Grotesk'] transition-colors cursor-pointer ${
                         activeSearchTab === 'matrix'
                           ? 'bg-slate-900 text-white font-bold'
                           : 'text-slate-600 hover:bg-slate-200'
@@ -827,7 +827,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                     </button>
                     <button
                       onClick={() => setActiveSearchTab('corpus')}
-                      className={`px-3 py-1 rounded-md text-xs font-['Space_Grotesk'] transition-colors ${
+                      className={`px-3 py-1 rounded-md text-xs font-['Space_Grotesk'] transition-colors cursor-pointer ${
                         activeSearchTab === 'corpus'
                           ? 'bg-slate-900 text-white font-bold'
                           : 'text-slate-600 hover:bg-slate-200'
