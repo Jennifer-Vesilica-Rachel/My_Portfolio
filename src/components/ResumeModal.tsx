@@ -212,7 +212,14 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
                         <span className="w-4 h-4 rounded-xs border border-white/60 flex items-center justify-center text-[10px] shrink-0">
                           <Linkedin size={10} />
                         </span>
-                        <span>{RESUME_DATA.header.linkedin}</span>
+                        <a
+                          href={RESUME_DATA.header.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {RESUME_DATA.header.linkedin}
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -309,59 +316,69 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
                 </div>
 
                 {/* ---------------- PROJECT ---------------- */}
-                <div className="flex flex-col gap-3">
-                  <div className="bg-[#eaedf0] py-1 text-center font-serif font-bold text-[14px] text-[#111827]">
-                    PROJECT
-                  </div>
+                {RESUME_DATA.projects.length > 0 && (
+                  <div className="flex flex-col gap-3">
+                    <div className="bg-[#eaedf0] py-1 text-center font-serif font-bold text-[14px] text-[#111827]">
+                      PROJECT
+                    </div>
 
-                  {/* Project 1: Shopify E-Commerce Website */}
-                  <div className="flex flex-col sm:flex-row items-start gap-1 sm:gap-4 print:flex-row font-serif text-[12.5px] leading-snug">
-                    <div className="w-full sm:w-[170px] print:w-[170px] shrink-0 text-[#202124]">
-                      <div className="font-semibold sm:font-normal">{RESUME_DATA.projects[0].period}</div>
-                    </div>
-                    <div className="flex-1 flex flex-col gap-1 text-[#202124]">
-                      <div>
-                        <strong className="font-bold">{RESUME_DATA.projects[0].title}</strong>
+                    {RESUME_DATA.projects.map((proj, idx) => (
+                      <div key={idx} className="flex flex-col sm:flex-row items-start gap-1 sm:gap-4 print:flex-row font-serif text-[12.5px] leading-snug">
+                        <div className="w-full sm:w-[170px] print:w-[170px] shrink-0 text-[#202124]">
+                          <div className="font-semibold sm:font-normal">{proj.period}</div>
+                        </div>
+                        <div className="flex-1 flex flex-col gap-1 text-[#202124]">
+                          <div className="flex flex-wrap items-baseline justify-between gap-2">
+                            <strong className="font-bold">{proj.title}</strong>
+                            <div className="flex items-center gap-2.5 text-[11px] font-sans print:hidden">
+                              {proj.liveDemoUrl && (
+                                <a
+                                  href={proj.liveDemoUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-[#82193a] hover:underline font-semibold flex items-center gap-0.5"
+                                >
+                                  <span>Live Demo</span>
+                                  <span>↗</span>
+                                </a>
+                              )}
+                              {proj.githubUrl && (
+                                <a
+                                  href={proj.githubUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-[#564145] hover:underline flex items-center gap-0.5"
+                                >
+                                  <span>GitHub</span>
+                                  <span>↗</span>
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                          <ul className="list-disc pl-4 space-y-1 text-[#202124]">
+                            {proj.bullets.map((b, i) => (
+                              <li key={i} className="leading-snug">{b}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <ul className="list-disc pl-4 space-y-1 text-[#202124]">
-                        {RESUME_DATA.projects[0].bullets.map((b, i) => (
-                          <li key={i} className="leading-snug">{b}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    ))}
                   </div>
-                </div>
+                )}
 
               </div>
             </div>
           )}
 
           {/* ========================================================= */}
-          {/* PAGE 2: Project Part 2 & Education                        */}
+          {/* PAGE 2: Education & Skills                                */}
           {/* ========================================================= */}
           {(activePage === 'both' || activePage === 'page2') && (
             <div className="w-full max-w-[800px] min-h-[1050px] bg-white text-[#111827] shadow-2xl rounded-none border border-gray-300 flex flex-col font-serif print:shadow-none print:border-none print:w-full">
               <div className="px-4 sm:px-8 py-6 sm:py-8 flex flex-col gap-6 text-[13px] leading-relaxed text-[#111827]">
                 
-                {/* Project 2 (Continuation of Project section from Page 1) */}
-                <div className="flex flex-col sm:flex-row items-start gap-1 sm:gap-4 print:flex-row font-serif text-[12.5px] leading-snug pt-2">
-                  <div className="w-full sm:w-[170px] print:w-[170px] shrink-0 text-[#202124]">
-                    <div className="font-semibold sm:font-normal">{RESUME_DATA.projects[1].period}</div>
-                  </div>
-                  <div className="flex-1 flex flex-col gap-1 text-[#202124]">
-                    <div>
-                      <strong className="font-bold">{RESUME_DATA.projects[1].title}</strong>
-                    </div>
-                    <ul className="list-disc pl-4 space-y-1 text-[#202124]">
-                      {RESUME_DATA.projects[1].bullets.map((b, i) => (
-                        <li key={i} className="leading-snug">{b}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
                 {/* ---------------- EDUCATION ---------------- */}
-                <div className="flex flex-col gap-3 mt-4">
+                <div className="flex flex-col gap-3">
                   <div className="bg-[#eaedf0] py-1 text-center font-serif font-bold text-[14px] text-[#111827]">
                     EDUCATION
                   </div>

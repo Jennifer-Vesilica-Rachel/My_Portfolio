@@ -97,7 +97,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 p-2.5 rounded-xl bg-[#fff8f4] border border-[#dcbfc3]/30 hover:border-[#82193a] hover:bg-[#ffebd5] transition-all group"

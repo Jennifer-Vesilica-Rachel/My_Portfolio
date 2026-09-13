@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { NavPath } from '../types';
 import { EXPERIENCES } from '../data/portfolioData';
 import {
@@ -48,7 +49,12 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           {/* Section Heading */}
-          <div className="flex flex-col gap-2 mb-8 md:mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-2 mb-8 md:mb-12"
+          >
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center px-3 py-1 bg-[#ffd9de] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-widest rounded-full font-bold">
                 Engineering Chronicle
@@ -66,11 +72,16 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
             <p className="font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-3xl leading-relaxed">
               Practical engineering practice rooted in healthcare wayfinding architectures, data analytics, and autonomous workflow automation across Pondicherry.
             </p>
-          </div>
+          </motion.div>
 
           {/* Quick Executive Summary Ribbon / Bento Metric Strip */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            <div className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
+          >
+            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#82193a] font-bold">
                   Deployments
@@ -79,9 +90,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">100%</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Live QR Indoor Hospital Wayfinding</span>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#80552f] font-bold">
                   Efficiency Lift
@@ -90,9 +101,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">-34%</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Wayfinding Inquiries &amp; MR File Delays</span>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#3f281f] font-bold">
                   Verified Hours
@@ -101,9 +112,9 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">320+</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Supervised Clinical &amp; Tech Hours</span>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
+            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }} className="flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#82193a] font-bold">
                   Credentials
@@ -112,8 +123,8 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </div>
               <span className="font-['Epilogue'] text-3xl font-extrabold text-[#261907] mt-2">2</span>
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Signed Institutional Seals Attached</span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Main Layout: Asymmetric Timeline & Editorial Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -395,6 +406,54 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                   <p className="font-['DM_Sans'] text-xs md:text-sm text-[#564145] leading-relaxed">
                     Devised an end-to-end tactile wayfinding system for outpatient departments across multiple hospital wings. Patients scan localized QR checkpoints to view interactive indoor maps with visual cues, avoiding high-congestion inquiry desks.
                   </p>
+
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t border-[#dcbfc3]/40">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-10 h-10 p-0.5 bg-white rounded-lg border border-[#dcbfc3]/60 shrink-0">
+                        <img
+                          src="/images/aravind-qr-code.svg"
+                          alt="Hospital Navigation QR Code"
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="font-['Space_Grotesk'] text-xs font-bold text-[#261907] flex items-center gap-1">
+                          <QrCode size={13} className="text-[#82193a]" />
+                          <span>Station QR Code Active</span>
+                        </span>
+                        <span className="font-['DM_Sans'] text-[11px] text-[#564145]">
+                          Scan with mobile camera to test hospital wayfinder
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://aravind-map-raesha0506.netlify.app"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#82193a] text-white rounded-lg font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] transition-all shadow-xs"
+                      >
+                        <ExternalLink size={12} />
+                        <span>Live Demo</span>
+                      </a>
+                      <a
+                        href="https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white text-[#261907] border border-[#dcbfc3] rounded-lg font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#fff1e5] transition-all shadow-xs"
+                      >
+                        <Github size={12} />
+                        <span>GitHub</span>
+                      </a>
+                      <button
+                        onClick={() => onNavigate('projects')}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white text-[#261907] border border-[#dcbfc3] rounded-lg font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#fff1e5] transition-all cursor-pointer"
+                      >
+                        <span>Interactive Map</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Informatics 4-Quadrant Grid */}
@@ -513,7 +572,14 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
           </div>
 
           {/* Section: Comparative Diagnostics Matrix */}
-          <section id="impact-matrix" className="mt-16 md:mt-24 flex flex-col gap-6">
+          <motion.section
+            id="impact-matrix"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-16 md:mt-24 flex flex-col gap-6"
+          >
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#82193a] font-bold">
@@ -588,10 +654,16 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 </tbody>
               </table>
             </div>
-          </section>
+          </motion.section>
 
           {/* Section: Field Locations & Facilities Photo Gallery */}
-          <section className="mt-16 md:mt-24 p-6 md:p-8 rounded-3xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-6">
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-16 md:mt-24 p-6 md:p-8 rounded-3xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-6"
+          >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex flex-col gap-1">
                 <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
@@ -685,10 +757,16 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
 
           {/* CTA Action Footer */}
-          <section className="mt-16 md:mt-24 p-8 md:p-12 rounded-3xl bg-[#610025] text-white shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-16 md:mt-24 p-8 md:p-12 rounded-3xl bg-[#610025] text-white shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-8"
+          >
             <div className="flex flex-col gap-2 max-w-xl">
               <span className="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#ffd9de] font-bold">
                 Next Steps
@@ -719,7 +797,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 <span>GitHub Profile</span>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 transition-all flex items-center gap-2 border border-white/20"
@@ -728,7 +806,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 <span>LinkedIn Profile</span>
               </a>
             </div>
-          </section>
+          </motion.section>
         </div>
       </div>
     </div>

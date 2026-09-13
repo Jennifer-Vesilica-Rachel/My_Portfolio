@@ -159,22 +159,6 @@ export const WAYFINDING_DESTINATIONS: Record<string, WayfindingDestination> = {
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'shopify-store',
-    title: 'Shopify E-Commerce Website',
-    period: '06/2026 – 07/2026',
-    organizationTag: 'E-Commerce Development',
-    description: 'Designed and developed a responsive Shopify e-commerce website with customized store layout, product collections, and navigation, optimized for mobile responsiveness and user experience.',
-    tags: ['Shopify', 'Liquid', 'E-Commerce', 'Mobile Responsive', 'Product Catalog', 'UX Design'],
-    category: 'fullstack',
-    metricHighlight: 'Mobile-Optimized Storefront',
-    bullets: [
-      'Designed and developed a responsive Shopify e-commerce website.',
-      'Customized the store layout, product collections, and navigation.',
-      'Implemented user-friendly shopping and product browsing features.',
-      'Optimized the website for mobile responsiveness and improved user experience.'
-    ]
-  },
-  {
     id: 'indoor-nav',
     title: 'Smart Indoor Navigation System',
     period: '06/2025 – 07/2025',
@@ -190,52 +174,29 @@ export const PROJECTS: ProjectItem[] = [
       'Generated QR codes for different locations and placed posters at key hospital entry points.',
       'Collected feedback from staff and improved the design and features based on suggestions.',
       'Deployed the site using Netlify and Bolt, and documented ideas for future improvements.'
-    ]
+    ],
+    liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
+    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System',
+    qrCodeUrl: '/images/aravind-qr-code.svg'
   },
   {
-    id: 'call-center',
-    title: 'Hospital Call Center Analytics Engine',
-    period: '06/2025',
-    organizationTag: 'Aravind Eye Hospital • Operations Analysis',
-    description: 'Exploratory data analysis across inpatient and outpatient appointment helpline records. Isolated recurring midday call spike bottlenecks and proposed staffing reallocation models that curtailed unanswered inquiries.',
-    tags: ['Python', 'Pandas', 'Matplotlib', 'Power BI', 'Google Sheets'],
+    id: 'search-engine',
+    title: 'IR Search Engine v2 (Inverted Index & TF-IDF)',
+    period: '2024 – 2025',
+    organizationTag: 'Information Retrieval & NLP • Open Source',
+    description: 'A full-stack Information Retrieval engine and computational search playground. Indexes document corpora with custom tokenization, stopword filtering, and Inverted Indexing, ranking search queries via Vector Space Model Cosine Similarity with interactive calculation transparency.',
+    tags: ['Python', 'Flask', 'Information Retrieval', 'TF-IDF', 'Cosine Similarity', 'Vercel', 'Vector Space Model'],
     category: 'analytics',
-    metricHighlight: '-28% Missed Calls',
+    metricHighlight: 'TF-IDF Cosine Similarity Ranking',
     bullets: [
-      'Analyzed hourly helpline telephony call logs to uncover peak patient inquiry surges.',
-      'Identified repetitive midday waiting intervals and formulated staffing reallocation models.',
-      'Produced executive visualization dashboards showing call trends and resolution times.'
-    ]
-  },
-  {
-    id: 'mr-audit',
-    title: 'Medical Record (MR) Tracking & Audit Pipeline',
-    period: '07/2025',
-    organizationTag: 'Hospital Systems & Informatics',
-    description: 'Analyzed medical record location changes, identified common errors, and proposed automated barcoding checkpoints to improve file tracking and reduce manual mistakes.',
-    tags: ['SQL', 'Data Audit', 'Python', 'Process Control'],
-    category: 'healthcare',
-    metricHighlight: '99.4% Verified Traceability',
-    bullets: [
-      'Analyzed medical record location changes across clinical departments.',
-      'Found common routing errors and misplaced physical chart pathways.',
-      'Suggested fixes to improve file tracking and reduce manual mistakes.'
-    ]
-  },
-  {
-    id: 'zoho-dashboard',
-    title: 'Custom Low-Code Operations Dashboard',
-    period: '11/2023',
-    organizationTag: 'Zoho Young Creators Program',
-    description: 'Completed hands-on training in Zoho Creator to build low-code applications with interactive forms, workflow automation, and custom reporting dashboards.',
-    tags: ['Zoho Creator', 'Workflow Automation', 'Custom Dashboards', 'Low-Code'],
-    category: 'fullstack',
-    metricHighlight: 'Automated Triggers',
-    bullets: [
-      'Completed hands-on training in Zoho Creator to build low-code applications.',
-      'Gained practical experience in form creation, workflow automation, and custom dashboards.',
-      'Participated under the Young Creators Program at Women\'s Engineering College, Puducherry.'
-    ]
+      'Built an Information Retrieval engine utilizing an Inverted Index data structure and TF-IDF weighting model.',
+      'Implemented Vector Space Model querying with Cosine Similarity ranking to compute document relevance scores.',
+      'Constructed transparent inspection tables displaying tokenized vocabulary, term frequency (TF), inverse document frequency (IDF), and query vectors.',
+      'Designed user document ingestion allowing dynamic custom .txt file uploads and real-time corpus re-indexing.',
+      'Deployed production application to Vercel with real-time term tokenization and ranking.'
+    ],
+    liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
+    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/search-engine'
   }
 ];
 
@@ -246,7 +207,7 @@ export const RESUME_DATA = {
     phone: '+91 8248092194',
     location: 'Puducherry, India',
     linkedin: 'Jennifer Vesilica Rachel S',
-    linkedinUrl: 'https://www.linkedin.com',
+    linkedinUrl: 'https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305',
     github: 'Jennifer-Vesilica-Rachel',
     githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel'
   },
@@ -287,16 +248,6 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
-      period: '06/2026 – 07/2026',
-      title: 'Shopify E-Commerce Website',
-      bullets: [
-        'Designed and developed a responsive Shopify e-commerce website.',
-        'Customized the store layout, product collections, and navigation.',
-        'Implemented user-friendly shopping and product browsing features.',
-        'Optimized the website for mobile responsiveness and improved user experience.'
-      ]
-    },
-    {
       period: '06/2025 – 07/2025',
       title: 'Smart Indoor Navigation System',
       bullets: [
@@ -306,7 +257,22 @@ export const RESUME_DATA = {
         'Generated QR codes for different locations and placed posters at key hospital entry points.',
         'Collected feedback from staff and improved the design and features based on suggestions.',
         'Deployed the site using Netlify and Bolt, and documented ideas for future improvements.'
-      ]
+      ],
+      liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
+      githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System'
+    },
+    {
+      period: '2024 – 2025',
+      title: 'IR Search Engine v2 (Inverted Index & TF-IDF)',
+      bullets: [
+        'Built an Information Retrieval engine utilizing an Inverted Index data structure and TF-IDF weighting model.',
+        'Implemented Vector Space Model querying with Cosine Similarity ranking to compute document relevance scores.',
+        'Constructed transparent inspection tables displaying tokenized vocabulary, term frequency (TF), inverse document frequency (IDF), and query vectors.',
+        'Designed user document ingestion allowing dynamic custom .txt file uploads and real-time corpus re-indexing.',
+        'Deployed production application to Vercel with real-time term tokenization and ranking.'
+      ],
+      liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
+      githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/search-engine'
     }
   ],
   education: {

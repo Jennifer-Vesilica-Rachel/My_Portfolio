@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { NavPath } from './types';
 import { CERTIFICATES } from './data/portfolioData';
 import Header from './components/Header';
@@ -54,40 +55,51 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full pt-20">
-        {currentPath === 'about' && (
-          <AboutView
-            onNavigate={handleNavigate}
-            onOpenCertificate={handleOpenCertificate}
-          />
-        )}
+      <main className="flex-1 w-full pt-20 overflow-x-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPath}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full"
+          >
+            {currentPath === 'about' && (
+              <AboutView
+                onNavigate={handleNavigate}
+                onOpenCertificate={handleOpenCertificate}
+              />
+            )}
 
-        {currentPath === 'experience' && (
-          <ExperienceView
-            onNavigate={handleNavigate}
-            onOpenCertificate={handleOpenCertificate}
-          />
-        )}
+            {currentPath === 'experience' && (
+              <ExperienceView
+                onNavigate={handleNavigate}
+                onOpenCertificate={handleOpenCertificate}
+              />
+            )}
 
-        {currentPath === 'projects' && (
-          <ProjectsView
-            onNavigate={handleNavigate}
-            onOpenResume={() => setIsResumeOpen(true)}
-          />
-        )}
+            {currentPath === 'projects' && (
+              <ProjectsView
+                onNavigate={handleNavigate}
+                onOpenResume={() => setIsResumeOpen(true)}
+              />
+            )}
 
-        {currentPath === 'certifications' && (
-          <CertificationsView
-            onOpenCertificate={handleOpenCertificate}
-            onNavigate={handleNavigate}
-          />
-        )}
+            {currentPath === 'certifications' && (
+              <CertificationsView
+                onOpenCertificate={handleOpenCertificate}
+                onNavigate={handleNavigate}
+              />
+            )}
 
-        {currentPath === 'contact' && (
-          <ContactView
-            onNavigate={handleNavigate}
-          />
-        )}
+            {currentPath === 'contact' && (
+              <ContactView
+                onNavigate={handleNavigate}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Global Footer */}

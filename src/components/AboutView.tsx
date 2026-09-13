@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { NavPath } from '../types';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
 import {
@@ -21,7 +22,9 @@ import {
   QrCode,
   ShieldCheck,
   Navigation,
-  Github
+  Github,
+  ExternalLink,
+  Search
 } from 'lucide-react';
 
 interface AboutViewProps {
@@ -61,7 +64,12 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
         <div className="absolute top-96 left-[-10%] w-[520px] h-[520px] rounded-full bg-[#ffd9de]/20 blur-3xl pointer-events-none"></div>
 
         {/* Editorial Hero Stage */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16"
+        >
           {/* Breadcrumb & Issue Stamp */}
           <div className="flex flex-wrap items-center justify-between gap-3 pb-6">
             <div className="flex items-center gap-2">
@@ -310,11 +318,17 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
       </div>
 
       {/* Deep Atlas Red Editorial Accent Band */}
-      <section className="w-full bg-[#610025] text-white py-8 md:py-10">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full bg-[#610025] text-white py-8 md:py-10"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-8 flex flex-col gap-1.5">
             <span className="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-[#ffb2bf]">
@@ -337,10 +351,16 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section: Academic Foundation & Core Competencies */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 w-full">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 w-full"
+      >
         <div className="flex flex-col gap-2 mb-8">
           <div className="flex items-center gap-2 text-[#82193a]">
             <GraduationCap size={20} />
@@ -679,10 +699,16 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Flagship Innovation Highlights */}
-      <section className="w-full bg-[#fff1e5]/60 py-16 border-y border-[#dcbfc3]/30">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full bg-[#fff1e5]/60 py-16 border-y border-[#dcbfc3]/30"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="flex flex-col gap-1">
@@ -795,34 +821,121 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </div>
               </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5">
-                {['JavaScript', 'QR Architecture', 'SVG Vector Mapping', 'Tailwind CSS', 'Netlify Cloud'].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-0.5 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-xs text-[#261907]"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {/* QR Code & Tags Row */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-3.5 rounded-xl bg-[#fff1e5] border border-[#dcbfc3]/30">
+                <div className="flex items-center gap-3">
+                  <div className="w-14 h-14 bg-white p-1 rounded-lg border border-[#dcbfc3]/50 shadow-xs shrink-0">
+                    <img
+                      src="/images/aravind-qr-code.svg"
+                      alt="Aravind Navigation QR Code"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-['Epilogue'] text-xs font-bold text-[#261907] flex items-center gap-1.5">
+                      <QrCode size={13} className="text-[#82193a]" />
+                      <span>Physical Scan Placard</span>
+                    </span>
+                    <span className="font-['DM_Sans'] text-[11px] text-[#564145]">
+                      Scan with your phone to open mobile wayfinding instantly
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {['React.js', 'QR Routing', 'Tailwind', 'Netlify'].map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 rounded bg-white font-['Space_Grotesk'] text-xs text-[#261907] border border-[#dcbfc3]/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Action */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-2.5 pt-2">
                 <button
                   onClick={() => onNavigate('projects')}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#610025] transition-colors shadow-sm cursor-pointer"
                 >
                   <Eye size={15} />
-                  <span>Launch Live Simulator</span>
+                  <span>Interactive Simulator</span>
                 </button>
+                <a
+                  href="https://aravind-map-raesha0506.netlify.app"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#82193a] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-colors shadow-xs"
+                >
+                  <ExternalLink size={13} />
+                  <span>Live Demo</span>
+                </a>
+                <a
+                  href="https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#261907] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-colors shadow-xs"
+                >
+                  <Github size={13} />
+                  <span>GitHub</span>
+                </a>
                 <button
                   onClick={() => onNavigate('experience')}
-                  className="font-['Space_Grotesk'] text-xs text-[#261907] hover:text-[#82193a] font-semibold transition-colors cursor-pointer"
+                  className="font-['Space_Grotesk'] text-xs text-[#261907] hover:text-[#82193a] font-semibold transition-colors cursor-pointer ml-auto"
                 >
                   Read Hospital Case Study →
                 </button>
               </div>
+            </div>
+          </div>
+
+          {/* New Project Callout: IR Search Engine v2 */}
+          <div className="p-6 rounded-2xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="flex flex-col gap-1.5 max-w-2xl">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded bg-[#2563eb]/10 text-[#2563eb] font-['Space_Grotesk'] text-xs font-bold uppercase">
+                  Featured Project 02
+                </span>
+                <span className="font-['Space_Grotesk'] text-xs text-[#564145]">
+                  Python · Flask · Vercel Deployment
+                </span>
+              </div>
+              <h4 className="font-['Epilogue'] text-lg font-bold text-[#261907]">
+                IR Search Engine v2 (Inverted Index + TF-IDF)
+              </h4>
+              <p className="font-['DM_Sans'] text-xs text-[#564145] leading-relaxed">
+                Information Retrieval search engine ranking document corpora with Vector Space Model Cosine Similarity, dynamic custom .txt file ingestion, and transparent term frequency calculation matrices.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 shrink-0">
+              <a
+                href="https://search-engine-self-sigma.vercel.app"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#2563eb] text-white font-['Space_Grotesk'] text-xs font-bold hover:bg-[#1d4ed8] transition-colors shadow-xs"
+              >
+                <ExternalLink size={13} />
+                <span>Live Demo</span>
+              </a>
+              <a
+                href="https://github.com/Jennifer-Vesilica-Rachel/search-engine"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffffff] text-[#261907] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffebd5] transition-colors shadow-xs"
+              >
+                <Github size={13} />
+                <span>GitHub</span>
+              </a>
+              <button
+                onClick={() => onNavigate('projects')}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ffebd5] text-[#82193a] font-['Space_Grotesk'] text-xs font-bold hover:bg-[#ffe4c6] transition-colors cursor-pointer"
+              >
+                <Search size={13} />
+                <span>Sandbox View</span>
+              </button>
             </div>
           </div>
 
@@ -889,10 +1002,16 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Callout: Explore Credential Records */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full"
+      >
         <div className="rounded-3xl bg-[#ffe4c6] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-md border border-[#dcbfc3]/50">
           <div className="flex flex-col gap-2 max-w-xl z-10">
             <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-widest">
@@ -921,7 +1040,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
             </button>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

@@ -55,7 +55,10 @@ export interface ProjectItem {
   organizationTag: string;
   description: string;
   tags: string[];
-  category: 'healthcare' | 'fullstack' | 'analytics';
+  category: 'healthcare' | 'fullstack' | 'analytics' | 'ai';
   metricHighlight?: string;
   bullets?: string[];
+  liveDemoUrl?: string;
+  githubUrl?: string;
+  qrCodeUrl?: string;
 }

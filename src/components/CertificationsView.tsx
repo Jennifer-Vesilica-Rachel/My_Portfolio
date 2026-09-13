@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { CERTIFICATES } from '../data/portfolioData';
 import UpturneCertificateDocument from './UpturneCertificateDocument';
 import AravindCertificateDocument from './AravindCertificateDocument';
@@ -23,7 +24,12 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
     <div className="flex flex-col w-full animate-in fade-in duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col gap-12 md:gap-16 w-full">
         {/* Section Header */}
-        <section className="flex flex-col gap-3">
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col gap-3"
+        >
           <div className="flex flex-wrap items-baseline justify-between gap-2 pb-2">
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
@@ -47,10 +53,16 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               Formal acknowledgments of on-premise healthcare technology deployment, commercial AI automation, and enterprise low-code systems engineering.
             </p>
           </div>
-        </section>
+        </motion.section>
 
         {/* Certificate Cards Grid */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+        >
           {CERTIFICATES.map((cert) => (
             <div
               key={cert.id}
@@ -128,10 +140,16 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
             </div>
           ))}
-        </section>
+        </motion.section>
 
         {/* Academic & Low-Code Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+        >
           {/* Zoho Creator Card */}
           <div className="lg:col-span-5 rounded-2xl bg-[#ffebd5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40">
             <div className="flex flex-col gap-3">
@@ -220,10 +238,16 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Competency Matrix & Tool Proficiency */}
-        <section className="rounded-3xl bg-[#ffebd5] p-6 md:p-8 flex flex-col gap-6 shadow-sm border border-[#dcbfc3]/40">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-3xl bg-[#ffebd5] p-6 md:p-8 flex flex-col gap-6 shadow-sm border border-[#dcbfc3]/40"
+        >
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-2 border-b border-[#dcbfc3]/30">
             <div>
               <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
@@ -374,11 +398,17 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Navigation Prompt to Contact */}
         {onNavigate && (
-          <div className="p-6 md:p-8 rounded-2xl bg-[#fff1e5] border border-[#dcbfc3]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="p-6 md:p-8 rounded-2xl bg-[#fff1e5] border border-[#dcbfc3]/50 flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
             <div className="flex flex-col gap-1 text-center sm:text-left">
               <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
                 Direct Inquiries
@@ -397,7 +427,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               <span>Go to Contact Page</span>
               <ArrowRight size={15} />
             </button>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
