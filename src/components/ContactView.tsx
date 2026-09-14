@@ -110,8 +110,19 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
       }, 8000);
     } catch (err: any) {
       console.error('EmailJS submission error:', err);
-      const errorMessage =
-        err?.text || err?.message || 'Unable to send your message. Please verify your EmailJS setup or email me directly.';
+      let rawMsg = err?.text || err?.message || (typeof err === 'string' ? err : '');
+      let errorMessage = rawMsg;
+
+      if (!errorMessage) {
+        errorMessage = 'Unable to send your message. Please check your EmailJS service configuration or email directly.';
+      } else if (rawMsg.toLowerCase().includes('service id not found')) {
+        errorMessage = `EmailJS error: Service ID "${serviceId}" was not found. In your EmailJS dashboard (dashboard.emailjs.com), go to 'Email Services' to copy your active Service ID (or create one by connecting your Gmail) and update VITE_EMAILJS_SERVICE_ID.`;
+      } else if (rawMsg.toLowerCase().includes('template') && rawMsg.toLowerCase().includes('not found')) {
+        errorMessage = `EmailJS error: Template ID "${templateId}" was not found. In your EmailJS dashboard, go to 'Email Templates' to verify your Template ID and update VITE_EMAILJS_TEMPLATE_ID.`;
+      } else if (rawMsg.toLowerCase().includes('public key') || rawMsg.toLowerCase().includes('user') || rawMsg.toLowerCase().includes('account')) {
+        errorMessage = `EmailJS error: Authentication failed with the provided Public Key. Please check your Public Key in EmailJS Account Settings → API Keys.`;
+      }
+
       setSubmitError(errorMessage);
     } finally {
       setIsSubmitting(false);
