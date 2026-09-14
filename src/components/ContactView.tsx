@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import { NavPath } from '../types';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
 import { useViewAnimations } from '../hooks/useSectionAnimations';
@@ -18,7 +19,8 @@ import {
   ArrowRight,
   MessageSquare,
   Globe,
-  Briefcase
+  Briefcase,
+  AlertCircle
 } from 'lucide-react';
 
 interface ContactViewProps {
@@ -30,6 +32,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
   const [emailCopied, setEmailCopied] = useState(false);
   const [phoneCopied, setPhoneCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [inquiryType, setInquiryType] = useState('internship');
   const [formData, setFormData] = useState({
@@ -57,19 +60,46 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
     });
   };
 
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
+    setFormSubmitted(false);
 
-    setTimeout(() => {
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.currentTarget,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+       );
+
+       setFormSubmitted(true);
+
+       setFormData({
+         name: '',
+         email: '',
+         org: '',
+         message: '',
+       });
+
+       setInquiryType('internship');
+
+       setTimeout(() => {
+         setFormSubmitted(false);
+       }, 8000);
+
+      } catch (err: any) {
+      console.error('EmailJS error:', err);
+
+      setSubmitError(
+        'Unable to send your message. Please try again or email me directly.'
+      );
+    } finally {
       setIsSubmitting(false);
-      setFormSubmitted(true);
-      setFormData({ name: '', email: '', org: '', message: '' });
-
-      setTimeout(() => {
-        setFormSubmitted(false);
-      }, 8000);
-    }, 600);
+    }
   };
 
   return (
@@ -131,13 +161,13 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
 
             <div className="flex flex-col gap-2">
               <span className="px-2.5 py-1 self-start rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
-                Direct Communication
+                Contact Me
               </span>
               <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-bold text-[#261907]">
-                Initiate a Technical Conversation
+                Send a Message
               </h2>
               <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] leading-relaxed">
-                Whether you have an inquiry regarding internships, full-stack software development, applied AI automations, or research collaborations — I would love to hear from you.
+                Whether you have an inquiry regarding internships, full-stack software engineering roles, applied AI projects, or technical collaboration — I would love to hear from you.
               </p>
             </div>
 
@@ -315,10 +345,10 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </span>
                 <div>
                   <h3 className="gsap-reveal-heading font-['Epilogue'] text-xl sm:text-2xl font-bold text-[#261907]">
-                    Transmit a Direct Note
+                    Send a Message
                   </h3>
                   <p className="font-['DM_Sans'] text-xs text-[#564145]">
-                    Encrypted channel · Fast direct dispatch
+                    Fast response · Monitored daily
                   </p>
                 </div>
               </div>
@@ -371,6 +401,11 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
 
             {/* Form */}
             <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+              <input
+               type="hidden"
+               name="category"
+               value={inquiryType}
+              />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="font-['Space_Grotesk'] text-xs text-[#564145] uppercase font-bold">
@@ -378,6 +413,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -392,6 +428,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -407,6 +444,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </label>
                 <input
                   type="text"
+                  name="organization"
                   value={formData.org}
                   onChange={(e) => setFormData({ ...formData, org: e.target.value })}
                   placeholder="e.g. Hospital Lab, University, or Tech Company"
@@ -419,6 +457,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   Message Details *
                 </label>
                 <textarea
+                  name="message"
                   required
                   rows={5}
                   value={formData.message}
@@ -439,15 +478,38 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   disabled={isSubmitting}
                   className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#82193a] hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                 >
-                  <span>{isSubmitting ? 'Transmitting...' : 'Transmit Message'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                   <Send size={15} />
                 </button>
               </div>
 
+              {/* Verified Success Notification: ONLY shown when submission actually reaches a service */}
               {formSubmitted && (
-                <div className="p-4 rounded-xl bg-[#ffffff] text-[#610025] font-['Space_Grotesk'] text-xs font-semibold flex items-center gap-2.5 border border-[#82193a]/30 shadow-sm animate-in fade-in duration-200">
-                  <CheckCircle2 size={20} className="text-[#82193a] shrink-0" />
-                  <span>Thank you! Your message has been transmitted successfully. Jennifer will reply within 24 hours.</span>
+                <div className="p-4 rounded-xl bg-[#ffffff] text-[#166534] font-['Space_Grotesk'] text-xs font-semibold flex items-center gap-2.5 border border-emerald-300 shadow-sm animate-in fade-in duration-200">
+                  <CheckCircle2 size={20} className="text-emerald-600 shrink-0" />
+                  <span>Thank you! Your message has been sent successfully. Jennifer will reply within 24 hours.</span>
+                </div>
+              )}
+
+              {/* Error Notification with fallback mailto link: shown if submission fails */}
+              {submitError && (
+                <div className="p-4 rounded-xl bg-amber-50 text-amber-950 font-['Space_Grotesk'] text-xs font-semibold flex flex-col gap-2 border border-amber-300 shadow-sm animate-in fade-in duration-200">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle size={18} className="text-amber-700 shrink-0 mt-0.5" />
+                    <div className="flex flex-col gap-1">
+                      <span>Unable to reach form service ({submitError}).</span>
+                      <a
+                        href={`mailto:jennifersagaidasse@gmail.com?subject=${encodeURIComponent(
+                          `Portfolio Message from ${formData.name || 'Visitor'} (${inquiryType})`
+                        )}&body=${encodeURIComponent(
+                          `Name: ${formData.name}\nOrganization: ${formData.org}\nCategory: ${inquiryType}\n\nMessage:\n${formData.message}`
+                        )}`}
+                        className="inline-flex items-center gap-1 text-[#82193a] underline font-bold mt-1"
+                      >
+                        Click here to send directly via your email client →
+                      </a>
+                    </div>
+                  </div>
                 </div>
               )}
             </form>

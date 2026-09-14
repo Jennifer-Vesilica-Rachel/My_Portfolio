@@ -764,7 +764,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 className="px-5 py-3 rounded-lg bg-[#ffffff] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md flex items-center gap-2"
               >
                 <Mail size={16} />
-                <span>Initiate Dialogue</span>
+                <span>Contact Me</span>
               </a>
               <a
                 href="https://github.com/Jennifer-Vesilica-Rachel"

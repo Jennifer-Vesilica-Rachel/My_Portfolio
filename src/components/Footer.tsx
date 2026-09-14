@@ -105,10 +105,10 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
           </div>
 
-          {/* Col 3: Direct Connectivity */}
+          {/* Col 3: Contact Me */}
           <div className="gsap-footer-col md:col-span-4 flex flex-col gap-3">
             <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
-              Direct Connectivity
+              Contact Me
             </span>
             <div className="flex flex-col gap-2.5">
               <a

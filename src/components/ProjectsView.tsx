@@ -1045,13 +1045,13 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
               onClick={() => onNavigate('contact')}
               className="w-full sm:w-auto text-center px-6 py-3 bg-[#ffffff] text-[#610025] rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm cursor-pointer"
             >
-              Initiate Dialogue
+              Contact Me
             </button>
             <button
               onClick={onOpenResume}
               className="w-full sm:w-auto text-center px-6 py-3 bg-[#82193a] text-white rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer border border-white/20"
             >
-              <span>Curriculum Vitae</span>
+              <span>View Resume</span>
             </button>
           </div>
         </div>
