@@ -66,37 +66,53 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
     setSubmitError(null);
     setFormSubmitted(false);
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
     try {
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          'EmailJS environment variables are not configured in Vercel. Please add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to your Vercel Project Settings → Environment Variables and redeploy.'
+        );
+      }
+
+      if (publicKey.startsWith('template_')) {
+        throw new Error(
+          'VITE_EMAILJS_PUBLIC_KEY is currently set to a Template ID ("' +
+            publicKey +
+            '"). Please update it with your actual EmailJS Public Key from Account → General → API Keys.'
+        );
+      }
+
       await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         e.currentTarget,
         {
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+          publicKey: publicKey,
         }
-       );
-
-       setFormSubmitted(true);
-
-       setFormData({
-         name: '',
-         email: '',
-         org: '',
-         message: '',
-       });
-
-       setInquiryType('internship');
-
-       setTimeout(() => {
-         setFormSubmitted(false);
-       }, 8000);
-
-      } catch (err: any) {
-      console.error('EmailJS error:', err);
-
-      setSubmitError(
-        'Unable to send your message. Please try again or email me directly.'
       );
+
+      setFormSubmitted(true);
+
+      setFormData({
+        name: '',
+        email: '',
+        org: '',
+        message: '',
+      });
+
+      setInquiryType('internship');
+
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 8000);
+    } catch (err: any) {
+      console.error('EmailJS submission error:', err);
+      const errorMessage =
+        err?.text || err?.message || 'Unable to send your message. Please verify your EmailJS setup or email me directly.';
+      setSubmitError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -402,10 +418,17 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
             {/* Form */}
             <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
               <input
-               type="hidden"
-               name="category"
-               value={inquiryType}
+                type="hidden"
+                name="category"
+                value={inquiryType}
               />
+              {/* Template compatibility aliases for EmailJS */}
+              <input type="hidden" name="from_name" value={formData.name} />
+              <input type="hidden" name="user_name" value={formData.name} />
+              <input type="hidden" name="from_email" value={formData.email} />
+              <input type="hidden" name="user_email" value={formData.email} />
+              <input type="hidden" name="reply_to" value={formData.email} />
+              <input type="hidden" name="subject" value={`Portfolio inquiry (${inquiryType}) from ${formData.name || 'visitor'}`} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="font-['Space_Grotesk'] text-xs text-[#564145] uppercase font-bold">
@@ -494,17 +517,20 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               {/* Error Notification with fallback mailto link: shown if submission fails */}
               {submitError && (
                 <div className="p-4 rounded-xl bg-amber-50 text-amber-950 font-['Space_Grotesk'] text-xs font-semibold flex flex-col gap-2 border border-amber-300 shadow-sm animate-in fade-in duration-200">
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-start gap-2.5">
                     <AlertCircle size={18} className="text-amber-700 shrink-0 mt-0.5" />
-                    <div className="flex flex-col gap-1">
-                      <span>Unable to reach form service ({submitError}).</span>
+                    <div className="flex flex-col gap-1.5 w-full">
+                      <span className="font-bold text-amber-900 text-xs">Form Submission Notice</span>
+                      <p className="text-amber-900/90 leading-relaxed font-['DM_Sans'] text-xs font-normal">
+                        {submitError}
+                      </p>
                       <a
                         href={`mailto:jennifersagaidasse@gmail.com?subject=${encodeURIComponent(
                           `Portfolio Message from ${formData.name || 'Visitor'} (${inquiryType})`
                         )}&body=${encodeURIComponent(
                           `Name: ${formData.name}\nOrganization: ${formData.org}\nCategory: ${inquiryType}\n\nMessage:\n${formData.message}`
                         )}`}
-                        className="inline-flex items-center gap-1 text-[#82193a] underline font-bold mt-1"
+                        className="inline-flex items-center gap-1 text-[#82193a] hover:text-[#610025] underline font-bold mt-1"
                       >
                         Click here to send directly via your email client →
                       </a>
