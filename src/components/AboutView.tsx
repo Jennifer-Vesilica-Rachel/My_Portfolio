@@ -4,7 +4,6 @@ import { NavPath } from '../types';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
 import { useViewAnimations } from '../hooks/useSectionAnimations';
 import FlagshipProjectsSection from './FlagshipProjectsSection';
-import ContactSection from './ContactSection';
 import {
   ArrowRight,
   Briefcase,
@@ -765,9 +764,6 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           </div>
         </div>
       </section>
-
-      {/* Prominent Contact Section: Let's work together */}
-      <ContactSection id="home-contact-section" variant="embedded" />
     </div>
   );
 }
