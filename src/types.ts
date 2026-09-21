@@ -51,6 +51,8 @@ export interface WayfindingDestination {
 export interface ProjectItem {
   id: string;
   title: string;
+  role: string; // e.g., 'UI/UX & Frontend Developer' or 'Full-Stack Developer'
+  shortDescription: string; // 1-2 line concise summary for project cards
   period: string;
   organizationTag: string;
   description: string;

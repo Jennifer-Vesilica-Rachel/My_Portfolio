@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavPath } from '../types';
-import { Download, Menu, X, User } from 'lucide-react';
+import { Download, Menu, X, User, Github, Linkedin } from 'lucide-react';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
 import { gsap, prefersReducedMotion } from '../utils/gsapSetup';
 
@@ -88,10 +88,10 @@ export default function Header({ currentPath, onNavigate, onOpenResume }: Header
             </div>
             <div className="flex flex-col min-w-0">
               <span className="font-['Epilogue'] text-xs sm:text-sm md:text-base font-bold text-[#261907] tracking-tight leading-snug group-hover:text-[#82193a] transition-colors duration-200 truncate max-w-[130px] min-[380px]:max-w-[180px] sm:max-w-none">
-                Jennifer Vesilica Rachel S
+                Jennifer Vesilica Rachael
               </span>
               <span className="font-['Space_Grotesk'] text-[10px] sm:text-[11px] text-[#564145] uppercase tracking-wider truncate hidden min-[400px]:block transition-colors duration-200 group-hover:text-[#80552f]">
-                Software Engineer &amp; AI Innovator
+                UI/UX Designer &amp; Developer
               </span>
             </div>
           </button>
@@ -136,59 +136,117 @@ export default function Header({ currentPath, onNavigate, onOpenResume }: Header
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          {/* GitHub & LinkedIn Desktop Profile Icons */}
+          <div className="hidden sm:flex items-center gap-1.5">
+            <a
+              href="https://github.com/Jennifer-Vesilica-Rachel"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              title="GitHub Profile"
+              className="w-8 h-8 rounded-lg bg-[#ffebd5] hover:bg-[#ffe4c6] text-[#261907] hover:text-[#82193a] flex items-center justify-center border border-[#dcbfc3]/40 transition-all duration-200 hover:scale-105 active:scale-95"
+            >
+              <Github size={15} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn Profile"
+              className="w-8 h-8 rounded-lg bg-[#ffebd5] hover:bg-[#ffe4c6] text-[#261907] hover:text-[#82193a] flex items-center justify-center border border-[#dcbfc3]/40 transition-all duration-200 hover:scale-105 active:scale-95"
+            >
+              <Linkedin size={15} />
+            </a>
+          </div>
+
           <button
             onClick={onOpenResume}
-            className="group inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#82193a] text-[#ffffff] font-['Space_Grotesk'] text-xs font-semibold rounded-lg hover:bg-[#610025] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-transparent shadow-[0_2px_4px_rgba(130,25,58,0.12)] cursor-pointer"
+            className="group inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-4 min-h-[44px] bg-[#82193a] text-[#ffffff] font-['Space_Grotesk'] text-xs font-semibold rounded-xl hover:bg-[#610025] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-transparent shadow-[0_2px_4px_rgba(130,25,58,0.12)] cursor-pointer"
           >
-            <Download size={14} className="group-hover:-translate-y-0.5 transition-transform duration-200" />
+            <Download size={15} className="group-hover:-translate-y-0.5 transition-transform duration-200" />
             <span>Resume</span>
           </button>
 
           <button
             onClick={() => handleNavClick('about')}
-            className="hidden sm:flex w-8 h-8 rounded-full bg-[#610025] text-[#ffffff] items-center justify-center hover:opacity-90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="hidden md:flex w-9 h-9 rounded-full bg-[#610025] text-[#ffffff] items-center justify-center hover:opacity-90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
             title="Candidate Profile"
           >
             <User size={16} />
           </button>
 
-          {/* Mobile hamburger trigger */}
+          {/* Mobile hamburger trigger with 44px min touch target */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg bg-[#ffebd5] text-[#261907] hover:bg-[#ffe4c6] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#ffebd5] text-[#261907] hover:bg-[#ffe4c6] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Dropdown */}
+      {/* Mobile Drawer Dropdown with generous tap targets */}
       {mobileMenuOpen && (
         <>
           <div
-            className="fixed inset-0 top-20 bg-black/20 z-30 lg:hidden"
+            className="fixed inset-0 top-20 bg-black/25 z-30 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="relative z-40 lg:hidden bg-[#fff8f4] border-b border-[#dcbfc3]/40 px-4 py-3 shadow-lg flex flex-col gap-1">
+          <div className="relative z-40 lg:hidden bg-[#fff8f4] border-b border-[#dcbfc3]/40 px-4 py-4 shadow-xl flex flex-col gap-1.5 animate-in slide-in-from-top-2 duration-200">
             {navItems.map((item) => {
               const isActive = currentPath === item.path;
               return (
                 <button
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className={`w-full text-left px-3 py-2.5 rounded-lg font-['Space_Grotesk'] text-xs uppercase tracking-wider font-semibold transition-all duration-200 flex items-center justify-between cursor-pointer ${
+                  className={`w-full text-left px-4 py-3 min-h-[48px] rounded-xl font-['Space_Grotesk'] text-sm uppercase tracking-wider font-semibold transition-all duration-200 flex items-center justify-between cursor-pointer active:scale-[0.99] ${
                     isActive
-                      ? 'bg-[#ffe4c6] text-[#610025] translate-x-1'
+                      ? 'bg-[#ffe4c6] text-[#610025] translate-x-1 font-bold'
                       : 'text-[#564145] hover:bg-[#ffebd5] hover:translate-x-1'
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#82193a]"></span>}
+                  {isActive && <span className="w-2 h-2 rounded-full bg-[#82193a]"></span>}
                 </button>
               );
             })}
+
+            {/* Mobile Drawer Secondary Actions */}
+            <div className="pt-3 mt-2 border-t border-[#dcbfc3]/30 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://github.com/Jennifer-Vesilica-Rachel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-[#ffebd5] text-[#261907] flex items-center justify-center hover:bg-[#ffe4c6] active:scale-95 transition-all"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-[#ffebd5] text-[#261907] flex items-center justify-center hover:bg-[#ffe4c6] active:scale-95 transition-all"
+                >
+                  <Linkedin size={18} />
+                </a>
+              </div>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenResume();
+                }}
+                className="flex-1 min-h-[44px] px-4 py-2.5 bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold rounded-xl flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+              >
+                <Download size={15} />
+                <span>View Resume</span>
+              </button>
+            </div>
           </div>
         </>
       )}

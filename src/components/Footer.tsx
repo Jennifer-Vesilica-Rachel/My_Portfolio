@@ -54,11 +54,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                 JR
               </span>
               <span className="font-['Epilogue'] text-base font-bold text-[#261907]">
-                Jennifer Vesilica Rachel S
+                Jennifer Vesilica Rachael
               </span>
             </div>
             <p className="font-['DM_Sans'] text-sm text-[#564145] max-w-md leading-relaxed">
-              Aspiring software engineer, AI researcher, and builder focused on resilient systems, tactile user experiences, and thoughtful computation.
+              UI/UX Designer &amp; Developer focused on human-centered digital experiences, accessible design systems, and resilient frontend engineering.
             </p>
             <div className="flex items-center gap-1.5 text-[#564145] text-xs font-['Space_Grotesk'] mt-1">
               <MapPin size={15} className="text-[#82193a]" />
@@ -71,34 +71,34 @@ export default function Footer({ onNavigate }: FooterProps) {
             <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
               Navigation
             </span>
-            <div className="flex flex-col gap-1.5 font-['DM_Sans'] text-sm text-[#564145]">
+            <div className="flex flex-col gap-1 font-['DM_Sans'] text-sm text-[#564145]">
               <button
                 onClick={() => handleNav('about')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
               >
                 About Biography
               </button>
               <button
                 onClick={() => handleNav('experience')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
               >
                 Professional History
               </button>
               <button
                 onClick={() => handleNav('projects')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
               >
                 Technical Showcase
               </button>
               <button
                 onClick={() => handleNav('certifications')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
               >
                 Credentials &amp; Honors
               </button>
               <button
                 onClick={() => handleNav('contact')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
               >
                 Direct Inquiries
               </button>
@@ -171,7 +171,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         {/* Colophon bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs font-['Space_Grotesk'] text-[#564145]">
-          <p>© 2026 Jennifer Vesilica Rachel S. Engineered with Warm Modern Editorial standards.</p>
+          <p>© 2026 Jennifer Vesilica Rachael. Engineered with Warm Modern Editorial standards.</p>
           <p className="flex items-center gap-1 text-[#80552f]">
             <Terminal size={14} />
             <span>Designed for high-impact innovation</span>

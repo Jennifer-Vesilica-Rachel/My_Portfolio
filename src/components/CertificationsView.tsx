@@ -42,10 +42,10 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <h1 className="gsap-reveal-heading font-['Epilogue'] text-3xl sm:text-4xl font-extrabold text-[#261907] tracking-tight max-w-2xl">
+            <h1 className="gsap-reveal-heading typography-section-heading font-['Epilogue'] text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#261907] tracking-tight max-w-2xl">
               Verified Credentials, Certifications &amp; Technical Endorsements
             </h1>
-            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-md leading-relaxed">
+            <p className="gsap-reveal-paragraph typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] max-w-md leading-relaxed">
               Formal acknowledgments of on-premise healthcare technology deployment, commercial AI automation, and enterprise low-code systems engineering.
             </p>
           </div>
@@ -56,7 +56,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
           {CERTIFICATES.map((cert) => (
             <div
               key={cert.id}
-              className="gsap-card lg:col-span-6 flex flex-col rounded-2xl bg-[#fff1e5] p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-[#dcbfc3]/40 group hover:-translate-y-1"
+              className="gsap-card card-lift lg:col-span-6 flex flex-col rounded-2xl bg-[#fff1e5] p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 border border-[#dcbfc3]/40 group hover:-translate-y-1"
             >
               {/* Header */}
               <div className="flex items-start justify-between gap-3 mb-4">
@@ -64,10 +64,10 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
                   <span className="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#82193a] font-bold">
                     {cert.refNo}
                   </span>
-                  <h2 className="font-['Epilogue'] text-lg font-bold text-[#261907] group-hover:text-[#82193a] transition-colors leading-tight mt-0.5">
+                  <h2 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl font-bold text-[#261907] group-hover:text-[#82193a] transition-colors leading-tight mt-0.5">
                     {cert.issuer}
                   </h2>
-                  <span className="font-['DM_Sans'] text-xs text-[#564145] mt-0.5">
+                  <span className="font-['DM_Sans'] text-xs sm:text-sm text-[#564145] mt-0.5">
                     {cert.subLocation}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
                     e.stopPropagation();
                     onOpenCertificate(cert.id);
                   }}
-                  className="absolute bottom-3 right-3 px-3.5 py-1.5 rounded-lg bg-[#ffffff]/95 backdrop-blur-sm text-[#82193a] font-['Space_Grotesk'] text-xs font-bold shadow-md flex items-center gap-1.5 hover:bg-[#82193a] hover:text-white hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  className="btn-interactive absolute bottom-3 right-3 px-3.5 py-1.5 rounded-lg bg-[#ffffff]/95 backdrop-blur-sm text-[#82193a] font-['Space_Grotesk'] text-xs font-bold shadow-md flex items-center gap-1.5 hover:bg-[#82193a] hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-150 cursor-pointer"
                 >
                   <Maximize2 size={14} />
                   <span>Inspect Certificate</span>
@@ -135,7 +135,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
         {/* Academic & Low-Code Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Zoho Creator Card */}
-          <div className="gsap-card lg:col-span-5 rounded-2xl bg-[#ffebd5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40 hover:shadow-md transition-shadow">
+          <div className="gsap-card card-lift lg:col-span-5 rounded-2xl bg-[#ffebd5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
@@ -174,7 +174,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
           </div>
 
           {/* Academic Foundation Card */}
-          <div className="gsap-card lg:col-span-7 rounded-2xl bg-[#fff1e5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40 hover:shadow-md transition-shadow">
+          <div className="gsap-card card-lift lg:col-span-7 rounded-2xl bg-[#fff1e5] p-6 md:p-8 flex flex-col justify-between shadow-sm border border-[#dcbfc3]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -233,11 +233,11 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
               <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
                 Technical Vector
               </span>
-              <h2 className="gsap-reveal-heading font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907] mt-2">
+              <h2 className="gsap-reveal-heading typography-section-heading font-['Epilogue'] text-2xl sm:text-3xl font-bold text-[#261907] mt-2">
                 Competency Matrix &amp; Tool Proficiency
               </h2>
             </div>
-            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-xs md:text-sm text-[#564145] max-w-md">
+            <p className="gsap-reveal-paragraph typography-body font-['DM_Sans'] text-xs md:text-sm lg:text-base text-[#564145] max-w-md">
               Calibrated across actual codebases, healthcare indoor mapping implementations, and multi-threaded analytical pipelines.
             </p>
           </div>

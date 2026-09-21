@@ -61,18 +61,18 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </span>
             </div>
 
-            <h1 className="gsap-reveal-heading font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#261907] tracking-tight leading-tight mt-1">
+            <h1 className="gsap-reveal-heading typography-section-heading font-['Epilogue'] text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#261907] tracking-tight leading-tight mt-1">
               Work Experience &amp; Professional Internships
             </h1>
 
-            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-3xl leading-relaxed">
+            <p className="gsap-reveal-paragraph typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] max-w-3xl leading-relaxed">
               Practical engineering practice rooted in healthcare wayfinding architectures, data analytics, and autonomous workflow automation across Pondicherry.
             </p>
           </div>
 
           {/* Quick Executive Summary Ribbon / Bento Metric Strip */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div className="gsap-card card-lift flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#82193a] font-bold">
                   Deployments
@@ -83,7 +83,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Live QR Indoor Hospital Wayfinding</span>
             </div>
 
-            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div className="gsap-card card-lift flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#80552f] font-bold">
                   Efficiency Lift
@@ -94,7 +94,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Wayfinding Inquiries &amp; MR File Delays</span>
             </div>
 
-            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div className="gsap-card card-lift flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#3f281f] font-bold">
                   Verified Hours
@@ -105,7 +105,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               <span className="font-['DM_Sans'] text-xs text-[#564145]">Supervised Clinical &amp; Tech Hours</span>
             </div>
 
-            <div className="gsap-card flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div className="gsap-card card-lift flex flex-col p-5 rounded-xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
               <div className="flex items-center justify-between">
                 <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#82193a] font-bold">
                   Credentials
@@ -227,7 +227,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               {/* EXPERIENCE 1: Upturne Software & Services */}
               <article
                 id="upturne-role"
-                className="relative rounded-2xl bg-[#ffffff] shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 flex flex-col gap-5 border border-[#dcbfc3]/40"
+                className="gsap-card card-lift relative rounded-2xl bg-[#ffffff] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 p-6 md:p-8 flex flex-col gap-5 border border-[#dcbfc3]/40"
               >
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-[#dcbfc3]/30">
@@ -248,7 +248,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 {/* Role Title & Button */}
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
-                    <h2 className="font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907] tracking-tight">
+                    <h2 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl font-bold text-[#261907] tracking-tight">
                       Web Development &amp; AI Automation Intern
                     </h2>
                     <div className="flex items-center gap-2">
@@ -264,7 +264,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
 
                   <button
                     onClick={() => onOpenCertificate('upturne-cert')}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#ffebd5] text-[#82193a] hover:bg-[#82193a] hover:text-white font-['Space_Grotesk'] text-xs font-semibold transition-all self-start shadow-xs cursor-pointer"
+                    className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 py-2.5 rounded-xl bg-[#ffebd5] text-[#82193a] hover:bg-[#82193a] hover:text-white font-['Space_Grotesk'] text-xs font-semibold transition-all self-start shadow-xs cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <Award size={16} />
                     <span>View Certificate</span>
@@ -336,7 +336,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               {/* EXPERIENCE 2: Aravind Eye Hospital */}
               <article
                 id="aravind-role"
-                className="relative rounded-2xl bg-[#ffffff] shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 flex flex-col gap-5 border border-[#dcbfc3]/40"
+                className="gsap-card card-lift relative rounded-2xl bg-[#ffffff] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 p-6 md:p-8 flex flex-col gap-5 border border-[#dcbfc3]/40"
               >
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-[#dcbfc3]/30">
@@ -357,7 +357,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 {/* Role Title & Button */}
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
-                    <h2 className="font-['Epilogue'] text-xl md:text-2xl font-bold text-[#261907] tracking-tight">
+                    <h2 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl font-bold text-[#261907] tracking-tight">
                       Tech Intern &amp; Smart Systems Project Lead
                     </h2>
                     <div className="flex items-center gap-2 flex-wrap">
@@ -373,7 +373,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
 
                   <button
                     onClick={() => onOpenCertificate('aravind-cert')}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#ffebd5] text-[#82193a] hover:bg-[#82193a] hover:text-white font-['Space_Grotesk'] text-xs font-semibold transition-all self-start shadow-xs cursor-pointer"
+                    className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 py-2.5 rounded-xl bg-[#ffebd5] text-[#82193a] hover:bg-[#82193a] hover:text-white font-['Space_Grotesk'] text-xs font-semibold transition-all self-start shadow-xs cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <Medal size={16} />
                     <span>View Certificate</span>
@@ -520,7 +520,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </article>
 
               {/* EXPERIENCE 3: Zoho Creator Training */}
-              <article className="relative rounded-2xl bg-[#ffffff] shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 flex flex-col gap-4 border border-[#dcbfc3]/40">
+              <article className="gsap-card card-lift relative rounded-2xl bg-[#ffffff] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 p-6 md:p-8 flex flex-col gap-4 border border-[#dcbfc3]/40">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-[#dcbfc3]/30">
                   <div className="flex items-center gap-2.5 flex-wrap">
                     <span className="px-3 py-1 rounded bg-[#f9dec0] text-[#564145] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold">
@@ -577,9 +577,14 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
                 Technology Stack vs. Measurable Hospital/Enterprise Outcomes
               </h2>
-              <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#564145] max-w-2xl">
-                A comprehensive mapping of analytical tools, code stacks, and real-world system upgrades realized during tenures.
-              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#564145] max-w-2xl">
+                  A comprehensive mapping of analytical tools, code stacks, and real-world system upgrades realized during tenures.
+                </p>
+                <span className="inline-block md:hidden text-[11px] font-['Space_Grotesk'] text-[#82193a] font-medium bg-[#ffe4c6] px-2.5 py-1 rounded-md self-start">
+                  Swipe horizontally to view full matrix →
+                </span>
+              </div>
             </div>
 
             <div className="overflow-x-auto rounded-2xl bg-[#ffffff] shadow-md border border-[#dcbfc3]/40">
@@ -758,10 +763,10 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
               </p>
             </div>
 
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
               <a
                 href="mailto:jennifersagaidasse@gmail.com"
-                className="px-5 py-3 rounded-lg bg-[#ffffff] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md flex items-center gap-2"
+                className="w-full sm:w-auto min-h-[46px] px-5 py-3 rounded-xl bg-[#ffffff] text-[#610025] font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2 text-center"
               >
                 <Mail size={16} />
                 <span>Contact Me</span>
@@ -770,7 +775,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 href="https://github.com/Jennifer-Vesilica-Rachel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-lg bg-[#261907] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#3a2814] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 border border-white/20"
+                className="w-full sm:w-auto min-h-[46px] px-5 py-3 rounded-xl bg-[#261907] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#3a2814] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-white/20 text-center"
               >
                 <Github size={16} />
                 <span>GitHub Profile</span>
@@ -779,7 +784,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 border border-white/20"
+                className="w-full sm:w-auto min-h-[46px] px-5 py-3 rounded-xl bg-[#82193a] text-white font-['Space_Grotesk'] text-xs uppercase tracking-wider font-bold hover:bg-[#82193a]/80 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-white/20 text-center"
               >
                 <Linkedin size={16} />
                 <span>LinkedIn Profile</span>

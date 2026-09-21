@@ -17,16 +17,14 @@ export const prefersReducedMotion = (): boolean => {
 };
 
 /**
- * Common easing and timing constants for a high-end, modern developer portfolio
+ * Unified animation constants for a consistent, professional design system:
+ * - Section enters: fade + slight upward movement (y: 20 -> 0)
+ * - Standardized duration and power2.out easing
+ * - Uniform subtle stagger for collections
  */
 export const ANIM = {
-  ease: 'power3.out',
-  easeSmooth: 'power2.out',
-  easeBounce: 'back.out(1.4)',
-  durationFast: 0.35,
-  durationNormal: 0.65,
-  durationHeading: 0.75,
-  durationCard: 0.6,
-  staggerCards: 0.12,
-  staggerFast: 0.08,
+  ease: 'power2.out',
+  duration: 0.5,
+  yOffset: 20,
+  stagger: 0.06,
 };

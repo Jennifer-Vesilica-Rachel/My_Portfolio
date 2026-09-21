@@ -159,50 +159,70 @@ export const WAYFINDING_DESTINATIONS: Record<string, WayfindingDestination> = {
 
 export const PROJECTS: ProjectItem[] = [
   {
+    id: 'indoor-nav',
+    title: 'Smart Indoor Navigation System',
+    role: 'UI/UX Designer & Frontend Developer',
+    shortDescription: 'Mobile-first QR-guided indoor hospital wayfinding web app providing turn-by-turn routes with photographic checkpoints.',
+    period: '06/2025 – 07/2025',
+    organizationTag: 'Aravind Eye Hospital • Clinical Tech',
+    description: 'A mobile-first QR-anchored indoor wayfinding web system for Aravind Eye Hospital. Mapped 4 core clinical destinations across multi-story wings, delivering zero-install, step-by-step guidance with real photographic checkpoints to reduce patient disorientation.',
+    tags: ['React', 'Tailwind CSS', 'QR Code Wayfinding', 'Netlify', 'Mobile-First UI'],
+    category: 'healthcare',
+    metricHighlight: '4 Clinical Wings Mapped · 0s App Install',
+    bullets: [
+      'Designed accessible, low-vision-friendly UI/UX and engineered the responsive React web app for outpatient hospital wayfinding.',
+      'Eliminated app store installation overhead via localized physical QR scan points at hospital ground entrance and elevator bays.',
+      'Implemented 100% client-side multi-floor routing with verified transit times and photographic landmark checkpoints.',
+      'Deployed production site to Netlify with full mobile responsiveness across smartphones and tablets.'
+    ],
+    liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
+    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System',
+    qrCodeUrl: '/images/aravind-qr-code.svg'
+  },
+  {
     id: 'search-engine',
-    title: 'IR Search Engine v2 (Inverted Index & TF-IDF)',
+    title: 'IR Search Engine v2',
+    role: 'Full-Stack Developer & UI/UX',
+    shortDescription: 'Computational information retrieval engine indexing document corpora with sub-50ms TF-IDF and Cosine Similarity queries.',
     period: '2024 – 2025',
     organizationTag: 'Information Retrieval & NLP • Open Source',
     description: 'A full-stack Information Retrieval engine and computational search playground. Indexes document corpora into an Inverted Index data structure, executing sub-50ms queries with Vector Space Model Cosine Similarity and real-time computational transparency matrices.',
-    tags: ['Python', 'Flask', 'Information Retrieval', 'TF-IDF', 'Cosine Similarity', 'Vercel', 'Vector Space Model'],
+    tags: ['Python', 'Flask', 'React / HTML5', 'Tailwind CSS', 'TF-IDF', 'Vercel'],
     category: 'analytics',
     metricHighlight: 'Sub-50ms Query Latency · TF-IDF Ranking',
     bullets: [
       'Built a full-stack Information Retrieval engine using Python & Flask, indexing text corpora into an Inverted Index data structure.',
       'Achieved sub-50ms search query response latency across document collections using Vector Space Model (VSM) and Cosine Similarity ranking.',
-      'Constructed transparent inspection matrices computing real-time Term Frequency (TF), Inverse Document Frequency (IDF), and query vector dot products.',
-      'Designed dynamic document ingestion supporting custom .txt file uploads with automated tokenization, stopword filtering, and real-time corpus re-indexing.',
+      'Designed transparent inspection matrices computing real-time Term Frequency (TF), Inverse Document Frequency (IDF), and query vector dot products.',
       'Deployed production web application to Vercel with zero external database dependencies for lightweight, deterministic retrieval.'
     ],
     liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
     githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/search-engine'
   },
   {
-    id: 'indoor-nav',
-    title: 'Smart Indoor Navigation System',
-    period: '06/2025 – 07/2025',
-    organizationTag: 'Aravind Eye Hospital • Clinical Tech',
-    description: 'A mobile-first QR-anchored indoor wayfinding web system for Aravind Eye Hospital. Mapped 4 core clinical destinations across multi-story wings, delivering zero-install, step-by-step guidance with real photographic checkpoints to reduce patient disorientation.',
-    tags: ['React.js', 'Tailwind CSS', 'QR Code Indoor Maps', 'Netlify', 'Bolt', 'Mobile Responsive'],
-    category: 'healthcare',
-    metricHighlight: '4 Clinical Wings Mapped · 0s App Install',
+    id: 'portfolio-website',
+    title: 'Interactive Editorial Portfolio',
+    role: 'UI/UX Designer & Frontend Developer',
+    shortDescription: 'Warm modern editorial portfolio website with accessible typography, responsive interactive cards, and verified credentials.',
+    period: '2025 – 2026',
+    organizationTag: 'Personal Portfolio • Production Web',
+    description: 'A high-contrast, warm modern editorial portfolio website crafted with React, Tailwind CSS, Lucide icons, and GSAP animations, showcasing human-centered UI/UX design and production frontend engineering.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Figma', 'GSAP', 'Vite'],
+    category: 'fullstack',
+    metricHighlight: 'Responsive Warm Editorial Design System',
     bullets: [
-      'Engineered a mobile-first indoor wayfinding web application using React.js and Tailwind CSS, mapped across 4 core clinical wings (Glaucoma, Pharmacy, Refraction, and Retina Clinic).',
-      'Eliminated app store installation overhead (0s install barrier, < 1.5s load time on 4G) via localized physical QR scan points posted at ground entrance and elevator junctions.',
-      'Implemented 100% client-side multi-floor routing with verified distance and transit time metrics (25m/30s to Pharmacy, 65m/1.5m to Glaucoma, 110m/2.5m to Refraction).',
-      'Integrated photographic landmark checkpoints and bilingual visual cues to support non-English speaking and elderly outpatients.',
-      'Reduced repetitive directional inquiries to hospital front-desk reception staff during peak outpatient clinical hours through self-serve wayfinding.',
-      'Deployed production site to Netlify with full mobile responsiveness across smartphones and tablets.'
+      'Designed a warm editorial design system pairing high-contrast typography with balanced negative space and accessible color tokens.',
+      'Engineered interactive simulation widgets for clinical wayfinding and TF-IDF information retrieval.',
+      'Maintained 100% responsive layouts across mobile, tablet, and widescreen viewports with zero external bloat.'
     ],
-    liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
-    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System',
-    qrCodeUrl: '/images/aravind-qr-code.svg'
+    liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
+    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio'
   }
 ];
 
 export const RESUME_DATA = {
   header: {
-    name: 'JENNIFER VESILICA RACHEL S',
+    name: 'JENNIFER VESILICA RACHAEL',
     email: 'jennifersagaidasse@gmail.com',
     phone: '+91 8248092194',
     location: 'Puducherry, India',

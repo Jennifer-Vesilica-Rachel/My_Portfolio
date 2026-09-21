@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger, prefersReducedMotion } from '../utils/gsapSetup';
+import { gsap, ScrollTrigger, prefersReducedMotion, ANIM } from '../utils/gsapSetup';
 
 interface ViewAnimationOptions {
   isHero?: boolean;
 }
 
 /**
- * Unified hook for developer portfolio animations with GSAP and ScrollTrigger.
- * Implements fail-safe reveals and clearProps so content is never stuck in an invisible state.
+ * Unified animation system enforcing the design principle:
+ * "Section enters → fade + slight upward movement"
+ *
+ * Avoids disparate animations, competing scales, bouncy springs,
+ * or erratic movement across different elements.
  */
 export function useViewAnimations(options: ViewAnimationOptions = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,44 +19,27 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
     if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
-      // 1. HERO ANIMATIONS (if hero is present)
+      // 1. HERO ENTRANCE (Fade + Slight Upward Movement)
       if (options.isHero) {
-        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        const heroTl = gsap.timeline({ defaults: { ease: ANIM.ease, duration: ANIM.duration } });
 
         heroTl
-          .fromTo('.hero-stamp', { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5, clearProps: 'all' })
-          .fromTo('.hero-heading', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.7, clearProps: 'all' }, '-=0.3')
-          .fromTo('.hero-subtitle', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, clearProps: 'all' }, '-=0.4')
-          .fromTo('.hero-cta-btn', { opacity: 0, y: 12, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.45, clearProps: 'all' }, '-=0.35')
-          .fromTo('.hero-metric-card', { opacity: 0, y: 20, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.5, clearProps: 'all' }, '-=0.3')
-          .fromTo('.hero-portrait-card', { opacity: 0, y: 24, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, clearProps: 'all' }, '-=0.5')
-          .fromTo('.hero-credentials-box', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, clearProps: 'all' }, '-=0.35')
-          .fromTo('.hero-curator-box', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, clearProps: 'all' }, '-=0.3');
-
-        // Subtle floating / parallax movement on ambient background shapes
-        gsap.to('.hero-ambient-glow-1', {
-          y: 22,
-          x: -14,
-          duration: 6,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
-        gsap.to('.hero-ambient-glow-2', {
-          y: -22,
-          x: 16,
-          duration: 7,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
+          .fromTo('.hero-stamp', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, clearProps: 'all' })
+          .fromTo('.hero-heading', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, clearProps: 'all' }, '-=0.35')
+          .fromTo('.hero-subtitle', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, clearProps: 'all' }, '-=0.35')
+          .fromTo('.hero-cta-btn', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, stagger: ANIM.stagger, clearProps: 'all' }, '-=0.35')
+          .fromTo('.hero-metric-card', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, stagger: ANIM.stagger, clearProps: 'all' }, '-=0.3')
+          .fromTo('.hero-portrait-card', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, clearProps: 'all' }, '-=0.35')
+          .fromTo('.hero-credentials-box', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, clearProps: 'all' }, '-=0.35')
+          .fromTo('.hero-curator-box', { opacity: 0, y: ANIM.yOffset }, { opacity: 1, y: 0, clearProps: 'all' }, '-=0.35');
       }
 
-      // 2. HEADINGS REVEAL
+      // 2. SECTION HEADINGS (Fade + Slight Upward Movement)
       const headings = containerRef.current?.querySelectorAll('.gsap-reveal-heading');
       headings?.forEach((heading) => {
-        gsap.fromTo(heading, 
-          { opacity: 0, y: 24 },
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: ANIM.yOffset },
           {
             scrollTrigger: {
               trigger: heading,
@@ -62,18 +48,19 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
             },
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            ease: 'power3.out',
+            duration: ANIM.duration,
+            ease: ANIM.ease,
             clearProps: 'all',
           }
         );
       });
 
-      // 3. TEXT / DESCRIPTION FADE UP
+      // 3. SECTION PARAGRAPHS & LABELS (Fade + Slight Upward Movement)
       const texts = containerRef.current?.querySelectorAll('.gsap-reveal-text, .gsap-reveal-paragraph');
       texts?.forEach((text) => {
-        gsap.fromTo(text,
-          { opacity: 0, y: 18 },
+        gsap.fromTo(
+          text,
+          { opacity: 0, y: ANIM.yOffset },
           {
             scrollTrigger: {
               trigger: text,
@@ -82,22 +69,23 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
             },
             opacity: 1,
             y: 0,
-            duration: 0.55,
-            ease: 'power3.out',
+            duration: ANIM.duration,
+            ease: ANIM.ease,
             clearProps: 'all',
           }
         );
       });
 
-      // 4. STAGGERED CARDS GROUPS
+      // 4. CARD GROUPS (Consistent Staggered Fade + Upward Movement)
       const cardGroups = containerRef.current?.querySelectorAll('.gsap-card-group');
       const processedCards = new Set<Element>();
       cardGroups?.forEach((group) => {
         const cards = group.querySelectorAll('.gsap-card');
         if (cards.length > 0) {
           cards.forEach((c) => processedCards.add(c));
-          gsap.fromTo(cards,
-            { opacity: 0, y: 24, scale: 0.98 },
+          gsap.fromTo(
+            cards,
+            { opacity: 0, y: ANIM.yOffset },
             {
               scrollTrigger: {
                 trigger: group,
@@ -106,22 +94,22 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
               },
               opacity: 1,
               y: 0,
-              scale: 1,
-              stagger: 0.08,
-              duration: 0.55,
-              ease: 'power3.out',
+              stagger: ANIM.stagger,
+              duration: ANIM.duration,
+              ease: ANIM.ease,
               clearProps: 'all',
             }
           );
         }
       });
 
-      // 5. INDIVIDUAL CARDS (Bento / Highlights / Standalone cards)
+      // 5. INDIVIDUAL CARDS & BENTO BLOCKS (Fade + Slight Upward Movement)
       const individualCards = containerRef.current?.querySelectorAll('.gsap-card, .gsap-card-single');
       individualCards?.forEach((card) => {
         if (processedCards.has(card)) return;
-        gsap.fromTo(card,
-          { opacity: 0, y: 22, scale: 0.98 },
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: ANIM.yOffset },
           {
             scrollTrigger: {
               trigger: card,
@@ -130,21 +118,21 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
             },
             opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 0.55,
-            ease: 'power3.out',
+            duration: ANIM.duration,
+            ease: ANIM.ease,
             clearProps: 'all',
           }
         );
       });
 
-      // 6. STAGGERED PILLS / TAGS
+      // 6. PILL / TAG GROUPS (Fade + Slight Upward Movement with Subtle Stagger)
       const pillContainers = containerRef.current?.querySelectorAll('.gsap-pill-group');
       pillContainers?.forEach((container) => {
         const pills = container.querySelectorAll('.gsap-pill');
         if (pills.length > 0) {
-          gsap.fromTo(pills,
-            { opacity: 0, scale: 0.9, y: 8 },
+          gsap.fromTo(
+            pills,
+            { opacity: 0, y: 12 },
             {
               scrollTrigger: {
                 trigger: container,
@@ -152,28 +140,28 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
                 once: true,
               },
               opacity: 1,
-              scale: 1,
               y: 0,
               stagger: 0.03,
-              duration: 0.4,
-              ease: 'power2.out',
+              duration: ANIM.duration * 0.8,
+              ease: ANIM.ease,
               clearProps: 'all',
             }
           );
         }
       });
 
-      // 7. TIMELINE PROGRESS & DOTS (Experience section)
+      // 7. TIMELINE PROGRESS & DOTS (Experience Section - Clean Fade + Upward Movement)
       const timelineLine = containerRef.current?.querySelector('.gsap-timeline-line');
       if (timelineLine) {
-        gsap.fromTo(timelineLine,
+        gsap.fromTo(
+          timelineLine,
           { scaleY: 0 },
           {
             scrollTrigger: {
               trigger: timelineLine,
-              start: 'top 80%',
-              end: 'bottom 80%',
-              scrub: 0.4,
+              start: 'top 85%',
+              end: 'bottom 85%',
+              scrub: 0.3,
             },
             scaleY: 1,
             transformOrigin: 'top center',
@@ -184,30 +172,32 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
 
       const timelineDots = containerRef.current?.querySelectorAll('.gsap-timeline-dot');
       timelineDots?.forEach((dot) => {
-        gsap.fromTo(dot,
-          { scale: 0, opacity: 0 },
+        gsap.fromTo(
+          dot,
+          { opacity: 0, y: 10 },
           {
             scrollTrigger: {
               trigger: dot,
               start: 'top 95%',
               once: true,
             },
-            scale: 1,
             opacity: 1,
-            duration: 0.45,
-            ease: 'back.out(1.7)',
+            y: 0,
+            duration: ANIM.duration * 0.7,
+            ease: ANIM.ease,
             clearProps: 'all',
           }
         );
       });
 
-      // 8. FORM INPUTS SEQUENTIAL REVEAL (Contact section)
+      // 8. FORM INPUTS (Contact Section - Consistent Fade + Slight Upward Movement)
       const formContainers = containerRef.current?.querySelectorAll('.gsap-form-group');
       formContainers?.forEach((form) => {
         const inputs = form.querySelectorAll('.gsap-form-field');
         if (inputs.length > 0) {
-          gsap.fromTo(inputs,
-            { opacity: 0, y: 14 },
+          gsap.fromTo(
+            inputs,
+            { opacity: 0, y: ANIM.yOffset },
             {
               scrollTrigger: {
                 trigger: form,
@@ -216,9 +206,9 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
               },
               opacity: 1,
               y: 0,
-              stagger: 0.06,
-              duration: 0.45,
-              ease: 'power3.out',
+              stagger: ANIM.stagger,
+              duration: ANIM.duration,
+              ease: ANIM.ease,
               clearProps: 'all',
             }
           );
@@ -243,7 +233,7 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
             htmlEl.style.transform = 'none';
           }
         });
-      }, 700);
+      }, 600);
 
       return () => {
         clearTimeout(timer);
@@ -256,4 +246,3 @@ export function useViewAnimations(options: ViewAnimationOptions = {}) {
 
   return containerRef;
 }
-

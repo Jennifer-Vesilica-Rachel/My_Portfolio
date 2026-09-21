@@ -4,6 +4,7 @@ import { NavPath } from '../types';
 import { PORTFOLIO_IMAGES } from '../data/portfolioData';
 import { useViewAnimations } from '../hooks/useSectionAnimations';
 import FlagshipProjectsSection from './FlagshipProjectsSection';
+import ContactSection from './ContactSection';
 import {
   ArrowRight,
   Briefcase,
@@ -25,6 +26,7 @@ import {
   ShieldCheck,
   Navigation,
   Github,
+  Linkedin,
   ExternalLink,
   Search
 } from 'lucide-react';
@@ -90,75 +92,99 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Main Typographic Column (8 cols) */}
             <div className="lg:col-span-8 flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <span className="hero-stamp font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-[0.2em] font-bold flex items-center gap-2">
+              <div className="flex flex-col gap-3">
+                <div className="hero-stamp flex items-center gap-2.5">
                   <span className="inline-block w-8 h-[2px] bg-[#82193a]"></span>
-                  Human-Centric Engineering
-                </span>
-                <h1 className="hero-heading font-['Epilogue'] text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#261907] tracking-tight leading-[1.1] max-w-2xl">
-                  Crafting Intelligent Web Experiences &amp; Human-Centric AI Solutions.
+                  <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold text-[#82193a] uppercase tracking-[0.2em]">
+                    UI/UX Designer &amp; Developer
+                  </span>
+                </div>
+
+                <h1 className="hero-heading typography-hero-name font-['Epilogue'] text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-[60px] xl:text-[64px] font-extrabold text-[#261907] tracking-tight leading-[1.08] max-w-2xl break-words">
+                  Jennifer Vesilica Rachael
                 </h1>
+
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  <span className="font-['Space_Grotesk'] text-base sm:text-xl font-bold text-[#80552f]">
+                    UI/UX Designer &amp; Developer
+                  </span>
+                  <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#82193a]/60"></span>
+                  <span className="px-3 py-1 rounded-full bg-[#ffebd5] text-[#610025] font-['Space_Grotesk'] text-xs sm:text-sm font-semibold uppercase tracking-wider border border-[#dcbfc3]/40">
+                    Human-Centered Engineering
+                  </span>
+                </div>
               </div>
 
-              <p className="hero-subtitle font-['DM_Sans'] text-base md:text-lg text-[#564145] max-w-xl leading-relaxed">
-                I am <strong className="text-[#261907] font-semibold">Jennifer Vesilica Rachel S</strong> — currently pursuing a Bachelor of Technology in Information Science and Engineering, with strong interests in software development, data analytics, and intelligent systems. Eager to apply technical skills and hands-on project experience to real-world problems.
+              <p className="hero-subtitle typography-body font-['DM_Sans'] text-[15px] sm:text-base md:text-lg lg:text-[18px] text-[#564145] max-w-2xl leading-relaxed">
+                I design intuitive, human-centered user experiences and engineer responsive, accessible web applications — transforming complex workflows into seamless, elegant digital products with rigorous attention to detail.
               </p>
 
-              {/* Primary Actions */}
-              <div className="flex flex-col min-[480px]:flex-row min-[480px]:flex-wrap items-stretch min-[480px]:items-center gap-2.5 sm:gap-3 pt-2">
+              {/* Two Clear Buttons: View My Work | Contact Me + Social Profile Links */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
                 <button
                   onClick={() => onNavigate('projects')}
-                  className="hero-cta-btn group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-sm font-semibold shadow-md hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+                  id="hero-btn-view-work"
+                  className="hero-cta-btn group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 min-h-[48px] rounded-xl bg-[#82193a] text-white font-['Space_Grotesk'] text-sm sm:text-base font-semibold shadow-md hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center"
                 >
-                  <span>Explore Projects</span>
-                  <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+                  <span>View My Work</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </button>
-
-                <button
-                  onClick={() => onNavigate('experience')}
-                  className="hero-cta-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#ffebd5] hover:bg-[#ffe4c6] text-[#610025] font-['Space_Grotesk'] text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
-                >
-                  <Briefcase size={17} />
-                  <span>View Experience</span>
-                </button>
-
-                <a
-                  href="https://github.com/Jennifer-Vesilica-Rachel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero-cta-btn inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#ffffff] border border-[#dcbfc3]/40 hover:bg-[#ffe4c6] text-[#261907] hover:text-[#82193a] font-['Space_Grotesk'] text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-xs"
-                >
-                  <Github size={17} />
-                  <span>GitHub</span>
-                </a>
 
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="hero-cta-btn inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-[#564145] hover:text-[#82193a] font-['Space_Grotesk'] text-xs uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+                  id="hero-btn-contact-me"
+                  className="hero-cta-btn group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 min-h-[48px] rounded-xl bg-[#ffebd5] hover:bg-[#ffe4c6] text-[#610025] border border-[#dcbfc3]/60 font-['Space_Grotesk'] text-sm sm:text-base font-semibold shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center"
                 >
-                  <span>Get In Touch</span>
-                  <Mail size={15} />
+                  <Mail size={18} className="text-[#82193a] group-hover:scale-110 transition-transform" />
+                  <span>Contact Me</span>
                 </button>
+
+                {/* GitHub and LinkedIn Verified Social Profile Links */}
+                <div className="flex items-center justify-center sm:justify-start gap-2.5 pt-1 sm:pt-0 sm:pl-2">
+                  <a
+                    href="https://github.com/Jennifer-Vesilica-Rachel"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Profile - Jennifer-Vesilica-Rachel"
+                    title="Visit GitHub Profile (Jennifer-Vesilica-Rachel)"
+                    id="hero-github-icon-link"
+                    className="hero-cta-btn btn-interactive inline-flex items-center justify-center w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-white border border-[#dcbfc3]/50 hover:border-[#82193a] hover:bg-[#ffebd5] text-[#261907] hover:text-[#82193a] transition-all duration-150 shadow-xs hover:scale-[1.02] active:scale-[0.98] cursor-pointer group"
+                  >
+                    <Github size={20} className="group-hover:scale-105 transition-transform" />
+                  </a>
+
+                  <a
+                    href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn Profile - Jennifer Vesilica Rachel S"
+                    title="Visit LinkedIn Profile (Jennifer Vesilica Rachel S)"
+                    id="hero-linkedin-icon-link"
+                    className="hero-cta-btn btn-interactive inline-flex items-center justify-center w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-white border border-[#dcbfc3]/50 hover:border-[#82193a] hover:bg-[#ffebd5] text-[#261907] hover:text-[#82193a] transition-all duration-150 shadow-xs hover:scale-[1.02] active:scale-[0.98] cursor-pointer group"
+                  >
+                    <Linkedin size={20} className="group-hover:scale-105 transition-transform" />
+                  </a>
+                </div>
               </div>
 
               {/* Quick Metrics Ribbon */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                <div className="hero-metric-card p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                <div className="hero-metric-card card-lift p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                   <span className="font-['Epilogue'] text-2xl font-bold text-[#82193a] leading-none">02+</span>
-                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">High-Impact Internships</span>
-                  <p className="font-['DM_Sans'] text-xs text-[#564145]">Clinical workflow &amp; enterprise automated AI delivery</p>
+                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Tech Internships</span>
+                  <p className="font-['DM_Sans'] text-xs text-[#564145]">Clinical hospital navigation &amp; enterprise automated AI delivery</p>
                 </div>
 
-                <div className="hero-metric-card p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-                  <span className="font-['Epilogue'] text-2xl font-bold text-[#80552f] leading-none">Full-Stack</span>
-                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Resilient Interfaces</span>
-                  <p className="font-['DM_Sans'] text-xs text-[#564145]">React, responsive tailwind layouts &amp; modern databases</p>
+                <div className="hero-metric-card card-lift p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                  <span className="font-['Epilogue'] text-2xl font-bold text-[#80552f] leading-none">UI/UX</span>
+                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Design &amp; Frontend</span>
+                  <p className="font-['DM_Sans'] text-xs text-[#564145]">Figma design systems, responsive React &amp; accessible layouts</p>
                 </div>
 
-                <div className="hero-metric-card p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                <div className="hero-metric-card card-lift p-4 rounded-xl bg-[#ffffff] shadow-sm border border-[#dcbfc3]/30 flex flex-col gap-1 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                   <span className="font-['Epilogue'] text-2xl font-bold text-[#610025] leading-none">Deployed</span>
-                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Hospital Indoor Nav</span>
-                  <p className="font-['DM_Sans'] text-xs text-[#564145]">QR-guided routing for Aravind Eye Hospital patients</p>
+                  <span className="font-['Space_Grotesk'] text-xs text-[#261907] font-bold">Production Systems</span>
+                  <p className="font-['DM_Sans'] text-xs text-[#564145]">Live QR routing for Aravind Eye Hospital &amp; search engines</p>
                 </div>
               </div>
             </div>
@@ -169,36 +195,55 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               <div className="hero-portrait-card relative w-full h-80 sm:h-96 lg:h-[380px] rounded-2xl overflow-hidden shadow-md bg-[#18130f] border border-[#dcbfc3]/50 group">
                 <img
                   src={PORTFOLIO_IMAGES.jenniferPortrait}
-                  alt="Jennifer Vesilica Rachel S - Software Engineer"
+                  alt="Jennifer Vesilica Rachael - UI/UX Designer &amp; Developer"
                   className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#18130f]/95 via-transparent to-transparent pointer-events-none"></div>
-                <div className="absolute top-3 right-3">
+                <div className="absolute top-3 right-3 flex items-center gap-1.5">
                   <span className="px-3 py-1 rounded-full bg-emerald-700/85 text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 backdrop-blur-sm">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>Open to Roles</span>
+                    <span>Available</span>
                   </span>
                 </div>
                 <div className="absolute bottom-3.5 left-4 right-4 flex items-end justify-between text-[#ffffff]">
                   <div className="flex flex-col">
                     <span className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-[#fdc394] font-bold">
-                      Official Profile
+                      UI/UX Designer &amp; Developer
                     </span>
                     <span className="font-['Epilogue'] text-base sm:text-lg font-bold">
-                      Jennifer Vesilica Rachel S
+                      Jennifer Vesilica Rachael
                     </span>
                     <span className="font-['Space_Grotesk'] text-[11px] text-gray-300">
                       B.Tech (ISE) · PTU Puducherry
                     </span>
                   </div>
-                  <span className="px-2.5 py-1 rounded bg-[#82193a]/90 text-white font-['Space_Grotesk'] text-[11px] font-semibold">
-                    2023–2027
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <a
+                      href="https://github.com/Jennifer-Vesilica-Rachel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub Profile"
+                      title="GitHub Profile"
+                      className="w-8 h-8 rounded-lg bg-black/50 hover:bg-[#82193a] text-white flex items-center justify-center backdrop-blur-sm transition-all hover:scale-110"
+                    >
+                      <Github size={15} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn Profile"
+                      title="LinkedIn Profile"
+                      className="w-8 h-8 rounded-lg bg-black/50 hover:bg-[#82193a] text-white flex items-center justify-center backdrop-blur-sm transition-all hover:scale-110"
+                    >
+                      <Linkedin size={15} />
+                    </a>
+                  </div>
                 </div>
               </div>
 
               {/* Verified Credentials Summary */}
-              <div className="hero-credentials-box rounded-2xl bg-[#261907] text-white p-4.5 flex flex-col gap-2.5 border border-[#dcbfc3]/30 shadow-md hover:border-[#dcbfc3]/60 transition-all duration-300">
+              <div className="hero-credentials-box card-lift rounded-2xl bg-[#261907] text-white p-4.5 flex flex-col gap-2.5 border border-[#dcbfc3]/30 shadow-md hover:border-[#dcbfc3]/60 transition-all duration-200">
                 <div className="flex items-center justify-between">
                   <span className="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-[#fdc394] font-bold">
                     Verified Engineering Pillars
@@ -222,7 +267,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               </div>
 
               {/* Curator's Note Card */}
-              <div className="hero-curator-box bg-[#ffffff] rounded-2xl p-4.5 flex flex-col gap-1.5 shadow-sm border border-[#dcbfc3]/40 hover:border-[#dcbfc3]/60 transition-all duration-300">
+              <div className="hero-curator-box card-lift bg-[#ffffff] rounded-2xl p-4.5 flex flex-col gap-1.5 shadow-sm border border-[#dcbfc3]/40 hover:border-[#dcbfc3]/60 transition-all duration-200">
                 <div className="flex items-center justify-between">
                   <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
                     Curator's Note
@@ -246,19 +291,19 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           <div className="mt-12 bg-[#fff1e5] rounded-2xl p-6 shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <span className="gsap-reveal-heading font-['Space_Grotesk'] text-xs text-[#82193a] uppercase tracking-widest font-bold">
+                <span className="gsap-reveal-heading font-['Space_Grotesk'] text-xs sm:text-sm text-[#82193a] uppercase tracking-widest font-bold">
                   Technical Vocabulary
                 </span>
-                <h2 className="gsap-reveal-heading font-['Epilogue'] text-lg text-[#261907] font-bold">
+                <h2 className="gsap-reveal-heading font-['Epilogue'] text-xl sm:text-2xl font-bold text-[#261907]">
                   Core Technologies &amp; Platforms
                 </h2>
               </div>
 
               {/* Filter Tabs */}
-              <div className="flex flex-wrap items-center gap-1 bg-[#ffe4c6] p-1 rounded-lg">
+              <div className="flex flex-wrap items-center gap-1.5 bg-[#ffe4c6] p-1.5 rounded-xl w-full sm:w-auto">
                 <button
                   onClick={() => setTechFilter('all')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
+                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'all'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -268,7 +313,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('lang')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
+                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'lang'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -278,7 +323,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('framework')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
+                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'framework'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -288,7 +333,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('tools')}
-                  className={`px-3 py-1 rounded font-['Space_Grotesk'] text-xs transition-all cursor-pointer ${
+                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'tools'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -356,10 +401,10 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               Academic Foundation
             </span>
           </div>
-          <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl font-extrabold text-[#261907]">
+          <h2 className="gsap-reveal-heading typography-section-heading font-['Epilogue'] text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#261907]">
             Education &amp; Competency Spectrum
           </h2>
-          <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm md:text-base text-[#564145] max-w-2xl">
+          <p className="gsap-reveal-paragraph typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] max-w-2xl leading-relaxed">
             A deep-dive look into formal coursework, technical specialties, and the analytical habits that drive everyday problem-solving.
           </p>
         </div>
@@ -370,42 +415,42 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           <div className="lg:col-span-4 flex flex-col gap-4">
             <div className="gsap-card p-6 rounded-2xl bg-[#fff1e5] shadow-sm border border-[#dcbfc3]/40 flex flex-col gap-4 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
               <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs font-semibold">
+                <span className="px-3 py-1 rounded bg-[#ffdcc2] text-[#2e1500] font-['Space_Grotesk'] text-xs sm:text-sm font-semibold">
                   Degree Program
                 </span>
-                <span className="font-['Space_Grotesk'] text-xs text-[#82193a] font-bold">2023 — 2027</span>
+                <span className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#82193a] font-bold">2023 — 2027</span>
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="font-['Epilogue'] text-lg text-[#261907] font-bold">
+                <h3 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl text-[#261907] font-bold">
                   B.Tech in Information Science &amp; Engineering
                 </h3>
-                <span className="font-['DM_Sans'] text-sm text-[#82193a] font-semibold">
+                <span className="font-['DM_Sans'] text-sm sm:text-base text-[#82193a] font-semibold">
                   Women's Engineering College
                 </span>
-                <span className="font-['DM_Sans'] text-xs text-[#564145]">
+                <span className="font-['DM_Sans'] text-xs sm:text-sm text-[#564145]">
                   Constituent College of Puducherry Technological University • Puducherry, India
                 </span>
               </div>
-              <p className="font-['DM_Sans'] text-xs text-[#564145] leading-relaxed">
+              <p className="typography-body font-['DM_Sans'] text-[15px] sm:text-base text-[#564145] leading-relaxed">
                 Focused on programming, data structures, databases, machine learning, artificial intelligence, cloud computing, and full-stack development, with hands-on experience through labs, projects, and internships.
               </p>
 
               {/* Coursework badges */}
               <div className="flex flex-col gap-2 pt-2 border-t border-[#dcbfc3]/30">
-                <span className="font-['Space_Grotesk'] text-[11px] text-[#261907] uppercase font-bold tracking-wider">
+                <span className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#261907] uppercase font-bold tracking-wider">
                   Key Coursework
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  <span className="px-2 py-0.5 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-[11px] text-[#564145]">
+                  <span className="px-2.5 py-1 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-xs sm:text-sm text-[#564145]">
                     Data Structures &amp; OOP
                   </span>
-                  <span className="px-2 py-0.5 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-[11px] text-[#564145]">
+                  <span className="px-2.5 py-1 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-xs sm:text-sm text-[#564145]">
                     Database Management (RDBMS)
                   </span>
-                  <span className="px-2 py-0.5 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-[11px] text-[#564145]">
+                  <span className="px-2.5 py-1 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-xs sm:text-sm text-[#564145]">
                     Applied AI &amp; Heuristics
                   </span>
-                  <span className="px-2 py-0.5 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-[11px] text-[#564145]">
+                  <span className="px-2.5 py-1 rounded bg-[#ffebd5] font-['Space_Grotesk'] text-xs sm:text-sm text-[#564145]">
                     Software Engineering
                   </span>
                 </div>
@@ -437,38 +482,38 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           {/* Core Competencies Interactive Matrix (8 cols) */}
           <div className="lg:col-span-8 flex flex-col gap-4">
             {/* Competency Nav Switchers */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 bg-[#fff1e5] p-1.5 rounded-xl border border-[#dcbfc3]/40">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-[#fff1e5] p-2 rounded-2xl border border-[#dcbfc3]/40">
               <button
                 onClick={() => setActiveCompetency('dev')}
-                className={`px-3 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer w-full text-center ${
+                className={`min-h-[44px] px-3.5 py-2.5 rounded-xl font-['Space_Grotesk'] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer w-full text-center active:scale-[0.98] ${
                   activeCompetency === 'dev'
                     ? 'bg-[#610025] text-white shadow-sm'
                     : 'text-[#261907] hover:bg-[#ffebd5]'
                 }`}
               >
-                <Code size={16} />
+                <Code size={17} />
                 <span>Software Development</span>
               </button>
               <button
                 onClick={() => setActiveCompetency('data')}
-                className={`px-3 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer w-full text-center ${
+                className={`min-h-[44px] px-3.5 py-2.5 rounded-xl font-['Space_Grotesk'] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer w-full text-center active:scale-[0.98] ${
                   activeCompetency === 'data'
                     ? 'bg-[#610025] text-white shadow-sm'
                     : 'text-[#261907] hover:bg-[#ffebd5]'
                 }`}
               >
-                <BarChart3 size={16} />
+                <BarChart3 size={17} />
                 <span>Data Analysis &amp; ML</span>
               </button>
               <button
                 onClick={() => setActiveCompetency('ux')}
-                className={`px-3 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer w-full text-center ${
+                className={`min-h-[44px] px-3.5 py-2.5 rounded-xl font-['Space_Grotesk'] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer w-full text-center active:scale-[0.98] ${
                   activeCompetency === 'ux'
                     ? 'bg-[#610025] text-white shadow-sm'
                     : 'text-[#261907] hover:bg-[#ffebd5]'
                 }`}
               >
-                <Paintbrush size={16} />
+                <Paintbrush size={17} />
                 <span>Human-Centered UI/UX</span>
               </button>
             </div>
@@ -478,13 +523,13 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               {activeCompetency === 'dev' && (
                 <div className="flex flex-col gap-5 animate-in fade-in duration-200">
                   <div className="flex flex-col gap-1">
-                    <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
+                    <span className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#82193a] uppercase font-bold tracking-wider">
                       Primary Track
                     </span>
-                    <h3 className="font-['Epilogue'] text-xl font-bold text-[#261907]">
+                    <h3 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl font-bold text-[#261907]">
                       Full-Stack Architectures &amp; Enterprise Tooling
                     </h3>
-                    <p className="font-['DM_Sans'] text-sm text-[#564145] leading-relaxed">
+                    <p className="typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] leading-relaxed">
                       Synthesizing modern front-end engineering with dependable backend paradigms. Experienced in delivering modular single-page applications, custom business process automations, and clean programmatic APIs.
                     </p>
                   </div>
@@ -539,14 +584,14 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
 
               {activeCompetency === 'data' && (
                 <div className="flex flex-col gap-5 animate-in fade-in duration-200">
-                  <div className="flex flex-col gap-1">
-                    <span className="font-['Space_Grotesk'] text-xs text-[#80552f] uppercase font-bold tracking-wider">
+                   <div className="flex flex-col gap-1">
+                    <span className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#80552f] uppercase font-bold tracking-wider">
                       Analytical Track
                     </span>
-                    <h3 className="font-['Epilogue'] text-xl font-bold text-[#261907]">
+                    <h3 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl font-bold text-[#261907]">
                       Data Modeling, Analytics &amp; Machine Learning
                     </h3>
-                    <p className="font-['DM_Sans'] text-sm text-[#564145] leading-relaxed">
+                    <p className="typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] leading-relaxed">
                       Transforming raw, unstructured telemetry and enterprise data into actionable visual stories. Proficient in exploratory data analysis (EDA), predictive regression, and classification pipelines.
                     </p>
                   </div>
@@ -602,13 +647,13 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               {activeCompetency === 'ux' && (
                 <div className="flex flex-col gap-5 animate-in fade-in duration-200">
                   <div className="flex flex-col gap-1">
-                    <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-wider">
+                    <span className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#82193a] uppercase font-bold tracking-wider">
                       Human-Centered Track
                     </span>
-                    <h3 className="font-['Epilogue'] text-xl font-bold text-[#261907]">
+                    <h3 className="typography-project-title font-['Epilogue'] text-lg sm:text-xl lg:text-2xl font-bold text-[#261907]">
                       Tactile UX, Accessibility &amp; Information Ergonomics
                     </h3>
-                    <p className="font-['DM_Sans'] text-sm text-[#564145] leading-relaxed">
+                    <p className="typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] leading-relaxed">
                       Crafting interfaces that reduce cognitive friction for diverse user demographics. Grounded in hospital wayfinding research, physical-world QR deployments, and high-legibility typographic layouts.
                     </p>
                   </div>
@@ -693,13 +738,13 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
         <div className="gsap-card rounded-3xl bg-[#ffe4c6] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-md border border-[#dcbfc3]/50 hover:shadow-lg transition-all duration-300">
           <div className="flex flex-col gap-2 max-w-xl z-10">
-            <span className="font-['Space_Grotesk'] text-xs text-[#82193a] uppercase font-bold tracking-widest">
+            <span className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#82193a] uppercase font-bold tracking-widest">
               Verified Credentials &amp; Certifications
             </span>
-            <h2 className="gsap-reveal-heading font-['Epilogue'] text-2xl md:text-3xl text-[#261907] font-bold">
+            <h2 className="gsap-reveal-heading typography-section-heading font-['Epilogue'] text-2xl sm:text-3xl lg:text-4xl text-[#261907] font-bold">
               Ready to review verified technical honors and course completions?
             </h2>
-            <p className="gsap-reveal-paragraph font-['DM_Sans'] text-sm text-[#564145] leading-relaxed">
+            <p className="gsap-reveal-paragraph typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] leading-relaxed">
               Explore institutional certifications from Zoho Young Creators Program, Aravind Eye Care System, Upturne Software, and machine learning accreditations.
             </p>
           </div>
@@ -720,6 +765,9 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
           </div>
         </div>
       </section>
+
+      {/* Prominent Contact Section: Let's work together */}
+      <ContactSection id="home-contact-section" variant="embedded" />
     </div>
   );
 }

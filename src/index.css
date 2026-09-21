@@ -54,11 +54,139 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
   body {
     background-color: #fff8f4;
     color: #261907;
     font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Prevent iOS Safari 100% zoom jump on form inputs */
+  @media screen and (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   TYPOGRAPHY HIERARCHY SYSTEM
+   Hero name:       48–64px (Mobile: 34–42px)
+   Section heading: 32–40px (Mobile: 24–28px)
+   Project title:   20–24px (Mobile: 18–20px)
+   Body text:       16–18px (Mobile: 15–16px)
+   Small text:      14–16px (Mobile: 13–14px)
+   ========================================================================== */
+
+/* Hero Name: 48–64px on desktop, reduced appropriately on mobile */
+.typography-hero-name {
+  font-family: var(--font-display-hero, "Epilogue", serif);
+  font-size: clamp(2.125rem, 4.5vw + 1rem, 4rem); /* ~34px mobile -> 48px tablet -> 64px desktop */
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+/* Section Heading: 32–40px on desktop, reduced appropriately on mobile */
+.typography-section-heading {
+  font-family: var(--font-headline-lg, "Epilogue", sans-serif);
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem); /* ~24px mobile -> 32px tablet -> 40px desktop */
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* Project Title: 20–24px on desktop, reduced appropriately on mobile */
+.typography-project-title {
+  font-family: var(--font-headline-md, "Epilogue", sans-serif);
+  font-size: clamp(1.125rem, 0.8vw + 0.95rem, 1.5rem); /* ~18px mobile -> 20px sm -> 24px desktop */
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+/* Body Text: 16–18px on desktop, reduced appropriately on mobile */
+.typography-body {
+  font-family: var(--font-body-lg, "DM Sans", sans-serif);
+  font-size: clamp(0.9375rem, 0.4vw + 0.85rem, 1.125rem); /* ~15px mobile -> 16px sm -> 18px desktop */
+  line-height: 1.65;
+}
+
+/* Small Text: 14–16px on desktop, reduced appropriately on mobile */
+.typography-small {
+  font-family: var(--font-body-sm, "DM Sans", sans-serif);
+  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 1rem); /* ~13px mobile -> 14px sm -> 16px desktop */
+  line-height: 1.5;
+}
+
+/* Monospace / Label Small: 14–16px on desktop, reduced appropriately on mobile */
+.typography-label-small {
+  font-family: var(--font-label-sm, "Space Grotesk", monospace);
+  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 1rem); /* ~13px mobile -> 14px sm -> 16px desktop */
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   UNIFIED ANIMATION & INTERACTION SYSTEM
+   Rule 1: Section enters → fade + slight upward movement
+   Rule 2: Card → slight lift on hover (-translate-y-1 + subtle shadow)
+   Rule 3: Button → small scale/color transition (scale 1.02 / 0.98 + smooth color)
+   Rule 4: Navigation → smooth scrolling
+   ========================================================================== */
+
+/* Consistent Card Lift */
+.card-lift,
+.portfolio-card {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms ease-out;
+  will-change: transform;
+}
+.card-lift:hover,
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(38, 25, 7, 0.08), 0 4px 8px -4px rgba(38, 25, 7, 0.04);
+}
+
+/* Consistent Button Scale & Color Transition */
+.btn-interactive,
+.hero-cta-btn,
+.btn-action {
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 150ms ease-out,
+              color 150ms ease-out,
+              border-color 150ms ease-out,
+              box-shadow 150ms ease-out;
+  will-change: transform;
+}
+.btn-interactive:hover,
+.hero-cta-btn:hover,
+.btn-action:hover {
+  transform: scale(1.02);
+}
+.btn-interactive:active,
+.hero-cta-btn:active,
+.btn-action:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
