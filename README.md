@@ -7,7 +7,7 @@ The portfolio provides a clean, responsive, editorial interface for exploring my
 ## Features
 
 * **About & Biography:** Introduction, core competencies, and career trajectory.
-* **Consolidated Technical Projects:** High-signal project cards with verified benchmarks, key highlights, and direct repository/demo access.
+* **Consolidated Technical Projects:** High-signal project cards with verified architectural highlights, structured problem-solution narratives, and direct repository/demo access.
 * **Interactive System Sandboxes:** In-browser wayfinding floor route simulator and real-time TF-IDF / Cosine Similarity computational search playground.
 * **Professional Experience:** Detailed chronicle of technical tenures at Aravind Eye Hospital and Upturne Software & Services, with comparative diagnostics matrix.
 * **Credentials & Academic Folio:** Verified institutional certificates, academic coursework, and downloadable credential documents.
@@ -82,7 +82,7 @@ npm run preview
 | Project | Purpose | Technologies | GitHub | Live Demo |
 | :--- | :--- | :--- | :--- | :--- |
 | **Smart Indoor Navigation System** | Mobile-first QR-anchored indoor hospital wayfinding web application deployed for Aravind Eye Hospital to guide elderly and outpatients across 4 core clinical wings, eliminating app installation overhead and relieving front-desk congestion. | React.js, Tailwind CSS, QR Code Localization, Netlify, Mobile-First UI/UX | [GitHub Repository](https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System) | [Live Demo](https://aravind-map-raesha0506.netlify.app) |
-| **IR Search Engine v2** | Computational Information Retrieval engine indexing document corpora into an Inverted Index data structure, executing queries with a reproducible average latency of 38 ms across 100 benchmark queries using Vector Space Model (VSM) Cosine Similarity and real-time calculation matrices. | Python, Flask, Inverted Index, TF-IDF, Vector Space Model (VSM), Cosine Similarity, HTML5, Tailwind CSS, Vercel | [GitHub Repository](https://github.com/Jennifer-Vesilica-Rachel/search-engine) | [Live Demo](https://search-engine-self-sigma.vercel.app) |
+| **IR Search Engine v2** | Computational Information Retrieval engine indexing document corpora into an Inverted Index data structure, executing deterministic relevance queries using Vector Space Model (VSM) Cosine Similarity and real-time calculation inspection matrices. | Python, Flask, Jinja2 / HTML5 Templates, CSS3, Inverted Index, TF-IDF, Vector Space Model (VSM), Cosine Similarity, Vercel | [GitHub Repository](https://github.com/Jennifer-Vesilica-Rachel/search-engine) | [Live Demo](https://search-engine-self-sigma.vercel.app) |
 
 ## Deployment
 

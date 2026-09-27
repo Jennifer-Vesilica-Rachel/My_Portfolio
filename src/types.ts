@@ -52,6 +52,9 @@ export interface ProjectItem {
   id: string;
   title: string;
   role: string; // e.g., 'UI/UX & Frontend Developer' or 'Full-Stack Developer'
+  problem?: string;
+  solution?: string;
+  result?: string;
   shortDescription: string; // 1-2 line concise summary for project cards
   period: string;
   organizationTag: string;
@@ -63,4 +66,5 @@ export interface ProjectItem {
   liveDemoUrl?: string;
   githubUrl?: string;
   qrCodeUrl?: string;
+  qrPngUrl?: string;
 }

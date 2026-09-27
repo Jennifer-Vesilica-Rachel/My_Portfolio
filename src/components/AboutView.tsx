@@ -45,6 +45,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
     { name: 'SQL / MySQL', category: 'lang', color: '#82193a' },
     { name: 'R Statistics', category: 'lang', color: '#3f281f' },
     { name: 'React.js', category: 'framework', color: '#80552f' },
+    { name: 'Flask (Python)', category: 'framework', color: '#82193a' },
     { name: 'Tailwind CSS', category: 'framework', color: '#610025' },
     { name: 'Pandas & NumPy', category: 'framework', color: '#82193a' },
     { name: 'Scikit-Learn (ML)', category: 'framework', color: '#80552f' },

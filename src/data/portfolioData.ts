@@ -162,11 +162,14 @@ export const PROJECTS: ProjectItem[] = [
     id: 'indoor-nav',
     title: 'Smart Indoor Navigation System',
     role: 'UI/UX Designer & Frontend Developer',
+    problem: 'Elderly and outpatient visitors faced frequent confusion across multi-story hospital wings, resulting in heavy front-desk queue congestion.',
+    solution: 'Engineered a mobile-first QR web portal featuring turn-by-turn routing, photographic checkpoints, and zero app-store install requirements.',
+    result: 'Mapped 4 primary clinical wings, enabling instant scan-to-route patient guidance and alleviating front-desk orientation burden.',
     shortDescription: 'Mobile-first QR-guided indoor hospital wayfinding web app providing turn-by-turn routes with photographic checkpoints.',
     period: '06/2025 – 07/2025',
     organizationTag: 'Aravind Eye Hospital • Clinical Tech',
     description: 'A mobile-first QR-anchored indoor wayfinding web system for Aravind Eye Hospital. Mapped 4 core clinical destinations across multi-story wings, delivering zero-install, step-by-step guidance with real photographic checkpoints to reduce patient disorientation.',
-    tags: ['React', 'Tailwind CSS', 'QR Code Wayfinding', 'Netlify', 'Mobile-First UI'],
+    tags: ['React.js', 'Tailwind CSS', 'QR Code Wayfinding', 'Netlify', 'Mobile-First UI'],
     category: 'healthcare',
     metricHighlight: '4 Clinical Wings Mapped · 0s App Install',
     bullets: [
@@ -177,22 +180,26 @@ export const PROJECTS: ProjectItem[] = [
     ],
     liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
     githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System',
-    qrCodeUrl: '/images/aravind-qr-code.svg'
+    qrCodeUrl: '/images/aravind-qr-code.svg',
+    qrPngUrl: '/images/aravind-qr-code.png'
   },
   {
     id: 'search-engine',
     title: 'IR Search Engine v2',
-    role: 'Full-Stack Developer & UI/UX',
-    shortDescription: 'Computational information retrieval engine indexing document corpora with an average query latency of 38 ms across 100 benchmark queries.',
+    role: 'Full-Stack Developer & Algorithm Designer',
+    problem: 'Searching unstructured document collections lacked computational transparency, requiring an inverted index mechanism without heavy external database overhead.',
+    solution: 'Engineered a lightweight Python/Flask search engine implementing Inverted Index tokenization, TF-IDF vectorization, and Cosine Similarity relevance ranking.',
+    result: 'Delivered deterministic query retrieval across corpora with sub-second ranking and real-time inspectable calculation matrices.',
+    shortDescription: 'Computational Information Retrieval engine indexing document corpora with Inverted Indexing, TF-IDF weighting, and Cosine Similarity scoring.',
     period: '2024 – 2025',
     organizationTag: 'Information Retrieval & NLP • Open Source',
-    description: 'A full-stack Information Retrieval engine and computational search playground. Indexes document corpora into an Inverted Index data structure, executing queries with an average latency of 38 ms across 100 benchmark queries via Vector Space Model Cosine Similarity and real-time computational transparency matrices.',
-    tags: ['Python', 'Flask', 'React / HTML5', 'Tailwind CSS', 'TF-IDF', 'Vercel'],
+    description: 'A full-stack Information Retrieval engine and computational search playground built with Python and Flask. Indexes document corpora into an Inverted Index data structure, executing queries via Vector Space Model Cosine Similarity and real-time computational transparency matrices.',
+    tags: ['Python', 'Flask', 'HTML5 Templates', 'CSS3', 'Inverted Index', 'TF-IDF / VSM', 'Vercel'],
     category: 'analytics',
-    metricHighlight: 'Average query latency: 38 ms across 100 queries · TF-IDF Ranking',
+    metricHighlight: 'Inverted Index Architecture · TF-IDF & Cosine Similarity Ranking',
     bullets: [
       'Engineered full-stack IR search engine using Python & Flask, indexing document corpora into an Inverted Index structure.',
-      'Measured reproducible query performance: average latency of 38 ms across 100 benchmark queries using Vector Space Model (VSM) Cosine Similarity.',
+      'Implemented deterministic query retrieval using Vector Space Model (VSM) and Cosine Similarity relevance ranking.',
       'Constructed real-time calculation matrices computing Term Frequency (TF), Inverse Document Frequency (IDF), and query vector dot products.',
       'Deployed production web service to Vercel with zero external database dependencies for deterministic, instant retrieval.'
     ],
@@ -253,7 +260,7 @@ export const RESUME_DATA = {
       title: 'IR Search Engine v2 (Inverted Index & TF-IDF)',
       bullets: [
         'Engineered an Information Retrieval search engine with Python & Flask, indexing document corpora into an Inverted Index data structure.',
-        'Delivered reproducible query performance (average latency: 38 ms across 100 benchmark queries) using Vector Space Model (VSM) Cosine Similarity relevance ranking.',
+        'Delivered deterministic query retrieval using Vector Space Model (VSM) Cosine Similarity relevance ranking across indexed document collections.',
         'Constructed interactive calculation transparency matrices displaying vocabulary tokens, Term Frequency (TF), and Inverse Document Frequency (IDF).',
         'Implemented dynamic document ingestion allowing custom .txt uploads with real-time automated corpus re-indexing and token normalization.',
         'Deployed production web application to Vercel with zero external database dependencies.'
