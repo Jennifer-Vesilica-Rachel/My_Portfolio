@@ -2,7 +2,7 @@
 
 A modern personal portfolio website built with **React, Vite, TypeScript, and Tailwind CSS** to showcase my skills, projects, experience, education, and professional journey in the field of Information Technology.
 
-The portfolio provides a clean, responsive, and interactive interface for exploring my technical skills, academic and personal projects, internship experience, professional profiles, and contact information.
+The portfolio provides a clean, responsive, and interactive interface for exploring my technical skills, projects, internship experience, professional profiles, and contact information.
 
 ## Features
 
@@ -15,7 +15,9 @@ The portfolio provides a clean, responsive, and interactive interface for explor
 * **Contact:** Contact information and professional links.
 * **Responsive Design:** Works across desktop, tablet, and mobile screen sizes.
 * **Modern UI:** Clean and user-friendly portfolio interface.
-* **Animations:** Interactive animations and transitions for an engaging experience.
+* **Animations:** Interactive animations using GSAP and Motion.
+* **AI Integration:** Google GenAI integration for AI-powered functionality.
+* **QR Code Generation:** QR code functionality using the QRCode library.
 * **Social Links:** Direct access to GitHub and LinkedIn profiles.
 
 ## Project Structure
@@ -35,29 +37,31 @@ My_Portfolio/
 ├── package-lock.json
 ├── tsconfig.json
 ├── vite.config.ts
-├── tailwind.config.js
-├── postcss.config.js
 ├── README.md
 └── ...
 ```
+
+> The exact contents of the `src/` directory may vary as the project develops.
 
 ## Getting Started
 
 ### Prerequisites
 
-Make sure the following are installed on your system:
+Make sure the following are installed:
 
 * **Node.js**
 * **npm**
 * **Git**
-* **VS Code** or any preferred code editor
+* **VS Code** or another preferred code editor
 
-You can verify Node.js and npm using:
+You can check your Node.js and npm versions with:
 
 ```bash
 node --version
 npm --version
 ```
+
+## Installation
 
 ### 1. Clone the Repository
 
@@ -68,70 +72,81 @@ cd My_Portfolio
 
 ### 2. Install Dependencies
 
-Install the project dependencies using npm:
+Install all project dependencies using npm:
 
 ```bash
 npm install
 ```
 
-This installs the dependencies required by the React/Vite application.
+The project dependencies and development dependencies are defined in `package.json`.
 
 ### 3. Start the Development Server
 
-Run the Vite development server:
+Run:
 
 ```bash
 npm run dev
 ```
 
-Vite will provide a local development URL, usually similar to:
+The project is configured to start Vite on **port 3000** and listen on all network interfaces.
+
+Open the following URL in your browser:
 
 ```text
-http://localhost:5173/
+http://localhost:3000
 ```
 
-Open the displayed URL in your browser to view the portfolio.
+The terminal will also display the available local/network addresses when the server starts.
 
-### 4. Build for Production
+## Available Scripts
 
-To create an optimized production build:
+| Command           | Description                                     |
+| ----------------- | ----------------------------------------------- |
+| `npm run dev`     | Starts the Vite development server on port 3000 |
+| `npm run build`   | Creates an optimized production build           |
+| `npm run preview` | Previews the production build locally           |
+| `npm run lint`    | Runs TypeScript checking without emitting files |
+| `npm run clean`   | Removes the `dist` directory and `server.js`    |
 
-```bash
-npm run build
-```
-
-### 5. Preview the Production Build
-
-To preview the production build locally:
-
-```bash
-npm run preview
-```
+These commands are defined directly in the project's `package.json`.
 
 ## Technologies Used
 
-### Frontend
+### Core Technologies
 
-* **React** – Component-based user interface development
-* **TypeScript** – Type-safe JavaScript development
-* **Vite** – Frontend development and build tool
-* **Tailwind CSS** – Utility-first CSS framework
+* **React 19** – Building the user interface with reusable components.
+* **React DOM** – Rendering the React application in the browser.
+* **TypeScript** – Type-safe application development.
+* **Vite** – Development server and production build tool.
+* **Tailwind CSS 4** – Utility-first styling framework.
 
-### Animation & Interaction
+### Animation and UI
 
-* **GSAP** – Advanced animations and motion effects
-* **Motion** – UI animations and interactive motion
+* **GSAP** – Advanced animations.
+* **@gsap/react** – React integration for GSAP.
+* **Motion** – UI animations and interactive motion.
+* **Lucide React** – Icon library.
 
-### Communication
+### AI and Communication
 
-* **EmailJS** – Contact form/email integration
+* **Google GenAI** – Google Generative AI integration.
+* **EmailJS** – Sending emails through the contact functionality.
 
-### Development & Deployment
+### Utilities
 
-* **npm** – Package and dependency management
-* **Git** – Version control
-* **GitHub** – Source code hosting
-* **Vercel** – Deployment and hosting
+* **QRCode** – QR code generation.
+* **dotenv** – Environment variable management.
+* **Express** – Server-side functionality.
+* **tsx** – TypeScript execution.
+
+### Development Tools
+
+* **Git** – Version control.
+* **GitHub** – Repository hosting.
+* **Vercel** – Portfolio deployment.
+* **npm** – Package management.
+
+The technologies above are based on the dependencies and development dependencies declared in `package.json`.
 
 ## About Me
 
