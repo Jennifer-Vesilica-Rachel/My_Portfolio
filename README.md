@@ -1,43 +1,83 @@
 # My Portfolio
 
-A personal portfolio website created to showcase my **skills, projects, experience, education, and professional journey** in the field of Information Technology.
+A modern, responsive personal portfolio website built to showcase my **UI/UX work, technical skills, projects, internship experience, education, and professional journey**.
 
-The portfolio provides a clean and responsive interface for exploring my technical skills, projects, internship experience, and professional profiles.
+The portfolio is designed as a professional career showcase with a clean visual interface, responsive layouts, interactive elements, animated sections, project showcases, and direct access to professional profiles.
 
-## Features
+## 🌐 Live Portfolio
 
-* **About Me:** Introduction and professional background.
-* **Skills:** Overview of technical and professional skills.
-* **Projects:** Showcase of academic, personal, and practical projects.
-* **Experience:** Details of internship and practical experience.
-* **Education:** Academic background and qualifications.
-* **Resume:** Easy access to my professional resume.
-* **Contact:** Contact information and professional links.
-* **Responsive Design:** Works across desktop, tablet, and mobile screen sizes.
-* **Modern UI:** Clean and user-friendly portfolio interface.
-* **Social Links:** Direct access to GitHub and LinkedIn profiles.
+**[Visit My Portfolio](https://myportfolio-five-alpha-63.vercel.app/)**
+
+## ✨ Features
+
+* **Hero / Home Section** – Professional introduction with clear navigation to important portfolio sections.
+* **About Me** – Personal introduction, background, interests, and career focus.
+* **Skills** – Presentation of technical and professional skills.
+* **Projects** – Showcase of academic, personal, and practical projects with relevant project information and links.
+* **Experience** – Internship and practical experience presented as part of the professional journey.
+* **Education** – Academic background and qualifications.
+* **Resume / CV** – Direct access to the professional resume.
+* **Contact Section** – Contact form and professional contact options.
+* **GitHub & LinkedIn** – Direct links to professional profiles.
+* **Responsive Design** – Layout adapted for desktop, tablet, and mobile screen sizes.
+* **Modern UI/UX** – Clean visual hierarchy, consistent spacing, typography, cards, buttons, and interactive states.
+* **Animations & Interactions** – Section and component animations, scroll-based visual effects, and interactive UI behavior.
+* **Interactive Navigation** – Navigation links and call-to-action elements connect users to the relevant sections and resources.
+* **Project Links** – Project cards provide access to available repositories and live project demonstrations.
+* **Contact Integration** – Email-based contact functionality using EmailJS.
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+* React.js
+* TypeScript
+* HTML5
+* CSS
+* Tailwind CSS
+* Vite
+
+### UI / Animation
+
+* GSAP
+* Motion
+* Lucide React
+
+### Services & Tools
+
+* EmailJS
+* Git
+* GitHub
+* Vercel
+
+## 📁 Project Structure
 
 ```text
 My_Portfolio/
-├── assets/
-│   ├── images/
+├── public/
+│   └── images/
+├── src/
 │   └── ...
+├── .env.example
+├── .gitignore
 ├── index.html
-├── css/
-│   └── ...
-├── js/
-│   └── ...
-├── README.md
-└── ...
+├── metadata.json
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-* A modern web browser
+Make sure the following are installed:
+
+* Node.js
+* npm
 * Git
-* VS Code or any preferred code editor
+* VS Code or another preferred code editor
 
 ### 1. Clone the repository
 
@@ -46,59 +86,90 @@ git clone https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio.git
 cd My_Portfolio
 ```
 
-### 2. Run the project
+### 2. Install dependencies
 
-If the project is a static website, open:
-
-```text
-index.html
+```bash
+npm install
 ```
 
-in your browser.
+### 3. Configure environment variables
 
-Alternatively, you can use **VS Code Live Server** to run the project locally.
+If environment variables are required for the contact functionality, create a `.env` file using `.env.example` as the reference and add the required values.
 
-## Technologies Used
+Do not commit private API keys or credentials to GitHub.
 
-* HTML5
-* CSS3
-* JavaScript
-* Git
-* GitHub
-* Vercel
+### 4. Start the development server
 
-## About Me
+```bash
+npm run dev
+```
 
-I am an **Information Science & Engineering student and aspiring IT professional** interested in building practical and user-friendly digital solutions.
+The project runs using Vite. Open the local URL shown in the terminal.
 
-My areas of interest include:
+### 5. Create a production build
 
-* Web Development
-* UI/UX Design
-* Data Analytics
-* Python
-* SQL
-* Software Development
-* Emerging Technologies
+```bash
+npm run build
+```
 
-I enjoy learning new technologies, solving real-world problems, and transforming ideas into functional digital experiences.
+### 6. Preview the production build
 
-## Deployment
+```bash
+npm run preview
+```
 
-The portfolio is deployed using **Vercel**.
+## 🎨 Design & UX Focus
 
-### Live Portfolio
+The portfolio focuses on presenting information in a clear and professional way while maintaining a consistent visual experience.
+
+Key design considerations include:
+
+* Clear information hierarchy
+* Responsive layouts
+* Consistent typography and spacing
+* Reusable UI components
+* Interactive buttons and navigation
+* Animated section transitions
+* Project-focused presentation
+* Accessible contact and profile links
+* Mobile-friendly layouts
+* Consistent visual styling across sections
+
+## 💼 Portfolio Highlights
+
+The portfolio brings together:
+
+* UI/UX design work
+* Web development projects
+* Academic projects
+* Practical and internship experience
+* Technical skills
+* Professional resume
+* GitHub projects
+* LinkedIn profile
+* Contact information
+
+## 🚀 Deployment
+
+The portfolio is deployed on **Vercel**.
+
+### Live Website
 
 **https://myportfolio-five-alpha-63.vercel.app/**
 
-## Connect With Me
+## 🔗 Connect With Me
 
 * **GitHub:** https://github.com/Jennifer-Vesilica-Rachel
 * **LinkedIn:** https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305/
 * **Portfolio:** https://myportfolio-five-alpha-63.vercel.app/
 
-## License
+## 📌 Repository
 
-This project is a personal portfolio created to showcase my skills, projects, and professional experience.
+**GitHub Repository:**
+https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio
+
+## 📄 License
+
+This is a personal portfolio project created to showcase my skills, projects, UI/UX work, and professional experience.
 
 © 2026 Jennifer Vesilica Rachael. All rights reserved.
