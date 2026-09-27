@@ -1,209 +1,170 @@
-My Portfolio
+# My Portfolio
 
-A modern, responsive personal portfolio website built to showcase my UI/UX work, technical skills, projects, internship experience, education, and professional journey.
+A modern personal portfolio website built with **React, Vite, TypeScript, and Tailwind CSS** to showcase my skills, projects, experience, education, and professional journey in the field of Information Technology.
 
-The portfolio is designed as a professional career showcase with a clean visual interface, responsive layouts, interactive elements, animated sections, project showcases, and direct access to professional profiles.
+The portfolio provides a clean, responsive, and interactive interface for exploring my technical skills, academic and personal projects, internship experience, professional profiles, and contact information.
 
-🌐 Live Portfolio
+## Features
 
-Visit My Portfolio
+* **About Me:** Introduction and professional background.
+* **Skills:** Overview of technical and professional skills.
+* **Projects:** Showcase of academic, personal, and practical projects.
+* **Experience:** Details of internship and practical experience.
+* **Education:** Academic background and qualifications.
+* **Resume:** Easy access to my professional resume.
+* **Contact:** Contact information and professional links.
+* **Responsive Design:** Works across desktop, tablet, and mobile screen sizes.
+* **Modern UI:** Clean and user-friendly portfolio interface.
+* **Animations:** Interactive animations and transitions for an engaging experience.
+* **Social Links:** Direct access to GitHub and LinkedIn profiles.
 
-✨ Features
+## Project Structure
 
-Hero / Home Section – Professional introduction with clear navigation to important portfolio sections.
-
-About Me – Personal introduction, background, interests, and career focus.
-
-Skills – Presentation of technical and professional skills.
-
-Projects – Showcase of academic, personal, and practical projects with relevant project information and links.
-
-Experience – Internship and practical experience presented as part of the professional journey.
-
-Education – Academic background and qualifications.
-
-Resume / CV – Direct access to the professional resume.
-
-Contact Section – Contact form and professional contact options.
-
-GitHub & LinkedIn – Direct links to professional profiles.
-
-Responsive Design – Layout adapted for desktop, tablet, and mobile screen sizes.
-
-Modern UI/UX – Clean visual hierarchy, consistent spacing, typography, cards, buttons, and interactive states.
-
-Animations & Interactions – Section and component animations, scroll-based visual effects, and interactive UI behavior.
-
-Interactive Navigation – Navigation links and call-to-action elements connect users to the relevant sections and resources.
-
-Project Links – Project cards provide access to available repositories and live project demonstrations.
-
-Contact Integration – Email-based contact functionality using EmailJS.
-
-🛠️ Technologies Used
-
-Frontend
-
-React.js
-
-TypeScript
-
-HTML5
-
-CSS
-
-Tailwind CSS
-
-Vite
-
-UI / Animation
-
-GSAP
-
-Motion
-
-Lucide React
-
-Services & Tools
-
-EmailJS
-
-Git
-
-GitHub
-
-Vercel
-
-📁 Project Structure
-
+```text
 My_Portfolio/
 ├── public/
-│   └── images/
-├── src/
 │   └── ...
-├── .env.example
-├── .gitignore
+├── src/
+│   ├── components/
+│   ├── assets/
+│   ├── ...
+│   ├── App.tsx
+│   └── main.tsx
 ├── index.html
-├── metadata.json
 ├── package.json
+├── package-lock.json
 ├── tsconfig.json
 ├── vite.config.ts
-└── README.md
+├── tailwind.config.js
+├── postcss.config.js
+├── README.md
+└── ...
+```
 
-🚀 Getting Started
+## Getting Started
 
-Prerequisites
+### Prerequisites
 
-Make sure the following are installed:
+Make sure the following are installed on your system:
 
-Node.js
+* **Node.js**
+* **npm**
+* **Git**
+* **VS Code** or any preferred code editor
 
-npm
+You can verify Node.js and npm using:
 
-Git
+```bash
+node --version
+npm --version
+```
 
-VS Code or another preferred code editor
+### 1. Clone the Repository
 
-1. Clone the repository
-
+```bash
 git clone https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio.git
 cd My_Portfolio
+```
 
-2. Install dependencies
+### 2. Install Dependencies
 
+Install the project dependencies using npm:
+
+```bash
 npm install
+```
 
-3. Configure environment variables
+This installs the dependencies required by the React/Vite application.
 
-If environment variables are required for the contact functionality, create a .env file using .env.example as the reference and add the required values.
+### 3. Start the Development Server
 
-Do not commit private API keys or credentials to GitHub.
+Run the Vite development server:
 
-4. Start the development server
-
+```bash
 npm run dev
+```
 
-The project runs using Vite. Open the local URL shown in the terminal.
+Vite will provide a local development URL, usually similar to:
 
-5. Create a production build
+```text
+http://localhost:5173/
+```
 
+Open the displayed URL in your browser to view the portfolio.
+
+### 4. Build for Production
+
+To create an optimized production build:
+
+```bash
 npm run build
+```
 
-6. Preview the production build
+### 5. Preview the Production Build
 
+To preview the production build locally:
+
+```bash
 npm run preview
+```
 
-🎨 Design & UX Focus
+## Technologies Used
 
-The portfolio focuses on presenting information in a clear and professional way while maintaining a consistent visual experience.
+### Frontend
 
-Key design considerations include:
+* **React** – Component-based user interface development
+* **TypeScript** – Type-safe JavaScript development
+* **Vite** – Frontend development and build tool
+* **Tailwind CSS** – Utility-first CSS framework
 
-Clear information hierarchy
+### Animation & Interaction
 
-Responsive layouts
+* **GSAP** – Advanced animations and motion effects
+* **Motion** – UI animations and interactive motion
 
-Consistent typography and spacing
+### Communication
 
-Reusable UI components
+* **EmailJS** – Contact form/email integration
 
-Interactive buttons and navigation
+### Development & Deployment
 
-Animated section transitions
+* **npm** – Package and dependency management
+* **Git** – Version control
+* **GitHub** – Source code hosting
+* **Vercel** – Deployment and hosting
 
-Project-focused presentation
+## About Me
 
-Accessible contact and profile links
+I am an **Information Science & Engineering student and aspiring IT professional** interested in building practical and user-friendly digital solutions.
 
-Mobile-friendly layouts
+My areas of interest include:
 
-Consistent visual styling across sections
+* Web Development
+* UI/UX Design
+* Data Analytics
+* Python
+* SQL
+* Software Development
+* Emerging Technologies
 
-💼 Portfolio Highlights
+I enjoy learning new technologies, solving real-world problems, and transforming ideas into functional digital experiences.
 
-The portfolio brings together:
+## Deployment
 
-UI/UX design work
+The portfolio is deployed using **Vercel**.
 
-Web development projects
-
-Academic projects
-
-Practical and internship experience
-
-Technical skills
-
-Professional resume
-
-GitHub projects
-
-LinkedIn profile
-
-Contact information
-
-🚀 Deployment
-
-The portfolio is deployed on Vercel.
-
-Live Website
+### Live Portfolio
 
 https://myportfolio-five-alpha-63.vercel.app/
 
-🔗 Connect With Me
+## Connect With Me
 
-GitHub: https://github.com/Jennifer-Vesilica-Rachel
+* **GitHub:** https://github.com/Jennifer-Vesilica-Rachel
+* **LinkedIn:** https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305/
+* **Portfolio:** https://myportfolio-five-alpha-63.vercel.app/
 
-LinkedIn: https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305/
+## License
 
-Portfolio: https://myportfolio-five-alpha-63.vercel.app/
-
-📌 Repository
-
-GitHub Repository:
-https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio
-
-📄 License
-
-This is a personal portfolio project created to showcase my skills, projects, UI/UX work, and professional experience.
+This project is a personal portfolio created to showcase my skills, projects, and professional experience.
 
 © 2026 Jennifer Vesilica Rachael. All rights reserved.
