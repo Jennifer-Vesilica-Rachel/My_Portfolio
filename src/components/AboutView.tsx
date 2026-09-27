@@ -101,7 +101,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </div>
 
                 <h1 className="hero-heading typography-hero-name font-['Epilogue'] text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-[60px] xl:text-[64px] font-extrabold text-[#261907] tracking-tight leading-[1.08] max-w-2xl break-words">
-                  Jennifer Vesilica Rachael
+                  Jennifer Vesilica Rachel
                 </h1>
 
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -195,7 +195,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               <div className="hero-portrait-card relative w-full h-80 sm:h-96 lg:h-[380px] rounded-2xl overflow-hidden shadow-md bg-[#18130f] border border-[#dcbfc3]/50 group">
                 <img
                   src={PORTFOLIO_IMAGES.jenniferPortrait}
-                  alt="Jennifer Vesilica Rachael - UI/UX Designer &amp; Developer"
+                  alt="Jennifer Vesilica Rachel - UI/UX Designer &amp; Developer"
                   className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#18130f]/95 via-transparent to-transparent pointer-events-none"></div>
@@ -211,7 +211,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                       UI/UX Designer &amp; Developer
                     </span>
                     <span className="font-['Epilogue'] text-base sm:text-lg font-bold">
-                      Jennifer Vesilica Rachael
+                      Jennifer Vesilica Rachel
                     </span>
                     <span className="font-['Space_Grotesk'] text-[11px] text-gray-300">
                       B.Tech (ISE) · PTU Puducherry

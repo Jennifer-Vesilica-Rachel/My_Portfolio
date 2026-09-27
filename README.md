@@ -1,4 +1,4 @@
-# My Portfolio — Jennifer Vesilica Rachael
+# My Portfolio — Jennifer Vesilica Rachel
 
 A personal portfolio web application engineered to showcase my **skills, verified software engineering projects, professional experience, academic background, and credentials** in Information Science and Engineering.
 
@@ -172,4 +172,4 @@ Verified 100% fluid layout and touch accessibility across standard screen breakp
 
 ---
 
-© 2026 Jennifer Vesilica Rachael. All rights reserved.
+© 2026 Jennifer Vesilica Rachel. All rights reserved.

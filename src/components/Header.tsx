@@ -88,7 +88,7 @@ export default function Header({ currentPath, onNavigate, onOpenResume }: Header
             </div>
             <div className="flex flex-col min-w-0">
               <span className="font-['Epilogue'] text-xs sm:text-sm md:text-base font-bold text-[#261907] tracking-tight leading-snug group-hover:text-[#82193a] transition-colors duration-200 truncate max-w-[130px] min-[380px]:max-w-[180px] sm:max-w-none">
-                Jennifer Vesilica Rachael
+                Jennifer Vesilica Rachel
               </span>
               <span className="font-['Space_Grotesk'] text-[10px] sm:text-[11px] text-[#564145] uppercase tracking-wider truncate hidden min-[400px]:block transition-colors duration-200 group-hover:text-[#80552f]">
                 UI/UX Designer &amp; Developer

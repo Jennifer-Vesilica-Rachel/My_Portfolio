@@ -54,7 +54,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 JR
               </span>
               <span className="font-['Epilogue'] text-base font-bold text-[#261907]">
-                Jennifer Vesilica Rachael
+                Jennifer Vesilica Rachel
               </span>
             </div>
             <p className="font-['DM_Sans'] text-sm text-[#564145] max-w-md leading-relaxed">
@@ -171,7 +171,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         {/* Colophon bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs font-['Space_Grotesk'] text-[#564145]">
-          <p>© 2026 Jennifer Vesilica Rachael. Engineered with Warm Modern Editorial standards.</p>
+          <p>© 2026 Jennifer Vesilica Rachel. Engineered with Warm Modern Editorial standards.</p>
           <p className="flex items-center gap-1 text-[#80552f]">
             <Terminal size={14} />
             <span>Designed for high-impact innovation</span>

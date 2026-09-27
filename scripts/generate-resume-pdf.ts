@@ -36,7 +36,7 @@ async function generateResumePdf() {
   let y = pageHeight - 35;
 
   // Name
-  page1.drawText('JENNIFER VESILICA RACHAEL', {
+  page1.drawText('JENNIFER VESILICA RACHEL', {
     x: margin,
     y,
     size: 18,
@@ -294,7 +294,7 @@ async function generateResumePdf() {
   }
 
   // Page 1 footer
-  page1.drawText('Page 1 of 2  •  Jennifer Vesilica Rachael Resume  •  jennifersagaidasse@gmail.com', {
+  page1.drawText('Page 1 of 2  •  Jennifer Vesilica Rachel Resume  •  jennifersagaidasse@gmail.com', {
     x: margin,
     y: 20,
     size: 7.5,
@@ -316,7 +316,7 @@ async function generateResumePdf() {
 
   let y2 = pageHeight - 35;
 
-  page2.drawText('JENNIFER VESILICA RACHAEL', {
+  page2.drawText('JENNIFER VESILICA RACHEL', {
     x: margin,
     y: y2,
     size: 14,
@@ -575,7 +575,7 @@ async function generateResumePdf() {
   }
 
   // Page 2 footer
-  page2.drawText('Page 2 of 2  •  Jennifer Vesilica Rachael Resume  •  myportfolio-five-alpha-63.vercel.app', {
+  page2.drawText('Page 2 of 2  •  Jennifer Vesilica Rachel Resume  •  myportfolio-five-alpha-63.vercel.app', {
     x: margin,
     y: 20,
     size: 7.5,

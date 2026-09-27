@@ -233,7 +233,7 @@ export const PROJECTS: ProjectItem[] = [
 
 export const RESUME_DATA = {
   header: {
-    name: 'JENNIFER VESILICA RACHAEL',
+    name: 'JENNIFER VESILICA RACHEL',
     email: 'jennifersagaidasse@gmail.com',
     phone: '+91 8248092194',
     location: 'Puducherry, India',
