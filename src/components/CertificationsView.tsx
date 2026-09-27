@@ -355,7 +355,7 @@ export default function CertificationsView({ onOpenCertificate, onNavigate }: Ce
                   'MySQL Workbench',
                   'Eclipse IDE',
                   'RStudio',
-                  'Netlify & Bolt',
+                  'Netlify',
                   'IDLE',
                   'Zoho Creator'
                 ].map((s) => (

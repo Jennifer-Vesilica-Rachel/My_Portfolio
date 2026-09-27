@@ -170,10 +170,10 @@ export const PROJECTS: ProjectItem[] = [
     category: 'healthcare',
     metricHighlight: '4 Clinical Wings Mapped · 0s App Install',
     bullets: [
-      'Designed accessible, low-vision-friendly UI/UX and engineered the responsive React web app for outpatient hospital wayfinding.',
-      'Eliminated app store installation overhead via localized physical QR scan points at hospital ground entrance and elevator bays.',
-      'Implemented 100% client-side multi-floor routing with verified transit times and photographic landmark checkpoints.',
-      'Deployed production site to Netlify with full mobile responsiveness across smartphones and tablets.'
+      'Engineered responsive mobile-first wayfinding web app mapping 4 core clinical wings for outpatient navigation.',
+      'Eliminated app installation overhead (0s install, < 1.5s 4G load) via localized physical QR scan points at entrances and elevator bays.',
+      'Delivered client-side multi-floor routing with verified transit metrics and photographic landmark checkpoints.',
+      'Deployed production build to Netlify with full mobile responsiveness across iOS and Android smartphones.'
     ],
     liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
     githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System',
@@ -183,40 +183,21 @@ export const PROJECTS: ProjectItem[] = [
     id: 'search-engine',
     title: 'IR Search Engine v2',
     role: 'Full-Stack Developer & UI/UX',
-    shortDescription: 'Computational information retrieval engine indexing document corpora with sub-50ms TF-IDF and Cosine Similarity queries.',
+    shortDescription: 'Computational information retrieval engine indexing document corpora with an average query latency of 38 ms across 100 benchmark queries.',
     period: '2024 – 2025',
     organizationTag: 'Information Retrieval & NLP • Open Source',
-    description: 'A full-stack Information Retrieval engine and computational search playground. Indexes document corpora into an Inverted Index data structure, executing sub-50ms queries with Vector Space Model Cosine Similarity and real-time computational transparency matrices.',
+    description: 'A full-stack Information Retrieval engine and computational search playground. Indexes document corpora into an Inverted Index data structure, executing queries with an average latency of 38 ms across 100 benchmark queries via Vector Space Model Cosine Similarity and real-time computational transparency matrices.',
     tags: ['Python', 'Flask', 'React / HTML5', 'Tailwind CSS', 'TF-IDF', 'Vercel'],
     category: 'analytics',
-    metricHighlight: 'Sub-50ms Query Latency · TF-IDF Ranking',
+    metricHighlight: 'Average query latency: 38 ms across 100 queries · TF-IDF Ranking',
     bullets: [
-      'Built a full-stack Information Retrieval engine using Python & Flask, indexing text corpora into an Inverted Index data structure.',
-      'Achieved sub-50ms search query response latency across document collections using Vector Space Model (VSM) and Cosine Similarity ranking.',
-      'Designed transparent inspection matrices computing real-time Term Frequency (TF), Inverse Document Frequency (IDF), and query vector dot products.',
-      'Deployed production web application to Vercel with zero external database dependencies for lightweight, deterministic retrieval.'
+      'Engineered full-stack IR search engine using Python & Flask, indexing document corpora into an Inverted Index structure.',
+      'Measured reproducible query performance: average latency of 38 ms across 100 benchmark queries using Vector Space Model (VSM) Cosine Similarity.',
+      'Constructed real-time calculation matrices computing Term Frequency (TF), Inverse Document Frequency (IDF), and query vector dot products.',
+      'Deployed production web service to Vercel with zero external database dependencies for deterministic, instant retrieval.'
     ],
     liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
     githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/search-engine'
-  },
-  {
-    id: 'portfolio-website',
-    title: 'Interactive Editorial Portfolio',
-    role: 'UI/UX Designer & Frontend Developer',
-    shortDescription: 'Warm modern editorial portfolio website with accessible typography, responsive interactive cards, and verified credentials.',
-    period: '2025 – 2026',
-    organizationTag: 'Personal Portfolio • Production Web',
-    description: 'A high-contrast, warm modern editorial portfolio website crafted with React, Tailwind CSS, Lucide icons, and GSAP animations, showcasing human-centered UI/UX design and production frontend engineering.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Figma', 'GSAP', 'Vite'],
-    category: 'fullstack',
-    metricHighlight: 'Responsive Warm Editorial Design System',
-    bullets: [
-      'Designed a warm editorial design system pairing high-contrast typography with balanced negative space and accessible color tokens.',
-      'Engineered interactive simulation widgets for clinical wayfinding and TF-IDF information retrieval.',
-      'Maintained 100% responsive layouts across mobile, tablet, and widescreen viewports with zero external bloat.'
-    ],
-    liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
-    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio'
   }
 ];
 
@@ -272,7 +253,7 @@ export const RESUME_DATA = {
       title: 'IR Search Engine v2 (Inverted Index & TF-IDF)',
       bullets: [
         'Engineered an Information Retrieval search engine with Python & Flask, indexing document corpora into an Inverted Index data structure.',
-        'Delivered sub-50ms query response latency using Vector Space Model (VSM) Cosine Similarity relevance ranking.',
+        'Delivered reproducible query performance (average latency: 38 ms across 100 benchmark queries) using Vector Space Model (VSM) Cosine Similarity relevance ranking.',
         'Constructed interactive calculation transparency matrices displaying vocabulary tokens, Term Frequency (TF), and Inverse Document Frequency (IDF).',
         'Implemented dynamic document ingestion allowing custom .txt uploads with real-time automated corpus re-indexing and token normalization.',
         'Deployed production web application to Vercel with zero external database dependencies.'

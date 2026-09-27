@@ -78,19 +78,20 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     try {
-      if (serviceId && templateId && publicKey && !publicKey.startsWith('template_')) {
-        await emailjs.sendForm(
-          serviceId,
-          templateId,
-          e.currentTarget,
-          {
-            publicKey: publicKey,
-          }
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          'EmailJS service is not configured. Please contact Jennifer directly at jennifersagaidasse@gmail.com.'
         );
-      } else {
-        // Realistic interactive transmission simulation
-        await new Promise(resolve => setTimeout(resolve, 600));
       }
+
+      await emailjs.sendForm(
+        serviceId,
+        templateId,
+        e.currentTarget,
+        {
+          publicKey: publicKey,
+        }
+      );
 
       // Record to session storage for persistence verification
       try {
@@ -108,6 +109,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
       }
 
       setFormSubmitted(true);
+      setSubmitError(null);
       setFormData({
         name: '',
         email: '',
@@ -115,15 +117,12 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
         message: '',
       });
     } catch (err: any) {
-      console.warn('Form dispatch fallback engaged:', err);
-      // Graceful fallback to verified success so user experience never fails
-      setFormSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        org: '',
-        message: '',
-      });
+      console.error('EmailJS transmission error:', err);
+      const detail =
+        (typeof err === 'object' && err?.text) ? String(err.text) :
+        (err?.message ? String(err.message) : 'EmailJS service is currently unavailable. Please send an email directly to jennifersagaidasse@gmail.com.');
+      setSubmitError(detail);
+      setFormSubmitted(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -219,7 +218,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="btn-interactive self-end min-[440px]:self-auto px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 cursor-pointer border border-[#dcbfc3]/40"
+                  className="btn-interactive self-end min-[440px]:self-auto min-h-[40px] px-3.5 py-2 rounded-xl bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 cursor-pointer border border-[#dcbfc3]/40"
                   title="Copy email to clipboard"
                 >
                   {emailCopied ? <Check size={14} className="text-green-700" /> : <Copy size={14} />}
@@ -248,14 +247,14 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={handleCopyPhone}
-                    className="btn-interactive px-2.5 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1 transition-all cursor-pointer border border-[#dcbfc3]/40"
+                    className="btn-interactive min-h-[40px] px-3 py-2 rounded-xl bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1 transition-all cursor-pointer border border-[#dcbfc3]/40"
                     title="Copy phone"
                   >
                     {phoneCopied ? <Check size={13} className="text-green-700" /> : <Copy size={13} />}
                   </button>
                   <a
                     href="tel:+918248092194"
-                    className="btn-interactive px-3 py-1.5 rounded-lg bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                    className="btn-interactive min-h-[40px] px-3.5 py-2 rounded-xl bg-[#82193a] text-white font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 hover:bg-[#610025] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
                   >
                     <span>Call</span>
                   </a>
@@ -281,7 +280,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-interactive px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 border border-[#dcbfc3]/40"
+                  className="btn-interactive min-h-[40px] px-3.5 py-2 rounded-xl bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 border border-[#dcbfc3]/40"
                 >
                   <span>Profile</span>
                   <Globe size={13} />
@@ -307,7 +306,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   href="https://github.com/Jennifer-Vesilica-Rachel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-interactive px-3 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 border border-[#dcbfc3]/40"
+                  className="btn-interactive min-h-[40px] px-3.5 py-2 rounded-xl bg-[#ffffff] hover:bg-[#ffe4c6] hover:scale-[1.02] active:scale-[0.98] text-[#82193a] font-['Space_Grotesk'] text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all shrink-0 border border-[#dcbfc3]/40"
                 >
                   <span>GitHub</span>
                   <Globe size={13} />
@@ -421,6 +420,43 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+                {/* Visible Error Banner if EmailJS fails or is unavailable */}
+                {submitError && (
+                  <div
+                    role="alert"
+                    className="p-4 rounded-2xl bg-[#fff0f2] border-2 border-[#f87171] flex flex-col gap-3 text-[#991b1b] shadow-xs animate-in fade-in duration-200"
+                  >
+                    <div className="flex items-start gap-3">
+                      <AlertCircle size={22} className="text-[#dc2626] shrink-0 mt-0.5" />
+                      <div className="flex flex-col gap-1">
+                        <h4 className="font-['Epilogue'] text-sm sm:text-base font-bold text-[#7f1d1d]">
+                          Email Service Notice
+                        </h4>
+                        <p className="font-['DM_Sans'] text-xs sm:text-sm text-[#991b1b] leading-relaxed">
+                          {submitError}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#fca5a5]/60">
+                      <a
+                        href={`mailto:jennifersagaidasse@gmail.com?subject=${encodeURIComponent(`Portfolio inquiry from ${formData.name || 'visitor'}`)}&body=${encodeURIComponent(formData.message || '')}`}
+                        className="btn-interactive inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#82193a] hover:bg-[#610025] text-white font-['Space_Grotesk'] text-xs font-bold transition-all shadow-xs cursor-pointer"
+                      >
+                        <Mail size={14} />
+                        <span>Send via Direct Email Client</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => setSubmitError(null)}
+                        className="btn-interactive px-3 py-2 rounded-xl bg-white border border-[#dcbfc3] hover:bg-[#ffebd5] text-[#564145] font-['Space_Grotesk'] text-xs font-semibold transition-all cursor-pointer"
+                      >
+                        Dismiss
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 <input
                   type="hidden"
                   name="category"

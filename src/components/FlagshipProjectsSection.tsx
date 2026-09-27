@@ -28,7 +28,7 @@ export default function FlagshipProjectsSection({ onNavigate }: FlagshipProjects
               Featured Projects &amp; Live Systems
             </h2>
             <p className="typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] leading-relaxed">
-              Explore production-deployed healthcare wayfinding systems, computational Information Retrieval search engines, and frontend design architectures. All concise descriptions, UI/UX roles, tech stacks, GitHub repositories, and live demo deployments are consolidated in the dedicated Projects section.
+              Explore production-deployed healthcare wayfinding systems and computational Information Retrieval search engines. All concise descriptions, UI/UX roles, tech stacks, GitHub repositories, and live demo deployments are consolidated in the dedicated Projects section.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function FlagshipProjectsSection({ onNavigate }: FlagshipProjects
                   Upturne Software &amp; Services
                 </h3>
                 <p className="typography-body font-['DM_Sans'] text-xs sm:text-sm lg:text-base text-[#564145] leading-relaxed">
-                  Designed autonomous data pipelines, low-code generative AI agents, and enterprise workflow accelerations utilizing modern cloud hooks and Bolt integrations.
+                  Designed autonomous data pipelines, generative AI workflows, and enterprise automation solutions utilizing modern cloud hooks and automated integrations.
                 </p>
               </div>
               <div className="flex items-center justify-between text-xs font-['Space_Grotesk'] pt-3 border-t border-[#dcbfc3]/20">

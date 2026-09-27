@@ -50,7 +50,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
     { name: 'Scikit-Learn (ML)', category: 'framework', color: '#80552f' },
     { name: 'Microsoft Power BI', category: 'tools', color: '#610025' },
     { name: 'Advanced MS Excel', category: 'tools', color: '#80552f' },
-    { name: 'Bolt / Low-Code AI', category: 'tools', color: '#3f281f' },
+    { name: 'Workflow Automation', category: 'tools', color: '#3f281f' },
     { name: 'Netlify & Git CI/CD', category: 'tools', color: '#82193a' },
     { name: 'Zoho Creator Platform', category: 'tools', color: '#80552f' },
   ];
@@ -302,7 +302,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
               <div className="flex flex-wrap items-center gap-1.5 bg-[#ffe4c6] p-1.5 rounded-xl w-full sm:w-auto">
                 <button
                   onClick={() => setTechFilter('all')}
-                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'all'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -312,7 +312,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('lang')}
-                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'lang'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -322,7 +322,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('framework')}
-                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'framework'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'
@@ -332,7 +332,7 @@ export default function AboutView({ onNavigate, onOpenCertificate }: AboutViewPr
                 </button>
                 <button
                   onClick={() => setTechFilter('tools')}
-                  className={`min-h-[38px] px-3.5 py-1.5 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-['Space_Grotesk'] text-xs font-medium transition-all flex items-center justify-center cursor-pointer ${
                     techFilter === 'tools'
                       ? 'bg-[#82193a] text-white font-bold shadow-xs'
                       : 'text-[#261907] hover:bg-[#ffebd5]'

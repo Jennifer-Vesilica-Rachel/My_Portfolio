@@ -221,8 +221,8 @@ export default function Header({ currentPath, onNavigate, onOpenResume }: Header
                   href="https://github.com/Jennifer-Vesilica-Rachel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-[#ffebd5] text-[#261907] flex items-center justify-center hover:bg-[#ffe4c6] active:scale-95 transition-all"
+                  aria-label="GitHub Profile"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#ffebd5] text-[#261907] flex items-center justify-center hover:bg-[#ffe4c6] active:scale-95 transition-all"
                 >
                   <Github size={18} />
                 </a>
@@ -230,8 +230,8 @@ export default function Header({ currentPath, onNavigate, onOpenResume }: Header
                   href="https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-[#ffebd5] text-[#261907] flex items-center justify-center hover:bg-[#ffe4c6] active:scale-95 transition-all"
+                  aria-label="LinkedIn Profile"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#ffebd5] text-[#261907] flex items-center justify-center hover:bg-[#ffe4c6] active:scale-95 transition-all"
                 >
                   <Linkedin size={18} />
                 </a>

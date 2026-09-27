@@ -388,7 +388,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                       Flagship Project
                     </span>
                     <span className="font-['Space_Grotesk'] text-xs font-mono text-[#564145]">
-                      Deployment: Netlify &amp; Bolt
+                      Deployment: Netlify
                     </span>
                   </div>
                   <h3 className="font-['Epilogue'] text-base font-bold text-[#261907]">
@@ -508,7 +508,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
 
                 {/* Tech chips */}
                 <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                  {['React.js', 'Tailwind CSS', 'Python', 'Google Sheets & Excel', 'Netlify', 'Bolt', 'Healthcare Informatics'].map((t) => (
+                  {['React.js', 'Tailwind CSS', 'Python', 'Google Sheets & Excel', 'Netlify', 'Healthcare Informatics'].map((t) => (
                     <span
                       key={t}
                       className="px-3 py-1 rounded bg-[#ffebd5] text-[#564145] font-['Space_Grotesk'] text-xs font-medium"
@@ -601,7 +601,7 @@ export default function ExperienceView({ onNavigate, onOpenCertificate }: Experi
                 <tbody className="divide-y divide-[#dcbfc3]/20 font-['DM_Sans'] text-xs md:text-sm text-[#261907]">
                   <tr className="hover:bg-[#fff1e5]/60 transition-colors">
                     <td className="p-4 font-bold text-[#82193a]">Aravind Eye Hospital</td>
-                    <td className="p-4 font-mono font-['Space_Grotesk'] text-xs text-[#564145]">React.js, Tailwind CSS, Bolt</td>
+                    <td className="p-4 font-mono font-['Space_Grotesk'] text-xs text-[#564145]">React.js, Tailwind CSS</td>
                     <td className="p-4 text-[#564145]">Severe corridor congestion &amp; repetitive desk inquiries from elderly patients</td>
                     <td className="p-4">QR code responsive mobile portal with mapped visual landmarks</td>
                     <td className="p-4">

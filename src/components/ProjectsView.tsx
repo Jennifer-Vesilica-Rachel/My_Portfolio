@@ -145,7 +145,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
               {PROJECTS.length} Verified Systems
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROJECTS.map((project) => (
               <ProjectCard
                 key={project.id}
@@ -413,7 +413,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                   href="https://search-engine-self-sigma.vercel.app"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#82193a] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] transition-all shadow-xs shrink-0 self-start sm:self-auto"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 bg-[#82193a] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] transition-all shadow-xs shrink-0 self-start sm:self-auto cursor-pointer active:scale-95"
                 >
                   <ExternalLink size={13} />
                   <span>Open Vercel App</span>
@@ -429,25 +429,25 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Enter query (e.g. 'data processing', 'machine learning', 'indexing')..."
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm font-['Space_Grotesk'] text-slate-900 focus:outline-none focus:border-[#82193a] focus:ring-1 focus:ring-[#82193a] bg-slate-50"
+                    className="w-full min-h-[44px] pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm font-['Space_Grotesk'] text-slate-900 focus:outline-none focus:border-[#82193a] focus:ring-1 focus:ring-[#82193a] bg-slate-50"
                   />
                 </div>
                 <div className="grid grid-cols-3 sm:flex items-center gap-1.5 w-full sm:w-auto">
                   <button
                     onClick={() => setSearchQuery('data processing')}
-                    className="btn-interactive min-h-[40px] px-2.5 py-2 text-xs font-['Space_Grotesk'] rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all flex items-center justify-center text-center hover:scale-[1.02] active:scale-[0.98]"
+                    className="btn-interactive min-h-[44px] px-3 py-2 text-xs font-['Space_Grotesk'] rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all flex items-center justify-center text-center hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                   >
                     Data
                   </button>
                   <button
                     onClick={() => setSearchQuery('tree structure indexing')}
-                    className="btn-interactive min-h-[40px] px-2.5 py-2 text-xs font-['Space_Grotesk'] rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all flex items-center justify-center text-center hover:scale-[1.02] active:scale-[0.98]"
+                    className="btn-interactive min-h-[44px] px-3 py-2 text-xs font-['Space_Grotesk'] rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all flex items-center justify-center text-center hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                   >
                     Indexing
                   </button>
                   <button
                     onClick={() => setSearchQuery('information retrieval')}
-                    className="btn-interactive min-h-[40px] px-2.5 py-2 text-xs font-['Space_Grotesk'] rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all flex items-center justify-center text-center hover:scale-[1.02] active:scale-[0.98]"
+                    className="btn-interactive min-h-[44px] px-3 py-2 text-xs font-['Space_Grotesk'] rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all flex items-center justify-center text-center hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                   >
                     IR
                   </button>
@@ -458,7 +458,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
               <div className="flex flex-wrap items-center gap-1.5 border-b border-slate-200 pb-2">
                 <button
                   onClick={() => setActiveSearchTab('ranked')}
-                  className={`btn-interactive min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs font-['Space_Grotesk'] font-bold transition-all flex items-center justify-center cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
+                  className={`btn-interactive min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-['Space_Grotesk'] font-bold transition-all flex items-center justify-center cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
                     activeSearchTab === 'ranked'
                       ? 'bg-[#82193a] text-white shadow-xs'
                       : 'text-slate-600 hover:bg-slate-100'
@@ -468,7 +468,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 </button>
                 <button
                   onClick={() => setActiveSearchTab('matrix')}
-                  className={`btn-interactive min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs font-['Space_Grotesk'] font-bold transition-all flex items-center justify-center cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
+                  className={`btn-interactive min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-['Space_Grotesk'] font-bold transition-all flex items-center justify-center cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
                     activeSearchTab === 'matrix'
                       ? 'bg-[#82193a] text-white shadow-xs'
                       : 'text-slate-600 hover:bg-slate-100'
@@ -478,7 +478,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 </button>
                 <button
                   onClick={() => setActiveSearchTab('corpus')}
-                  className={`btn-interactive min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs font-['Space_Grotesk'] font-bold transition-all flex items-center justify-center cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
+                  className={`btn-interactive min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-['Space_Grotesk'] font-bold transition-all flex items-center justify-center cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
                     activeSearchTab === 'corpus'
                       ? 'bg-[#82193a] text-white shadow-xs'
                       : 'text-slate-600 hover:bg-slate-100'
@@ -720,7 +720,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 href="https://aravind-map-raesha0506.netlify.app"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#82193a] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] transition-all shadow-xs"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 bg-[#82193a] text-white rounded-xl font-['Space_Grotesk'] text-xs font-bold hover:bg-[#610025] transition-all shadow-xs cursor-pointer active:scale-95"
               >
                 <ExternalLink size={14} />
                 <span>Open in Browser</span>
@@ -729,7 +729,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
                 href="https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#ffebd5] transition-all shadow-xs"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 bg-white text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#ffebd5] transition-all shadow-xs cursor-pointer active:scale-95"
               >
                 <Github size={14} />
                 <span>GitHub Repo</span>
@@ -737,7 +737,7 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
               <a
                 href="/images/aravind-qr-code.png"
                 download="Aravind_Eye_Hospital_Indoor_Navigation_QR.png"
-                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#ffebd5] transition-all shadow-xs"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 bg-white text-[#261907] border border-[#dcbfc3] rounded-xl font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#ffebd5] transition-all shadow-xs cursor-pointer active:scale-95"
               >
                 <Download size={14} />
                 <span>Save Image</span>

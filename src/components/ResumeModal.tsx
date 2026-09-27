@@ -120,7 +120,7 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
 
             <button
               onClick={handleCopyText}
-              className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white font-sans text-xs font-medium border border-white/20 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 min-h-[38px] px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 active:scale-95 text-white font-sans text-xs font-medium border border-white/20 transition-all cursor-pointer"
               title="Copy plain text content"
             >
               {copied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
@@ -129,7 +129,7 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
 
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white font-sans text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 sm:gap-1.5 min-h-[38px] px-2.5 sm:px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-sans text-xs font-semibold shadow-xs transition-all cursor-pointer"
               title="Print or export to PDF"
             >
               <Printer size={14} />
@@ -139,10 +139,10 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
 
             <button
               onClick={onClose}
-              className="w-7 h-7 rounded-full bg-white/15 text-white hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer ml-0.5 sm:ml-1 shrink-0"
-              aria-label="Close"
+              className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-lg bg-white/15 text-white hover:bg-white/30 active:scale-95 flex items-center justify-center transition-all cursor-pointer ml-0.5 sm:ml-1 shrink-0"
+              aria-label="Close Resume Modal"
             >
-              <X size={16} />
+              <X size={18} />
             </button>
           </div>
         </div>
