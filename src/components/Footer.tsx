@@ -74,31 +74,31 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="flex flex-col gap-1 font-['DM_Sans'] text-sm text-[#564145]">
               <button
                 onClick={() => handleNav('about')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-2 min-h-[44px] flex items-center"
               >
                 About Biography
               </button>
               <button
                 onClick={() => handleNav('experience')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-2 min-h-[44px] flex items-center"
               >
                 Professional History
               </button>
               <button
                 onClick={() => handleNav('projects')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-2 min-h-[44px] flex items-center"
               >
                 Technical Showcase
               </button>
               <button
                 onClick={() => handleNav('certifications')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-2 min-h-[44px] flex items-center"
               >
                 Credentials &amp; Honors
               </button>
               <button
                 onClick={() => handleNav('contact')}
-                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-1.5 min-h-[38px] flex items-center"
+                className="text-left hover:text-[#82193a] hover:translate-x-1 transition-all duration-200 cursor-pointer py-2 min-h-[44px] flex items-center"
               >
                 Direct Inquiries
               </button>

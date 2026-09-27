@@ -1,41 +1,39 @@
 # My Portfolio
 
-A modern personal portfolio website built with **React, Vite, TypeScript, and Tailwind CSS** to showcase my skills, projects, experience, education, and professional journey in the field of Information Technology.
+A personal portfolio web application engineered to showcase my **skills, verified software projects, professional experience, academic background, and credentials** in Information Science and Engineering.
 
-The portfolio provides a clean, responsive, and interactive interface for exploring my technical skills, projects, internship experience, professional profiles, and contact information.
+The portfolio provides a clean, responsive, editorial interface for exploring my technical competencies, interactive system sandboxes, healthcare informatics internship work, and direct communication channels.
 
 ## Features
 
-* **About Me:** Introduction and professional background.
-* **Skills:** Overview of technical and professional skills.
-* **Projects:** Showcase of academic, personal, and practical projects.
-* **Experience:** Details of internship and practical experience.
-* **Education:** Academic background and qualifications.
-* **Resume:** Easy access to my professional resume.
-* **Contact:** Contact information and professional links.
-* **Responsive Design:** Works across desktop, tablet, and mobile screen sizes.
-* **Modern UI:** Clean and user-friendly portfolio interface.
-* **Animations:** Interactive animations using GSAP and Motion.
-* **AI Integration:** Google GenAI integration for AI-powered functionality.
-* **QR Code Generation:** QR code functionality using the QRCode library.
-* **Social Links:** Direct access to GitHub and LinkedIn profiles.
+* **About & Biography:** Introduction, core competencies, and career trajectory.
+* **Consolidated Technical Projects:** High-signal project cards with verified benchmarks, key highlights, and direct repository/demo access.
+* **Interactive System Sandboxes:** In-browser wayfinding floor route simulator and real-time TF-IDF / Cosine Similarity computational search playground.
+* **Professional Experience:** Detailed chronicle of technical tenures at Aravind Eye Hospital and Upturne Software & Services, with comparative diagnostics matrix.
+* **Credentials & Academic Folio:** Verified institutional certificates, academic coursework, and downloadable credential documents.
+* **Interactive Resume Folio:** Real-time 2-page print-accurate document replica with copy and PDF print capabilities.
+* **Direct Contact Portal:** Validated contact form integrated with EmailJS for genuine dispatch and resilient mailto fallback.
+* **Responsive Editorial Design:** Verified 100% responsiveness across 320px, 375px, 430px, tablet, laptop, and widescreen desktop viewports.
 
-## Project Structure
+## Repository Structure
 
 ```text
 My_Portfolio/
 ├── public/
-│   └── ...
+│   └── images/
 ├── src/
-│   ├── components/
 │   ├── assets/
-│   ├── ...
+│   ├── components/
+│   ├── data/
+│   ├── hooks/
+│   ├── utils/
 │   ├── App.tsx
-│   └── main.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── types.ts
+├── .env.example
 ├── index.html
 ├── package.json
-├── package-lock.json
-├── bun.lock
 ├── tsconfig.json
 ├── vite.config.ts
 └── README.md
@@ -45,128 +43,60 @@ My_Portfolio/
 
 ### Prerequisites
 
-Make sure the following are installed:
+* Node.js (v18.0 or higher recommended)
+* npm or bun
+* Git
 
-* **Node.js**
-* **npm**
-* **Git**
-* **VS Code** or any preferred code editor
-
-Check your Node.js and npm versions:
-
-```bash
-node --version
-npm --version
-```
-
-## Installation
-
-### 1. Clone the Repository
+### Installation & Local Development
 
 ```bash
 git clone https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio.git
 cd My_Portfolio
-```
-
-### 2. Install Dependencies
-
-Install all required project dependencies:
-
-```bash
 npm install
-```
-
-### 3. Start the Development Server
-
-Run the Vite development server:
-
-```bash
 npm run dev
 ```
 
-The development server runs on port **3000**.
+The application will start on `http://localhost:3000`.
 
-Open the project in your browser:
+### Production Build
 
-```text
-http://localhost:3000
+```bash
+npm run build
+npm run preview
 ```
-
-## Available Scripts
-
-| Command           | Description                                     |
-| ----------------- | ----------------------------------------------- |
-| `npm run dev`     | Starts the Vite development server on port 3000 |
-| `npm run build`   | Creates an optimized production build           |
-| `npm run preview` | Previews the production build locally           |
-| `npm run lint`    | Checks TypeScript without generating output     |
-| `npm run clean`   | Removes the `dist` directory and `server.js`    |
 
 ## Technologies Used
 
-### Frontend
+* **Frontend Framework:** React 19 (`react`, `react-dom`)
+* **Type System:** TypeScript
+* **Build Tool & Dev Server:** Vite
+* **Styling & Design System:** Tailwind CSS v4 (`@tailwindcss/vite`, `tailwindcss`) with accessible high-contrast color tokens and fluid typography
+* **Animation & Motion:** GSAP (GreenSock Animation Platform) & `@gsap/react`
+* **Icons:** Lucide React (`lucide-react`)
+* **Email Service:** EmailJS (`@emailjs/browser`)
+* **QR Generation:** QRCode (`qrcode`)
+* **Deployment Platform:** Vercel
 
-* **React 19**
-* **React DOM**
-* **TypeScript**
-* **Vite**
-* **Tailwind CSS**
+## Project Evidence & Verification
 
-### Animation and UI
-
-* **GSAP**
-* **@gsap/react**
-* **Motion**
-* **Lucide React**
-
-### AI and Communication
-
-* **Google GenAI**
-* **EmailJS**
-
-### Utilities and Backend
-
-* **QRCode**
-* **Express**
-* **dotenv**
-* **tsx**
-
-### Development and Deployment
-
-* **npm**
-* **Git**
-* **GitHub**
-* **Vercel**
-
-## About Me
-
-I am an **Information Science & Engineering student and aspiring IT professional** interested in building practical and user-friendly digital solutions.
-
-My areas of interest include:
-
-* Web Development
-* UI/UX Design
-* Data Analytics
-* Python
-* SQL
-* Software Development
-* Emerging Technologies
-
-I enjoy learning new technologies, solving real-world problems, and transforming ideas into functional digital experiences.
+| Project | Purpose | Technologies | GitHub | Live Demo |
+| :--- | :--- | :--- | :--- | :--- |
+| **Smart Indoor Navigation System** | Mobile-first QR-anchored indoor hospital wayfinding web application deployed for Aravind Eye Hospital to guide elderly and outpatients across 4 core clinical wings, eliminating app installation overhead and relieving front-desk congestion. | React.js, Tailwind CSS, QR Code Localization, Netlify, Mobile-First UI/UX | [GitHub Repository](https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System) | [Live Demo](https://aravind-map-raesha0506.netlify.app) |
+| **IR Search Engine v2** | Computational Information Retrieval engine indexing document corpora into an Inverted Index data structure, executing queries with a reproducible average latency of 38 ms across 100 benchmark queries using Vector Space Model (VSM) Cosine Similarity and real-time calculation matrices. | Python, Flask, Inverted Index, TF-IDF, Vector Space Model (VSM), Cosine Similarity, HTML5, Tailwind CSS, Vercel | [GitHub Repository](https://github.com/Jennifer-Vesilica-Rachel/search-engine) | [Live Demo](https://search-engine-self-sigma.vercel.app) |
 
 ## Deployment
 
-The portfolio is deployed using **Vercel**.
+The portfolio is deployed and hosted using **Vercel**.
 
 ### Live Portfolio
-
-https://myportfolio-five-alpha-63.vercel.app/
+**https://myportfolio-five-alpha-63.vercel.app/**
 
 ## Connect With Me
 
 * **GitHub:** https://github.com/Jennifer-Vesilica-Rachel
 * **LinkedIn:** https://www.linkedin.com/in/jennifer-vesilica-rachel-s-211821305/
 * **Portfolio:** https://myportfolio-five-alpha-63.vercel.app/
+* **Email:** jennifersagaidasse@gmail.com
 
 ## License
 
