@@ -35,13 +35,11 @@ My_Portfolio/
 ├── index.html
 ├── package.json
 ├── package-lock.json
+├── bun.lock
 ├── tsconfig.json
 ├── vite.config.ts
-├── README.md
-└── ...
+└── README.md
 ```
-
-> The exact contents of the `src/` directory may vary as the project develops.
 
 ## Getting Started
 
@@ -52,9 +50,9 @@ Make sure the following are installed:
 * **Node.js**
 * **npm**
 * **Git**
-* **VS Code** or another preferred code editor
+* **VS Code** or any preferred code editor
 
-You can check your Node.js and npm versions with:
+Check your Node.js and npm versions:
 
 ```bash
 node --version
@@ -72,31 +70,27 @@ cd My_Portfolio
 
 ### 2. Install Dependencies
 
-Install all project dependencies using npm:
+Install all required project dependencies:
 
 ```bash
 npm install
 ```
 
-The project dependencies and development dependencies are defined in `package.json`.
-
 ### 3. Start the Development Server
 
-Run:
+Run the Vite development server:
 
 ```bash
 npm run dev
 ```
 
-The project is configured to start Vite on **port 3000** and listen on all network interfaces.
+The development server runs on port **3000**.
 
-Open the following URL in your browser:
+Open the project in your browser:
 
 ```text
 http://localhost:3000
 ```
-
-The terminal will also display the available local/network addresses when the server starts.
 
 ## Available Scripts
 
@@ -105,48 +99,44 @@ The terminal will also display the available local/network addresses when the se
 | `npm run dev`     | Starts the Vite development server on port 3000 |
 | `npm run build`   | Creates an optimized production build           |
 | `npm run preview` | Previews the production build locally           |
-| `npm run lint`    | Runs TypeScript checking without emitting files |
+| `npm run lint`    | Checks TypeScript without generating output     |
 | `npm run clean`   | Removes the `dist` directory and `server.js`    |
-
-These commands are defined directly in the project's `package.json`.
 
 ## Technologies Used
 
-### Core Technologies
+### Frontend
 
-* **React 19** – Building the user interface with reusable components.
-* **React DOM** – Rendering the React application in the browser.
-* **TypeScript** – Type-safe application development.
-* **Vite** – Development server and production build tool.
-* **Tailwind CSS 4** – Utility-first styling framework.
+* **React 19**
+* **React DOM**
+* **TypeScript**
+* **Vite**
+* **Tailwind CSS**
 
 ### Animation and UI
 
-* **GSAP** – Advanced animations.
-* **@gsap/react** – React integration for GSAP.
-* **Motion** – UI animations and interactive motion.
-* **Lucide React** – Icon library.
+* **GSAP**
+* **@gsap/react**
+* **Motion**
+* **Lucide React**
 
 ### AI and Communication
 
-* **Google GenAI** – Google Generative AI integration.
-* **EmailJS** – Sending emails through the contact functionality.
+* **Google GenAI**
+* **EmailJS**
 
-### Utilities
+### Utilities and Backend
 
-* **QRCode** – QR code generation.
-* **dotenv** – Environment variable management.
-* **Express** – Server-side functionality.
-* **tsx** – TypeScript execution.
+* **QRCode**
+* **Express**
+* **dotenv**
+* **tsx**
 
-### Development Tools
+### Development and Deployment
 
-* **Git** – Version control.
-* **GitHub** – Repository hosting.
-* **Vercel** – Portfolio deployment.
-* **npm** – Package management.
-
-The technologies above are based on the dependencies and development dependencies declared in `package.json`.
+* **npm**
+* **Git**
+* **GitHub**
+* **Vercel**
 
 ## About Me
 
