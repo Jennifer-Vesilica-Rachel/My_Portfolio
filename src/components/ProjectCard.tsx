@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { ProjectItem, NavPath } from '../types';
-import { ExternalLink, Github, QrCode, Sparkles, Play } from 'lucide-react';
+import { ExternalLink, Github, QrCode, Sparkles, Play, ChevronDown, ChevronUp, CheckCircle2 } from 'lucide-react';
 
 interface ProjectCardProps {
   project: ProjectItem;
@@ -14,13 +15,15 @@ export default function ProjectCard({
   onOpenQrModal,
   onExploreDemo
 }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <article
       id={`project-card-${project.id}`}
-      className="gsap-card rounded-2xl bg-[#ffffff] p-5 sm:p-7 shadow-sm border border-[#dcbfc3]/50 flex flex-col justify-between gap-6 hover:shadow-md hover:border-[#dcbfc3] hover:-translate-y-1 transition-all duration-300 group"
+      className="gsap-card rounded-2xl bg-[#ffffff] p-5 sm:p-7 shadow-sm border border-[#dcbfc3]/50 flex flex-col justify-between gap-5 hover:shadow-md hover:border-[#dcbfc3] hover:-translate-y-1 transition-all duration-300 group"
     >
       {/* 1. Header & Project Identity */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2.5">
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#82193a] bg-[#fff1e5] px-3 py-1 rounded-md border border-[#dcbfc3]/40">
             {project.organizationTag}
@@ -35,24 +38,14 @@ export default function ProjectCard({
         </h3>
 
         {project.metricHighlight && (
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#ffe4c6]/70 border border-[#dcbfc3]/50 text-[#610025] font-['Space_Grotesk'] text-xs sm:text-sm font-bold">
-            <Sparkles size={15} className="shrink-0 text-[#82193a]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#ffe4c6]/70 border border-[#dcbfc3]/50 text-[#610025] font-['Space_Grotesk'] text-xs sm:text-sm font-bold">
+            <Sparkles size={14} className="shrink-0 text-[#82193a]" />
             <span className="truncate">{project.metricHighlight}</span>
           </div>
         )}
 
-        {/* 2. Structured Recruiter Flow: Role → Problem → Solution → Result */}
-        <div className="flex flex-col gap-3 pt-3 pb-1 border-t border-[#dcbfc3]/30">
-          {/* Role */}
-          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2 text-sm sm:text-base">
-            <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#82193a] shrink-0 sm:w-20">
-              Role:
-            </span>
-            <span className="font-['DM_Sans'] font-semibold text-[#261907]">
-              {project.role}
-            </span>
-          </div>
-
+        {/* 2. Prioritized Recruiter Story: Problem → Solution → Result */}
+        <div className="flex flex-col gap-2.5 pt-2.5 border-t border-[#dcbfc3]/30">
           {/* Problem */}
           {project.problem && (
             <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 text-sm sm:text-base">
@@ -79,11 +72,11 @@ export default function ProjectCard({
 
           {/* Result */}
           {project.result && (
-            <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 text-sm sm:text-base pt-1">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 text-sm sm:text-base pt-0.5">
               <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#059669] shrink-0 sm:w-20">
                 Result:
               </span>
-              <div className="font-['DM_Sans'] text-[#064e3b] font-medium bg-[#ecfdf5] p-3 rounded-xl border border-[#a7f3d0] leading-relaxed w-full">
+              <div className="font-['DM_Sans'] text-[#064e3b] font-medium bg-[#ecfdf5] p-2.5 sm:p-3 rounded-xl border border-[#a7f3d0] leading-relaxed w-full">
                 {project.result}
               </div>
             </div>
@@ -91,8 +84,8 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {/* 3. Tech Stack & Primary Actions */}
-      <div className="flex flex-col gap-4 pt-3 border-t border-[#dcbfc3]/30">
+      {/* 3. Tech Stack, Primary Actions & Secondary Details Toggle */}
+      <div className="flex flex-col gap-3.5 pt-2.5 border-t border-[#dcbfc3]/30">
         {/* Technologies */}
         <div className="flex flex-col gap-1.5">
           <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#261907]">
@@ -111,7 +104,7 @@ export default function ProjectCard({
         </div>
 
         {/* Action Controls: Live Demo, GitHub & Interactive Simulator */}
-        <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2 border-t border-[#dcbfc3]/30">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-[#dcbfc3]/30">
           <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
             {project.liveDemoUrl && (
               <a
@@ -120,7 +113,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open live production demo for ${project.title}`}
-                className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 py-2.5 rounded-xl bg-[#82193a] hover:bg-[#610025] text-white font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-all shadow-xs active:scale-95 cursor-pointer"
+                className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 py-2 rounded-xl bg-[#82193a] hover:bg-[#610025] text-white font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-all shadow-xs active:scale-95 cursor-pointer"
               >
                 <ExternalLink size={15} />
                 <span>Live Demo</span>
@@ -134,7 +127,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View GitHub repository for ${project.title}`}
-                className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3.5 py-2.5 rounded-xl bg-[#ffffff] hover:bg-[#ffebd5] text-[#261907] hover:text-[#82193a] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-all shadow-2xs active:scale-95 cursor-pointer"
+                className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-[#ffffff] hover:bg-[#ffebd5] text-[#261907] hover:text-[#82193a] border border-[#dcbfc3] font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-all shadow-2xs active:scale-95 cursor-pointer"
               >
                 <Github size={15} />
                 <span>GitHub</span>
@@ -146,7 +139,7 @@ export default function ProjectCard({
                 type="button"
                 onClick={() => onExploreDemo(project.id)}
                 aria-label={`Explore interactive system simulator for ${project.title}`}
-                className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3.5 py-2.5 rounded-xl bg-[#fff1e5] hover:bg-[#ffe4c6] text-[#82193a] border border-[#dcbfc3]/50 font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-all shadow-2xs active:scale-95 cursor-pointer"
+                className="btn-interactive inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-[#fff1e5] hover:bg-[#ffe4c6] text-[#82193a] border border-[#dcbfc3]/50 font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-all shadow-2xs active:scale-95 cursor-pointer"
               >
                 <Play size={14} className="fill-[#82193a]" />
                 <span>Explore Demo</span>
@@ -154,18 +147,60 @@ export default function ProjectCard({
             )}
           </div>
 
-          {project.qrCodeUrl && onOpenQrModal && (
+          <div className="flex items-center gap-1.5 shrink-0">
+            {project.qrCodeUrl && onOpenQrModal && (
+              <button
+                id={`qr-modal-btn-${project.id}`}
+                onClick={() => onOpenQrModal(project)}
+                title="Scan QR Code"
+                aria-label="Scan QR Code for mobile wayfinding"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#fff1e5] hover:bg-[#ffe4c6] text-[#82193a] border border-[#dcbfc3]/50 transition-colors cursor-pointer active:scale-95"
+              >
+                <QrCode size={18} />
+              </button>
+            )}
+
             <button
-              id={`qr-modal-btn-${project.id}`}
-              onClick={() => onOpenQrModal(project)}
-              title="Scan QR Code"
-              aria-label="Scan QR Code for mobile wayfinding"
-              className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#fff1e5] hover:bg-[#ffe4c6] text-[#82193a] border border-[#dcbfc3]/50 transition-colors cursor-pointer active:scale-95 shrink-0"
+              type="button"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-label={isExpanded ? 'Collapse project details' : 'Expand project details'}
+              className="inline-flex items-center gap-1 min-h-[44px] px-2.5 py-1.5 rounded-xl text-[#564145] hover:text-[#82193a] hover:bg-[#ffebd5] text-xs font-['Space_Grotesk'] font-medium transition-colors cursor-pointer"
             >
-              <QrCode size={18} />
+              <span>{isExpanded ? 'Less' : 'Details'}</span>
+              {isExpanded ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
             </button>
-          )}
+          </div>
         </div>
+
+        {/* 4. Secondary Expandable Technical Details */}
+        {isExpanded && (
+          <div className="mt-2 pt-3 border-t border-[#dcbfc3]/40 flex flex-col gap-2.5 animate-in fade-in duration-200 bg-[#fffdfa] p-3.5 rounded-xl border border-[#dcbfc3]/30">
+            <div className="flex items-baseline gap-2 text-xs sm:text-sm">
+              <span className="font-['Space_Grotesk'] font-bold text-[#82193a] uppercase tracking-wider">
+                Engineering Role:
+              </span>
+              <span className="font-['DM_Sans'] text-[#261907] font-semibold">
+                {project.role}
+              </span>
+            </div>
+
+            {project.bullets && project.bullets.length > 0 && (
+              <div className="flex flex-col gap-1.5 pt-1">
+                <span className="font-['Space_Grotesk'] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#564145]">
+                  Architecture &amp; Key Highlights:
+                </span>
+                <ul className="flex flex-col gap-1.5 pl-1">
+                  {project.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[#443336]">
+                      <CheckCircle2 size={14} className="text-[#82193a] shrink-0 mt-0.5" />
+                      <span className="leading-snug">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );

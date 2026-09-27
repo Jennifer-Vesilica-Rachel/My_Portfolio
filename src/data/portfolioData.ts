@@ -205,6 +205,29 @@ export const PROJECTS: ProjectItem[] = [
     ],
     liveDemoUrl: 'https://search-engine-self-sigma.vercel.app',
     githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/search-engine'
+  },
+  {
+    id: 'editorial-portfolio',
+    title: 'Interactive Editorial Portfolio',
+    role: 'Lead Frontend Engineer & UI/UX Designer',
+    problem: 'Traditional engineering portfolios rely on static templates that fail to showcase interactive system sandboxes, fluid typography, and verified software achievements.',
+    solution: 'Engineered an editorial-grade web application using React 19, TypeScript, Vite, Tailwind CSS, GSAP physics animations, Lucide icons, and EmailJS dispatch.',
+    result: 'Delivered 100% fluid responsive performance across all viewports (320px–1440px), accessible color contrast, and instant-load interactive demos.',
+    shortDescription: 'Modern editorial portfolio built with React 19, TypeScript, Tailwind CSS, GSAP, and live in-browser system sandboxes.',
+    period: '2025 – 2026',
+    organizationTag: 'Frontend Engineering & Design System',
+    description: 'An editorial engineering portfolio showcasing verified production software projects, interactive system sandboxes (wayfinding engine and TF-IDF IR search playground), live resume preview, and direct communication channels.',
+    tags: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS', 'GSAP', 'EmailJS', 'Vercel'],
+    category: 'web',
+    metricHighlight: 'Fluid Editorial UI · Sub-1.2s FCP · Production Deployed',
+    bullets: [
+      'Built high-performance responsive portfolio in React 19 and TypeScript with Vite and Tailwind CSS.',
+      'Designed interactive in-browser simulators for hospital wayfinding routes and TF-IDF search indexing.',
+      'Integrated authenticated EmailJS contact portal with graceful direct mailto client fallback.',
+      'Deployed continuous delivery pipeline to Vercel with zero downtime updates.'
+    ],
+    liveDemoUrl: 'https://myportfolio-five-alpha-63.vercel.app',
+    githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio'
   }
 ];
 
@@ -280,6 +303,18 @@ export const RESUME_DATA = {
       ],
       liveDemoUrl: 'https://aravind-map-raesha0506.netlify.app',
       githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/Smart-Indoor-Navigation-System'
+    },
+    {
+      period: '2025 – 2026',
+      title: 'Interactive Editorial Portfolio',
+      bullets: [
+        'Engineered an editorial-grade web application in React 19, TypeScript, Vite, and Tailwind CSS with GSAP physics animations.',
+        'Designed interactive in-browser system sandboxes for hospital wayfinding routing and real-time TF-IDF search indexing.',
+        'Integrated authenticated EmailJS contact portal with graceful direct mailto client fallback and zero layout shift.',
+        'Ensured 100% fluid responsive performance across all mobile, tablet, and widescreen desktop viewports.'
+      ],
+      liveDemoUrl: 'https://myportfolio-five-alpha-63.vercel.app',
+      githubUrl: 'https://github.com/Jennifer-Vesilica-Rachel/My_Portfolio'
     }
   ],
   education: {

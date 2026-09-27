@@ -28,7 +28,7 @@ export default function FlagshipProjectsSection({ onNavigate }: FlagshipProjects
               Featured Projects &amp; Live Systems
             </h2>
             <p className="typography-body font-['DM_Sans'] text-[15px] sm:text-base lg:text-lg text-[#564145] leading-relaxed">
-              Explore production-deployed healthcare wayfinding systems and computational Information Retrieval search engines. All concise descriptions, UI/UX roles, tech stacks, GitHub repositories, and live demo deployments are consolidated in the dedicated Projects section.
+              Explore production-deployed healthcare wayfinding systems, computational Information Retrieval search engines, and modern editorial web applications. All concise descriptions, engineering roles, verified tech stacks, GitHub repositories, and live demo deployments are consolidated in the dedicated Projects section.
             </p>
           </div>
 

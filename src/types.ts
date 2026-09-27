@@ -60,7 +60,7 @@ export interface ProjectItem {
   organizationTag: string;
   description: string;
   tags: string[];
-  category: 'healthcare' | 'fullstack' | 'analytics' | 'ai';
+  category: 'healthcare' | 'fullstack' | 'analytics' | 'ai' | 'web';
   metricHighlight?: string;
   bullets?: string[];
   liveDemoUrl?: string;

@@ -191,14 +191,14 @@ export default function ProjectsView({ onNavigate, onOpenResume }: ProjectsViewP
               {PROJECTS.length} Verified Systems
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROJECTS.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 onNavigate={onNavigate}
                 onOpenQrModal={() => setIsQrModalOpen(true)}
-                onExploreDemo={handleExploreDemo}
+                onExploreDemo={project.id !== 'editorial-portfolio' ? handleExploreDemo : undefined}
               />
             ))}
           </div>

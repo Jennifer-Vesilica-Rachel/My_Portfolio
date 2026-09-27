@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Printer, Mail, Phone, MapPin, Linkedin, Github, Check, Copy, FileText } from 'lucide-react';
+import { X, Printer, Mail, Phone, MapPin, Linkedin, Github, Check, Copy, FileText, Download } from 'lucide-react';
 import { RESUME_DATA, PORTFOLIO_IMAGES } from '../data/portfolioData';
 
 interface ResumeModalProps {
@@ -126,6 +126,17 @@ ${RESUME_DATA.education.institutionSub} ${RESUME_DATA.education.details}
               {copied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
               <span className="hidden sm:inline">{copied ? 'Copied' : 'Copy Text'}</span>
             </button>
+
+            <a
+              href="/Jennifer_Vesilica_Rachel_Resume.pdf"
+              download="Jennifer_Vesilica_Rachel_Resume.pdf"
+              className="inline-flex items-center gap-1 sm:gap-1.5 min-h-[38px] px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-sans text-xs font-semibold shadow-xs transition-all cursor-pointer"
+              title="Download official PDF resume file directly"
+            >
+              <Download size={14} />
+              <span className="hidden xs:inline">Download PDF</span>
+              <span className="xs:hidden">PDF</span>
+            </a>
 
             <button
               onClick={handlePrint}
